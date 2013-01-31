@@ -48,7 +48,7 @@ map <c-k> <leader>k
 map <c-l> <leader>w
 map <c-h> <leader>b
 map <c-f> <leader>f
-map <c-F> <leader>F
+map <c-g> <leader>F
 map <c-c> <plug>NERDCommenterToggle<c-m>
 let g:EasyMotion_leader_key = '<leader>'
 noremap <C-n> :NERDTreeToggle<CR>
