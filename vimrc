@@ -33,7 +33,13 @@ set ignorecase
 set smartcase
 set gdefault
 colorscheme jellybeans
-set guifont=Menlo_Regular:h13
+
+let os = substitute(system('uname'), "\n", "", "")
+if os == "Linux"
+  set guifont=Inconsolata\ 12
+else
+  set guifont=Menlo_Regular:h13
+endif
 set incsearch
 set scrolloff=5
 noremap Y y$
@@ -54,6 +60,7 @@ map <c-l> <leader>w
 map <c-h> <leader>b
 map <c-f> <leader>f
 map <c-g> <leader>F
+map <c-t> :CommandT<CR>
 map <c-c> <plug>NERDCommenterToggle<c-m>
 let g:EasyMotion_leader_key = '<leader>'
 noremap <C-n> :NERDTreeToggle<CR>
