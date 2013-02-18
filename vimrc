@@ -15,6 +15,8 @@ Bundle 'SuperTab'
 Bundle 'surround.vim'
 Bundle 'SearchComplete'
 Bundle 'matrix.vim'
+Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
+Bundle 'c.vim'
 
 filetype plugin indent on     " required!
 
@@ -42,6 +44,9 @@ noremap L w
 noremap H b
 noremap p ]p
 noremap P ]P
+nnoremap j gj
+nnoremap k gk
+noremap =- =i}''
 let mapleader = ','
 map <c-j> <leader>j
 map <c-k> <leader>k
@@ -58,3 +63,8 @@ filetype plugin on
 " This beauty remembers where you were the last time you edited the file, and returns to the same position.
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
+
+set grepprg=grep\ -nH\ $*
+let g:Tex_CompileRule_dvi = 'pdflatex \\nonstopmode \\input\{$*\}'
+
+let tex_no_error=1

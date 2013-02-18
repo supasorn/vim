@@ -9,4 +9,6 @@ if has("gui_macvim")
   map <D-f> <leader>f
   map <D-F> <leader>F
   map <D-g> <leader>F
+  map <D-r> :w<CR><leader>ll
+  imap <D-r> <Esc>:w<CR><leader>lla
 endif
