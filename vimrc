@@ -8,7 +8,6 @@ Bundle 'gmarik/vundle'
 
 " original repos on github
 Bundle 'EasyMotion'
-Bundle 'Command-T'
 Bundle 'The-NERD-tree'
 Bundle 'The-NERD-Commenter'
 Bundle 'SuperTab'
@@ -17,6 +16,7 @@ Bundle 'SearchComplete'
 Bundle 'matrix.vim'
 Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
 Bundle 'c.vim'
+Bundle 'ctrlp.vim'
 
 filetype plugin indent on     " required!
 
