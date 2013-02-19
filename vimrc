@@ -43,6 +43,7 @@ endif
 set incsearch
 set scrolloff=5
 noremap Y y$
+vnoremap y y`>
 noremap ci,, T,ct,
 noremap ci(, T(ct,
 noremap ci,) T,ct)
