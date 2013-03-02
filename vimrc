@@ -17,6 +17,7 @@ Bundle 'matrix.vim'
 Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
 Bundle 'c.vim'
 Bundle 'ctrlp.vim'
+Bundle "myusuf3/numbers.vim"
 
 filetype plugin indent on     " required!
 
@@ -49,12 +50,11 @@ noremap ci(, T(ct,
 noremap ci,) T,ct)
 noremap L w
 noremap H b
-noremap p ]p
-noremap P ]P
 nnoremap j gj
 nnoremap k gk
 noremap =- =i}''
 let mapleader = ','
+map vp BPldw
 map <c-j> <leader>j
 map <c-k> <leader>k
 map <c-l> <leader>w
