@@ -20,7 +20,7 @@ Bundle "myusuf3/numbers.vim"
 Bundle 'Solarized'
 Bundle 'Raimondi/delimitMate.git'
 Bundle 'nathanaelkane/vim-indent-guides.git'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'vim-scripts/sessionman.vim'
 
 filetype plugin indent on     " required!
 
@@ -38,6 +38,8 @@ set smartcase
 set gdefault
 colorscheme jellybeans
 
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 1
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 
@@ -54,14 +56,13 @@ vnoremap y y`>
 noremap ci,, T,ct,
 noremap ci(, T(ct,
 noremap ci,) T,ct)
-noremap L w
-noremap H b
 nnoremap j gj
 nnoremap k gk
-nnoremap \r :SCCompileRun<CR>:cw<CR>
+nnoremap \r :SCCompileRun<CR>:botright cw 8<CR>
 nnoremap \[ :cp<Cr>
 nnoremap \] :cn<Cr>
 noremap =- =i}''
+let g:EasyMotion_leader_key = '<leader>'
 let mapleader = ','
 map vp BPldw
 map <c-j> <leader>j
@@ -70,9 +71,7 @@ map <c-l> <leader>w
 map <c-h> <leader>b
 map <c-f> <leader>f
 map <c-g> <leader>F
-map <c-t> :CommandT<CR>
 map <c-c> <plug>NERDCommenterToggle<c-m>
-let g:EasyMotion_leader_key = '<leader>'
 noremap <C-n> :NERDTreeToggle<CR>
 set autoread
 filetype plugin on
