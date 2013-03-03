@@ -13,11 +13,14 @@ Bundle 'The-NERD-Commenter'
 Bundle 'SuperTab'
 Bundle 'surround.vim'
 Bundle 'SearchComplete'
-Bundle 'matrix.vim'
 Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
-Bundle 'c.vim'
 Bundle 'ctrlp.vim'
+Bundle 'SingleCompile'
 Bundle "myusuf3/numbers.vim"
+Bundle 'Solarized'
+Bundle 'Raimondi/delimitMate.git'
+Bundle 'nathanaelkane/vim-indent-guides.git'
+Bundle 'Lokaltog/vim-powerline'
 
 filetype plugin indent on     " required!
 
@@ -34,6 +37,9 @@ set ignorecase
 set smartcase
 set gdefault
 colorscheme jellybeans
+
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
 
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Linux"
@@ -52,6 +58,9 @@ noremap L w
 noremap H b
 nnoremap j gj
 nnoremap k gk
+nnoremap \r :SCCompileRun<CR>:cw<CR>
+nnoremap \[ :cp<Cr>
+nnoremap \] :cn<Cr>
 noremap =- =i}''
 let mapleader = ','
 map vp BPldw
