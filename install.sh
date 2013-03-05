@@ -8,4 +8,4 @@ fi
 ln -s ~/.vim/vimrc ~/.vimrc
 ln -s ~/.vim/gvimrc ~/.gvimrc
 
-vim -c "BundleInstall"
+vim -u +BundleInstall! +BundleClean +qall
