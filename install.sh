@@ -5,7 +5,7 @@ if [ ! -e $HOME/.vim/bundle/vundle ]; then
     git clone http://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
 fi
 
-ln -s ~/.vim/vimrc ~/.vimrc
-ln -s ~/.vim/gvimrc ~/.gvimrc
+ln -sf ~/.vim/vimrc ~/.vimrc
+ln -sf ~/.vim/gvimrc ~/.gvimrc
 
 vim +BundleInstall! +BundleClean +qall

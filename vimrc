@@ -22,6 +22,7 @@ Bundle 'Raimondi/delimitMate.git'
 Bundle 'nathanaelkane/vim-indent-guides.git'
 Bundle 'xolox/vim-session.git'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'tpope/vim-fugitive.git'
 
 filetype plugin indent on     " required!
 
