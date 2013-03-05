@@ -20,7 +20,8 @@ Bundle "myusuf3/numbers.vim"
 Bundle 'Solarized'
 Bundle 'Raimondi/delimitMate.git'
 Bundle 'nathanaelkane/vim-indent-guides.git'
-Bundle 'vim-scripts/sessionman.vim'
+Bundle 'xolox/vim-session.git'
+Bundle 'Lokaltog/vim-powerline'
 
 filetype plugin indent on     " required!
 
