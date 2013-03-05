@@ -38,6 +38,8 @@ set number
 set ignorecase
 set smartcase
 set gdefault
+set wildmenu
+set wildmode=list:longest,full
 colorscheme jellybeans
 
 "let g:indent_guides_enable_on_vim_startup = 1
