@@ -23,10 +23,13 @@ Bundle 'nathanaelkane/vim-indent-guides.git'
 Bundle 'xolox/vim-session.git'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-fugitive.git'
+Bundle 'corntrace/bufexplorer.git'
+Bundle 'tpope/vim-repeat.git'
 
 filetype plugin indent on     " required!
 
 syntax on
+set noswapfile
 set smartindent
 set autoindent
 set cindent
@@ -40,12 +43,17 @@ set smartcase
 set gdefault
 set wildmenu
 set wildmode=list:longest,full
+set incsearch
+set scrolloff=5
 colorscheme jellybeans
 
 "let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 1
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
+let g:EasyMotion_leader_key = '<leader>'
+let g:Tex_CompileRule_dvi = 'pdflatex \\nonstopmode \\input\{$*\}'
+let tex_no_error=1
 
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Linux"
@@ -53,8 +61,7 @@ if os == "Linux"
 else
   set guifont=Menlo_Regular:h13
 endif
-set incsearch
-set scrolloff=5
+
 noremap Y y$
 vnoremap y y`>
 noremap ci,, T,ct,
@@ -66,13 +73,11 @@ nnoremap \r :SCCompileRun<CR>:botright cw 8<CR>
 nnoremap \[ :cp<Cr>
 nnoremap \] :cn<Cr>
 noremap =- =i}''
-let g:EasyMotion_leader_key = '<leader>'
-let mapleader = ','
 map vp BPldw
+imap <c-l> <Plug>IMAP_JumpForward
+nmap <c-l> <Plug>IMAP_JumpForward
 map <c-j> <leader>j
 map <c-k> <leader>k
-map <c-l> <leader>w
-map <c-h> <leader>b
 map <c-f> <leader>f
 map <c-g> <leader>F
 map <c-c> <plug>NERDCommenterToggle<c-m>
@@ -85,6 +90,3 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|
 
 
 set grepprg=grep\ -nH\ $*
-let g:Tex_CompileRule_dvi = 'pdflatex \\nonstopmode \\input\{$*\}'
-
-let tex_no_error=1
