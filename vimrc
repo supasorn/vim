@@ -59,7 +59,10 @@ let os = substitute(system('uname'), "\n", "", "")
 if os == "Linux"
   set guifont=Inconsolata\ 12
 else
-  set guifont=Menlo_Regular:h13
+  "set guifont=Menlo_Regular:h13
+  "set guifont=Menlo_for_Powerline:h13
+  set guifont=Menlo_for_Powerline:h13
+  let g:Powerline_symbols = 'fancy'
 endif
 
 noremap Y y$
@@ -70,10 +73,10 @@ noremap ci,) T,ct)
 nnoremap j gj
 nnoremap k gk
 nnoremap \r :SCCompileRun<CR>:botright cw 8<CR>
+nnoremap \m :w<CR>:make %:t:r<CR>:botright cw 8<CR>
 nnoremap \[ :cp<Cr>
 nnoremap \] :cn<Cr>
 noremap =- =i}''
-map vp BPldw
 imap <c-l> <Plug>IMAP_JumpForward
 nmap <c-l> <Plug>IMAP_JumpForward
 map <c-j> <leader>j
