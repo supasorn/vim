@@ -64,6 +64,7 @@ else
   set guifont=Menlo_for_Powerline:h13
   let g:Powerline_symbols = 'fancy'
 endif
+set laststatus=2
 
 noremap Y y$
 vnoremap y y`>
