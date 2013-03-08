@@ -57,7 +57,9 @@ let tex_no_error=1
 
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Linux"
-  set guifont=Inconsolata\ 12
+  "set guifont=Inconsolata\ 12
+  set guifont=Menlo_for_Powerline:h13
+  let g:Powerline_symbols = 'fancy'
 else
   "set guifont=Menlo_Regular:h13
   "set guifont=Menlo_for_Powerline:h13
