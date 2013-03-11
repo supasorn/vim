@@ -25,6 +25,7 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-fugitive.git'
 Bundle 'corntrace/bufexplorer.git'
 Bundle 'tpope/vim-repeat.git'
+Bundle 'vim-scripts/ShowMarks.git'
 
 filetype plugin indent on     " required!
 
