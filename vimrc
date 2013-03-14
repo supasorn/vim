@@ -25,6 +25,8 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-fugitive.git'
 Bundle 'corntrace/bufexplorer.git'
 Bundle 'tpope/vim-repeat.git'
+"Bundle 'dahu/vim-fanfingtastic.git'
+"Bundle 'goldfeld/vim-seek.git'
 
 filetype plugin indent on     " required!
 
@@ -75,17 +77,18 @@ noremap ci(, T(ct,
 noremap ci,) T,ct)
 nnoremap j gj
 nnoremap k gk
-nnoremap \r :SCCompileRun<CR>:botright cw 8<CR>
+nnoremap \r :SCCompileRun<CR>:silent botright cw 8<CR>
 nnoremap \m :w<CR>:make %:t:r<CR>:botright cw 8<CR>
 nnoremap \[ :cp<Cr>
 nnoremap \] :cn<Cr>
-noremap =- =i}''
+noremap -= =a}''
 imap <c-l> <Plug>IMAP_JumpForward
 nmap <c-l> <Plug>IMAP_JumpForward
 map <c-j> <leader>j
 map <c-k> <leader>k
 map <c-f> <leader>f
 map <c-g> <leader>F
+nmap <SPACE> <leader>f
 map <c-c> <plug>NERDCommenterToggle<c-m>
 noremap <C-n> :NERDTreeToggle<CR>
 set autoread
