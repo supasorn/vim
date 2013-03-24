@@ -100,6 +100,7 @@ hi link htmlH6 htmlH5
 syn match Braces display '[{}()\[\]]'
 hi Braces guifg=#ababab
 
+hi Folded guibg=#4f3b27 guifg=#ffbc79
 " And finally.
 
 let g:colors_name = "supasorn"

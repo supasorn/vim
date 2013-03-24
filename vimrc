@@ -25,7 +25,12 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-fugitive.git'
 Bundle 'corntrace/bufexplorer.git'
 Bundle 'tpope/vim-repeat.git'
-"Bundle 'dahu/vim-fanfingtastic.git'
+Bundle 'dahu/vim-fanfingtastic.git'
+Bundle 'ronny/birds-of-paradise.vim.git'
+Bundle 'taglist.vim'
+Bundle 'L9'
+Bundle 'vim-scripts/FuzzyFinder.git'
+Bundle 'vim-scripts/LustyJuggler.git'
 "Bundle 'goldfeld/vim-seek.git'
 
 filetype plugin indent on     " required!
@@ -47,6 +52,8 @@ set wildmenu
 set wildmode=list:longest,full
 set incsearch
 set scrolloff=5
+set display=lastline
+
 colorscheme jellybeans
 
 "let g:indent_guides_enable_on_vim_startup = 1
@@ -56,6 +63,8 @@ let g:indent_guides_start_level = 2
 let g:EasyMotion_leader_key = '<leader>'
 let g:Tex_CompileRule_dvi = 'pdflatex \\nonstopmode \\input\{$*\}'
 let tex_no_error=1
+let g:session_autosave = 'no'
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Linux"
@@ -65,7 +74,7 @@ if os == "Linux"
 else
   "set guifont=Menlo_Regular:h13
   "set guifont=Menlo_for_Powerline:h13
-  set guifont=Menlo_for_Powerline:h13
+  set guifont=Menlo_for_Powerline:h12
   let g:Powerline_symbols = 'fancy'
 endif
 set laststatus=2
@@ -91,6 +100,12 @@ map <c-g> <leader>F
 nmap <SPACE> <leader>f
 map <c-c> <plug>NERDCommenterToggle<c-m>
 noremap <C-n> :NERDTreeToggle<CR>
+nmap <F2> :cd %:h<CR>:FufFile<CR>
+nmap <F3> :cd %:h<CR>:FufBuffer<CR>
+imap <F2> <esc>:cd %:h<CR>:FufFile<CR>
+imap <F3> <esc>:cd %:h<CR>:FufBuffer<CR>
+nmap <F4> \lj
+imap <F4> <esc>\lj
 set autoread
 filetype plugin on
 
