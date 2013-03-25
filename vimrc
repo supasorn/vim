@@ -27,10 +27,16 @@ Bundle 'corntrace/bufexplorer.git'
 Bundle 'tpope/vim-repeat.git'
 Bundle 'dahu/vim-fanfingtastic.git'
 Bundle 'ronny/birds-of-paradise.vim.git'
-Bundle 'taglist.vim'
+if executable('ctags')
+  Bundle 'majutsushi/tagbar'
+endif
 Bundle 'L9'
 Bundle 'vim-scripts/FuzzyFinder.git'
 Bundle 'vim-scripts/LustyJuggler.git'
+Bundle 'tsaleh/vim-matchit.git'
+Bundle 'anders-/vim-indented-blocks.git'
+Bundle 'rstacruz/sparkup.git'
+"Bundle 'msanders/snipmate.vim.git'
 "Bundle 'goldfeld/vim-seek.git'
 
 filetype plugin indent on     " required!
@@ -51,8 +57,9 @@ set gdefault
 set wildmenu
 set wildmode=list:longest,full
 set incsearch
-set scrolloff=5
 set display=lastline
+set foldmethod=syntax
+set autoread
 
 colorscheme jellybeans
 
@@ -69,11 +76,10 @@ let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Linux"
   "set guifont=Inconsolata\ 12
-  set guifont=Menlo_for_Powerline:h13
+  set guifont=Menlo_for_Powerline:h12
   let g:Powerline_symbols = 'fancy'
 else
   "set guifont=Menlo_Regular:h13
-  "set guifont=Menlo_for_Powerline:h13
   set guifont=Menlo_for_Powerline:h12
   let g:Powerline_symbols = 'fancy'
 endif
@@ -91,13 +97,18 @@ nnoremap \m :w<CR>:make %:t:r<CR>:botright cw 8<CR>
 nnoremap \[ :cp<Cr>
 nnoremap \] :cn<Cr>
 noremap -= =a}''
+map [[ ?{<CR>w99[{
+map ]] j0[[%/{<CR>
+
+nmap <F8> :TagbarToggle<CR>
+
 imap <c-l> <Plug>IMAP_JumpForward
 nmap <c-l> <Plug>IMAP_JumpForward
 map <c-j> <leader>j
 map <c-k> <leader>k
 map <c-f> <leader>f
 map <c-g> <leader>F
-nmap <SPACE> <leader>f
+nmap <SPACE> H\f
 map <c-c> <plug>NERDCommenterToggle<c-m>
 noremap <C-n> :NERDTreeToggle<CR>
 nmap <F2> :cd %:h<CR>:FufFile<CR>
@@ -106,8 +117,10 @@ imap <F2> <esc>:cd %:h<CR>:FufFile<CR>
 imap <F3> <esc>:cd %:h<CR>:FufBuffer<CR>
 nmap <F4> \lj
 imap <F4> <esc>\lj
-set autoread
+
 filetype plugin on
+
+hi MatchParen guibg=NONE gui=underline
 
 " This beauty remembers where you were the last time you edited the file, and returns to the same position.
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
