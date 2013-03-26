@@ -10,7 +10,15 @@ Bundle 'gmarik/vundle'
 Bundle 'EasyMotion'
 Bundle 'The-NERD-tree'
 Bundle 'The-NERD-Commenter'
-Bundle 'SuperTab'
+
+"Bundle 'SuperTab'
+
+" To install YouCompleteMe
+"    cd ~/.vim/bundle/YouCompleteMe
+"    ./install.sh --clang-completer
+Bundle 'Valloric/YouCompleteMe.git'
+"Bundle 'Shougo/neocomplcache.git'
+
 Bundle 'surround.vim'
 Bundle 'SearchComplete'
 Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
@@ -35,9 +43,9 @@ Bundle 'vim-scripts/FuzzyFinder.git'
 Bundle 'vim-scripts/LustyJuggler.git'
 Bundle 'tsaleh/vim-matchit.git'
 Bundle 'anders-/vim-indented-blocks.git'
-Bundle 'rstacruz/sparkup.git'
-"Bundle 'msanders/snipmate.vim.git'
-"Bundle 'goldfeld/vim-seek.git'
+Bundle 'kshenoy/vim-signature.git'
+Bundle 'vim-scripts/mru.vim.git'
+
 
 filetype plugin indent on     " required!
 
@@ -111,10 +119,10 @@ map <c-g> <leader>F
 nmap <SPACE> H\f
 map <c-c> <plug>NERDCommenterToggle<c-m>
 noremap <C-n> :NERDTreeToggle<CR>
-nmap <F2> :cd %:h<CR>:FufFile<CR>
-nmap <F3> :cd %:h<CR>:FufBuffer<CR>
-imap <F2> <esc>:cd %:h<CR>:FufFile<CR>
-imap <F3> <esc>:cd %:h<CR>:FufBuffer<CR>
+nmap <F2> :cd %:p:h<CR>:FufFile<CR>
+nmap <F3> :cd %:p:h<CR>:FufBuffer<CR>
+imap <F2> <esc>:cd %:p:h<CR>:FufFile<CR>
+imap <F3> <esc>:cd %:p:h<CR>:FufBuffer<CR>
 nmap <F4> \lj
 imap <F4> <esc>\lj
 
