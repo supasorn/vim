@@ -101,7 +101,7 @@ noremap ci,) T,ct)
 nnoremap j gj
 nnoremap k gk
 nnoremap \r :SCCompileRun<CR>:silent botright cw 8<CR>
-nnoremap \m :w<CR>:make %:t:r<CR>:botright cw 8<CR>
+nnoremap \m :w<CR>:execute "try \| cd bin \| catch \| \| endtry"<CR>:make %:t:r<CR>:botright cw 8<CR>
 nnoremap \[ :cp<Cr>
 nnoremap \] :cn<Cr>
 noremap -= =a}''
