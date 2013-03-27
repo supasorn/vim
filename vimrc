@@ -119,10 +119,11 @@ map <c-g> <leader>F
 nmap <SPACE> H\f
 map <c-c> <plug>NERDCommenterToggle<c-m>
 noremap <C-n> :NERDTreeToggle<CR>
-nmap <F2> :cd %:p:h<CR>:FufFile<CR>
-nmap <F3> :cd %:p:h<CR>:FufBuffer<CR>
-imap <F2> <esc>:cd %:p:h<CR>:FufFile<CR>
-imap <F3> <esc>:cd %:p:h<CR>:FufBuffer<CR>
+"nmap <F2> :cd %:p:h<CR>:FufFile<CR>
+nmap <F2> :FufFileWithCurrentBufferDir<CR>
+imap <F2> <esc>:FufFileWithCurrentBufferDir<CR>
+nmap <F3> :FufBuffer<CR>
+imap <F3> <esc>:FufBuffer<CR>
 nmap <F4> \lj
 imap <F4> <esc>\lj
 
