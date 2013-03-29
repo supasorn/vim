@@ -67,6 +67,7 @@ set wildmode=list:longest,full
 set incsearch
 set display=lastline
 set foldmethod=syntax
+set scrolloff=3
 set autoread
 
 colorscheme jellybeans
@@ -107,6 +108,8 @@ nnoremap \] :cn<Cr>
 noremap -= =a}''
 map [[ ?{<CR>w99[{
 map ]] j0[[%/{<CR>
+vnoremap < <gv
+vnoremap > >gv
 
 nmap <F8> :TagbarToggle<CR>
 
