@@ -130,7 +130,7 @@ imap <F3> <esc>:FufBuffer<CR>
 nmap <F4> \lj
 imap <F4> <esc>\lj
 
-nnoremap <silent> <leader>gs :Gstatus<CR>
+nnoremap <silent> <leader>gs :Gstatus<CR>/modified:<CR>
 nnoremap <silent> <leader>gc :Gcommit -m "auto commit"<CR>
 nnoremap <silent> <leader>gp :Git push<CR>
 
