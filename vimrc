@@ -45,6 +45,7 @@ Bundle 'tsaleh/vim-matchit.git'
 Bundle 'anders-/vim-indented-blocks.git'
 Bundle 'kshenoy/vim-signature.git'
 Bundle 'vim-scripts/mru.vim.git'
+Bundle 'mbbill/undotree.git'
 
 
 filetype plugin indent on     " required!
@@ -81,6 +82,9 @@ let g:Tex_CompileRule_dvi = 'pdflatex \\nonstopmode \\input\{$*\}'
 let tex_no_error=1
 let g:session_autosave = 'no'
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_signs=1
 
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Linux"
@@ -129,6 +133,8 @@ nmap <F3> :FufBuffer<CR>
 imap <F3> <esc>:FufBuffer<CR>
 nmap <F4> \lj
 imap <F4> <esc>\lj
+
+au FileType c,cpp let delimitMate_matchpairs = "(:),[:]"
 
 nnoremap <silent> <leader>gs :Gstatus<CR>/modified:<CR>
 nnoremap <silent> <leader>gc :Gcommit -m "auto commit"<CR>
