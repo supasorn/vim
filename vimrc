@@ -16,13 +16,13 @@ Bundle 'The-NERD-Commenter'
 " To install YouCompleteMe
 "    cd ~/.vim/bundle/YouCompleteMe
 "    ./install.sh --clang-completer
-Bundle 'Valloric/YouCompleteMe.git'
-"Bundle 'Shougo/neocomplcache.git'
+"Bundle 'Valloric/YouCompleteMe.git'
+Bundle 'Shougo/neocomplcache.git'
 
 Bundle 'surround.vim'
 Bundle 'SearchComplete'
 Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
-Bundle 'ctrlp.vim'
+Bundle 'kien/ctrlp.vim.git'
 Bundle 'SingleCompile'
 Bundle "myusuf3/numbers.vim"
 Bundle 'Solarized'
@@ -46,6 +46,11 @@ Bundle 'anders-/vim-indented-blocks.git'
 Bundle 'kshenoy/vim-signature.git'
 Bundle 'vim-scripts/mru.vim.git'
 Bundle 'mbbill/undotree.git'
+Bundle 'godlygeek/tabular.git'
+"Bundle 'vim-scripts/VIM-Color-Picker.git'
+"Bundle 'iandoe/vim-osx-colorpicker.git'
+Bundle 'skammer/vim-css-color.git'
+"Bundle 'terryma/vim-multiple-cursors.git'
 
 
 filetype plugin indent on     " required!
@@ -86,6 +91,47 @@ let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
 
+
+
+let g:neocomplcache_enable_at_startup = 1
+" Use smartcase.
+let g:neocomplcache_enable_smart_case = 1
+" Use camel case completion.
+let g:neocomplcache_enable_camel_case_completion = 1
+" Use underscore completion.
+let g:neocomplcache_enable_underbar_completion = 1
+" Sets minimum char length of syntax keyword.
+let g:neocomplcache_min_syntax_length = 3
+" buffer file name pattern that locks neocomplcache. e.g. ku.vim or fuzzyfinder 
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+
+let g:neocomplcache_max_list = 15
+" Plugin key-mappings.
+imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ?  "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-h>     neocomplcache#undo_completion()
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+" Enable omni completion. Not required if they are already set elsewhere in .vimrc
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion, which require computational power and may stall the vim. 
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+"autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
+let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+
+
+
+
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Linux"
   "set guifont=Inconsolata\ 12
@@ -109,7 +155,9 @@ nnoremap \r :SCCompileRun<CR>:silent botright cw 8<CR>
 nnoremap \m :w<CR>:execute "try \| cd bin \| catch \| \| endtry"<CR>:make %:t:r<CR>:botright cw 8<CR>
 nnoremap \[ :cp<Cr>
 nnoremap \] :cn<Cr>
-noremap -= =a}''
+noremap -= =a}``
+inoremap } }<Esc>=%``a
+
 map [[ ?{<CR>w99[{
 map ]] j0[[%/{<CR>
 vnoremap < <gv
@@ -133,6 +181,11 @@ nmap <F3> :FufBuffer<CR>
 imap <F3> <esc>:FufBuffer<CR>
 nmap <F4> \lj
 imap <F4> <esc>\lj
+
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+
+let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp|\.class$'
 
 au FileType c,cpp let delimitMate_matchpairs = "(:),[:]"
 
