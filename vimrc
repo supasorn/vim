@@ -42,7 +42,6 @@ Bundle 'L9'
 Bundle 'vim-scripts/FuzzyFinder.git'
 Bundle 'vim-scripts/LustyJuggler.git'
 Bundle 'tsaleh/vim-matchit.git'
-Bundle 'anders-/vim-indented-blocks.git'
 Bundle 'kshenoy/vim-signature.git'
 Bundle 'vim-scripts/mru.vim.git'
 Bundle 'mbbill/undotree.git'
@@ -128,14 +127,14 @@ let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
-
-
+let g:neocomplcache_enable_fuzzy_completion = 1
+let g:neocomplcache_fuzzy_completion_start_length = 2
 
 
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Linux"
-  "set guifont=Inconsolata\ 12
-  set guifont=Menlo_for_Powerline:h12
+  set guifont=Inconsolata\ 10
+  "set guifont=Menlo_for_Powerline:h12
   let g:Powerline_symbols = 'fancy'
 else
   "set guifont=Menlo_Regular:h13
