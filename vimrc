@@ -167,7 +167,9 @@ nmap <F8> :TagbarToggle<CR>
 imap <c-l> <Plug>IMAP_JumpForward
 nmap <c-l> <Plug>IMAP_JumpForward
 map <c-j> <leader>j
+vmap <c-j> <leader>j
 map <c-k> <leader>k
+vmap <c-k> <leader>k
 map <c-f> <leader>f
 map <c-g> <leader>F
 nmap <SPACE> H\f
