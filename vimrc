@@ -9,7 +9,7 @@ Bundle 'gmarik/vundle'
 " original repos on github
 Bundle 'EasyMotion'
 Bundle 'The-NERD-tree'
-Bundle 'The-NERD-Commenter'
+Bundle 'scrooloose/nerdcommenter.git'
 
 "Bundle 'SuperTab'
 
@@ -50,7 +50,8 @@ Bundle 'godlygeek/tabular.git'
 "Bundle 'iandoe/vim-osx-colorpicker.git'
 Bundle 'skammer/vim-css-color.git'
 "Bundle 'terryma/vim-multiple-cursors.git'
-
+Bundle 'othree/html5.vim.git'
+Bundle 'Twinside/vim-cuteErrorMarker.git'
 
 filetype plugin indent on     " required!
 
@@ -90,7 +91,7 @@ let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
 
-
+let g:fuf_fuzzyRefining = 1
 
 let g:neocomplcache_enable_at_startup = 1
 " Use smartcase.
@@ -150,10 +151,18 @@ noremap ci(, T(ct,
 noremap ci,) T,ct)
 nnoremap j gj
 nnoremap k gk
-nnoremap \r :SCCompileRun<CR>:silent botright cw 8<CR>
-nnoremap \m :w<CR>:execute "try \| cd bin \| catch \| \| endtry"<CR>:make %:t:r<CR>:botright cw 8<CR>
+
+nnoremap \r :SCCompileRun<CR>
+nmap <F5> :SCCompileRun<CR>
+imap <F5> :SCCompileRun<CR>
+nnoremap \m :w<CR>:execute "try \| cd bin \| catch \| \| endtry"<CR>:make %:t:r<CR>
 nnoremap \[ :cp<Cr>
 nnoremap \] :cn<Cr>
+
+" Auto open quickfix
+autocmd QuickFixCmdPost [^l]* nested botright cwindow 8
+autocmd QuickFixCmdPost    l* nested lwindow
+
 noremap -= =a}``
 inoremap } }<Esc>=%``a
 
