@@ -18,6 +18,8 @@ Bundle 'scrooloose/nerdcommenter.git'
 "    ./install.sh --clang-completer
 "Bundle 'Valloric/YouCompleteMe.git'
 Bundle 'Shougo/neocomplcache.git'
+"Bundle 'Shougo/neosnippet'
+"Bundle 'honza/vim-snippets.git'
 
 Bundle 'surround.vim'
 Bundle 'SearchComplete'
@@ -107,10 +109,11 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
 let g:neocomplcache_max_list = 15
 " Plugin key-mappings.
-imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ?  "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-h>     neocomplcache#undo_completion()
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+inoremap <expr><C-k> neocomplcache#close_popup()
+"imap <C-TAB>  <Plug>(neocomplcache_snippets_force_expand_or_jump)
 
 " Enable omni completion. Not required if they are already set elsewhere in .vimrc
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
