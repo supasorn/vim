@@ -7,7 +7,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " original repos on github
-Bundle 'EasyMotion'
+Bundle 'supasorn/vim-easymotion.git'
 Bundle 'The-NERD-tree'
 Bundle 'scrooloose/nerdcommenter.git'
 
@@ -74,7 +74,7 @@ set wildmenu
 set wildmode=list:longest,full
 set incsearch
 set display=lastline
-set foldmethod=syntax
+"set foldmethod=syntax
 set scrolloff=3
 set autoread
 
@@ -158,6 +158,9 @@ nnoremap k gk
 nnoremap \r :SCCompileRun<CR>
 nmap <F5> :SCCompileRun<CR>
 imap <F5> :SCCompileRun<CR>
+
+au Filetype *.vim nmap <F5> :so %<CR>
+
 nnoremap \m :w<CR>:execute "try \| cd bin \| catch \| \| endtry"<CR>:make %:t:r<CR>
 nnoremap \[ :cp<Cr>
 nnoremap \] :cn<Cr>
@@ -178,13 +181,16 @@ nmap <F8> :TagbarToggle<CR>
 
 imap <c-l> <Plug>IMAP_JumpForward
 nmap <c-l> <Plug>IMAP_JumpForward
+vmap <c-l> <Plug>IMAP_JumpForward
+
 map <c-j> <leader>j
 vmap <c-j> <leader>j
 map <c-k> <leader>k
 vmap <c-k> <leader>k
 map <c-f> <leader>f
 map <c-g> <leader>F
-nmap <SPACE> H\f
+nmap <SPACE> \s
+vmap <SPACE> \s
 map <c-c> <plug>NERDCommenterToggle<c-m>
 noremap <C-n> :NERDTreeToggle<CR>
 "nmap <F2> :cd %:p:h<CR>:FufFile<CR>
