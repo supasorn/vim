@@ -86,6 +86,7 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 let g:EasyMotion_leader_key = '<leader>'
 let g:Tex_CompileRule_dvi = 'pdflatex \\nonstopmode \\input\{$*\}'
+let g:Imap_UsePlaceHolders = 0
 let tex_no_error=1
 let g:session_autosave = 'no'
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
@@ -183,6 +184,9 @@ imap <c-l> <Plug>IMAP_JumpForward
 nmap <c-l> <Plug>IMAP_JumpForward
 vmap <c-l> <Plug>IMAP_JumpForward
 
+omap l :call EasyMotion#SelectLines()<CR>
+vmap l :call EasyMotion#SelectLines()<CR>
+nmap \v :call EasyMotion#SelectLines()<CR>
 map <c-j> <leader>j
 vmap <c-j> <leader>j
 map <c-k> <leader>k
