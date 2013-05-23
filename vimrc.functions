@@ -1,0 +1,14 @@
+" Rule: echo 'yes'
+function! FirstLineCompile() 
+  let l:s = split(getline(1) , ':')
+  if !empty(matchstr(l:s[0], 'Rule'))
+    let l:command = l:s[1]
+    let l:out = system(l:command)
+    cexpr l:out
+    botright cwindow 8
+    echo 'Compiling finished!'
+  else
+    execute ':SCCompileRun<CR>'
+  endif
+endfunction 
+
