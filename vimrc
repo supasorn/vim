@@ -156,9 +156,13 @@ noremap ci,) T,ct)
 nnoremap j gj
 nnoremap k gk
 
-nnoremap \r :SCCompileRun<CR>
-nmap <F5> :SCCompileRun<CR>
-imap <F5> :SCCompileRun<CR>
+nnoremap \r :call FirstLineCompile()<CR>
+nmap <F5> :call FirstLineCompile()<CR>
+imap <F5> :call FirstLineCompile()<CR>
+
+command! OS OpenSession
+command! SS SaveSession
+command! RS RestartVim
 
 au Filetype *.vim nmap <F5> :so %<CR>
 
@@ -186,7 +190,8 @@ vmap <c-l> <Plug>IMAP_JumpForward
 
 omap l :call EasyMotion#SelectLines()<CR>
 vmap l :call EasyMotion#SelectLines()<CR>
-nmap \v :call EasyMotion#SelectLines()<CR>
+nmap yl :call EasyMotion#SelectLinesYank()<CR>
+
 map <c-j> <leader>j
 vmap <c-j> <leader>j
 map <c-k> <leader>k
@@ -225,3 +230,6 @@ au BufNewFile,BufRead *.as           setf actionscript
 " This beauty remembers where you were the last time you edited the file, and returns to the same position.
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
+if filereadable(expand("~/.vim/vimrc.functions"))
+  source ~/.vim/vimrc.functions
+endif
