@@ -53,7 +53,6 @@ Bundle 'godlygeek/tabular.git'
 Bundle 'skammer/vim-css-color.git'
 "Bundle 'terryma/vim-multiple-cursors.git'
 Bundle 'othree/html5.vim.git'
-Bundle 'Twinside/vim-cuteErrorMarker.git'
 
 filetype plugin indent on     " required!
 
@@ -158,7 +157,8 @@ nnoremap k gk
 
 nnoremap \r :call FirstLineCompile()<CR>
 nmap <F5> :call FirstLineCompile()<CR>
-imap <F5> :call FirstLineCompile()<CR>
+imap <F5> <esc>:call FirstLineCompile()<CR>
+
 
 command! OS OpenSession
 command! SS SaveSession
@@ -166,7 +166,7 @@ command! RS RestartVim
 
 au Filetype *.vim nmap <F5> :so %<CR>
 
-nnoremap \m :w<CR>:execute "try \| cd bin \| catch \| \| endtry"<CR>:make %:t:r<CR>
+nnoremap \m :w<CR>:execute "try \| cd %:p:h \| cd bin \| catch \| \| endtry"<CR>:make %:t:r<CR>
 nnoremap \[ :cp<Cr>
 nnoremap \] :cn<Cr>
 
@@ -191,6 +191,7 @@ vmap <c-l> <Plug>IMAP_JumpForward
 omap l :call EasyMotion#SelectLines()<CR>
 vmap l :call EasyMotion#SelectLines()<CR>
 nmap yl :call EasyMotion#SelectLinesYank()<CR>
+nmap \p :call EasyMotion#SelectLinesPaste()<CR>
 
 map <c-j> <leader>j
 vmap <c-j> <leader>j
