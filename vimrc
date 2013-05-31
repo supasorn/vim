@@ -30,6 +30,7 @@ Bundle "myusuf3/numbers.vim"
 Bundle 'Solarized'
 Bundle 'Raimondi/delimitMate.git'
 Bundle 'nathanaelkane/vim-indent-guides.git'
+Bundle 'xolox/vim-misc.git'
 Bundle 'xolox/vim-session.git'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-fugitive.git'
