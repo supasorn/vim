@@ -163,7 +163,7 @@ imap <F5> <esc>:call FirstLineCompile()<CR>
 
 command! OS OpenSession
 command! SS SaveSession
-command! RS RestartVim
+command! RE RestartVim
 
 au Filetype *.vim nmap <F5> :so %<CR>
 
@@ -189,9 +189,6 @@ imap <c-l> <Plug>IMAP_JumpForward
 nmap <c-l> <Plug>IMAP_JumpForward
 vmap <c-l> <Plug>IMAP_JumpForward
 
-omap l :call EasyMotion#SelectLines()<CR>
-vmap l :call EasyMotion#SelectLines()<CR>
-nmap yl :call EasyMotion#SelectLinesYank()<CR>
 nmap \p :call EasyMotion#SelectLinesPaste()<CR>
 
 map <c-j> <leader>j
@@ -200,8 +197,8 @@ map <c-k> <leader>k
 vmap <c-k> <leader>k
 map <c-f> <leader>f
 map <c-g> <leader>F
-nmap <SPACE> \s
-vmap <SPACE> \s
+nmap <SPACE> <leader>s
+vmap <SPACE> <leader>s
 map <c-c> <plug>NERDCommenterToggle<c-m>
 noremap <C-n> :NERDTreeToggle<CR>
 "nmap <F2> :cd %:p:h<CR>:FufFile<CR>
@@ -211,6 +208,7 @@ nmap <F3> :FufBuffer<CR>
 imap <F3> <esc>:FufBuffer<CR>
 nmap <F4> \lj
 imap <F4> <esc>\lj
+nmap \gg {gq}<C-O><C-O>
 
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>

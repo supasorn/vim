@@ -1,6 +1,10 @@
 " Rule: echo 'yes'
 function! FirstLineCompile() 
-  let l:s = split(getline(1) , ':')
+  if !empty(matchstr(getline(1), ':'))
+    let l:s = split(getline(1) , ':')
+  else
+    let l:s = ''
+  endif
   if !empty(matchstr(l:s[0], 'Rule'))
     let l:command = l:s[1]
     cd %:p:h
@@ -9,7 +13,7 @@ function! FirstLineCompile()
     botright cwindow 8
     echo 'Compiling finished!'
   else
-    execute ':SCCompileRun<CR>'
+    execute ':SCCompileRun'
   endif
 endfunction 
 
