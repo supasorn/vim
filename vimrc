@@ -138,7 +138,7 @@ let g:neocomplcache_fuzzy_completion_start_length = 2
 
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Linux"
-  set guifont=Inconsolata\ 10
+  set guifont=Inconsolata\ 9 
   "set guifont=Menlo_for_Powerline:h12
   let g:Powerline_symbols = 'fancy'
 else
