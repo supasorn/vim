@@ -28,6 +28,8 @@ Bundle 'kien/ctrlp.vim.git'
 Bundle 'SingleCompile'
 Bundle "myusuf3/numbers.vim"
 Bundle 'Solarized'
+Bundle 'tomasr/molokai.git'
+Bundle 'vim-scripts/a.vim.git'
 Bundle 'Raimondi/delimitMate.git'
 Bundle 'nathanaelkane/vim-indent-guides.git'
 Bundle 'xolox/vim-misc.git'
@@ -147,6 +149,8 @@ else
   let g:Powerline_symbols = 'fancy'
 endif
 set laststatus=2
+
+nmap \o yyPIprintf("<esc>A\n"); // GCODE <esc>
 
 noremap Y y$
 vnoremap y y`>
