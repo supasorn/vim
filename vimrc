@@ -21,14 +21,15 @@ Bundle 'Shougo/neocomplcache.git'
 "Bundle 'Shougo/neosnippet'
 "Bundle 'honza/vim-snippets.git'
 
+" Colorschemes
+Bundle 'xolox/vim-colorscheme-switcher'
+
 Bundle 'surround.vim'
 Bundle 'SearchComplete'
 Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
 Bundle 'kien/ctrlp.vim.git'
 Bundle 'SingleCompile'
 Bundle "myusuf3/numbers.vim"
-Bundle 'Solarized'
-Bundle 'tomasr/molokai.git'
 Bundle 'vim-scripts/a.vim.git'
 Bundle 'Raimondi/delimitMate.git'
 Bundle 'nathanaelkane/vim-indent-guides.git'
@@ -39,13 +40,11 @@ Bundle 'tpope/vim-fugitive.git'
 Bundle 'corntrace/bufexplorer.git'
 Bundle 'tpope/vim-repeat.git'
 Bundle 'dahu/vim-fanfingtastic.git'
-Bundle 'ronny/birds-of-paradise.vim.git'
 if executable('ctags')
   Bundle 'majutsushi/tagbar'
 endif
 Bundle 'L9'
 Bundle 'vim-scripts/FuzzyFinder.git'
-Bundle 'vim-scripts/LustyJuggler.git'
 Bundle 'tsaleh/vim-matchit.git'
 Bundle 'kshenoy/vim-signature.git'
 Bundle 'vim-scripts/mru.vim.git'
@@ -81,6 +80,9 @@ set scrolloff=3
 set autoread
 
 colorscheme jellybeans
+
+let g:colorscheme_switcher_define_mappings = 0
+let g:colorscheme_switcher_exclude = ['default', 'guardian', 'macvim', 'slate', 'torte', 'blue', 'delek', 'desert', 'elflord', 'koehler', 'morning', 'pablo', 'ron', 'zellner', 'darkblue', 'evening', 'shine', 'murphy', 'peachpuff']
 
 "let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 1
@@ -188,6 +190,9 @@ vnoremap < <gv
 vnoremap > >gv
 
 nmap <F8> :TagbarToggle<CR>
+nmap <F4> :MRU<CR>
+nmap <F9> :NextColorScheme<CR>
+nmap <s-F9> :PrevColorScheme<CR>
 
 imap <c-l> <Plug>IMAP_JumpForward
 nmap <c-l> <Plug>IMAP_JumpForward
@@ -210,8 +215,6 @@ nmap <F2> :FufFileWithCurrentBufferDir<CR>
 imap <F2> <esc>:FufFileWithCurrentBufferDir<CR>
 nmap <F3> :FufBuffer<CR>
 imap <F3> <esc>:FufBuffer<CR>
-nmap <F4> \lj
-imap <F4> <esc>\lj
 nmap \gg {gq}<C-O><C-O>
 
 nmap <Leader>a= :Tabularize /=<CR>
