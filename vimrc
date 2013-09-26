@@ -178,7 +178,7 @@ command! RE RestartVim
 
 " For jumping through function arguments
 nmap <silent> ( :call JumpThroughParameter(-1)<CR>
-nmap <silent> ) :call JumpThroughParameter(1)<CR> 
+nmap <silent> ) :call JumpThroughParameter(1)<CR>
 "let blacklist = ['tex', 'txt', 'latex']
 "au Filetype * if index(blacklist, &ft) < 0 | 
       "\ nmap <silent> ( :call JumpThroughParameter(-1)<CR>|
