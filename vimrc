@@ -127,6 +127,8 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
+autocmd BufNewFile,BufReadPost *.ejs set filetype=html
+
 " Enable heavy omni completion, which require computational power and may stall the vim. 
 if !exists('g:neocomplcache_omni_patterns')
   let g:neocomplcache_omni_patterns = {}
@@ -161,6 +163,8 @@ noremap ci(, T(ct,
 noremap ci,) T,ct)
 nnoremap j gj
 nnoremap k gk
+nnoremap cw ciw
+nnoremap dw diw
 
 nnoremap \r :call FirstLineCompile()<CR>
 nmap <F5> :call FirstLineCompile()<CR>
@@ -170,6 +174,16 @@ imap <F5> <esc>:call FirstLineCompile()<CR>
 command! OS OpenSession
 command! SS SaveSession
 command! RE RestartVim
+
+
+" For jumping through function arguments
+nmap <silent> ( :call JumpThroughParameter(-1)<CR>|
+nmap <silent> ) :call JumpThroughParameter(1)<CR>| 
+"let blacklist = ['tex', 'txt', 'latex']
+"au Filetype * if index(blacklist, &ft) < 0 | 
+      "\ nmap <silent> ( :call JumpThroughParameter(-1)<CR>|
+      "\ nmap <silent> ) :call JumpThroughParameter(1)<CR>| 
+      "\ endif
 
 au Filetype *.vim nmap <F5> :so %<CR>
 
@@ -190,13 +204,15 @@ vnoremap < <gv
 vnoremap > >gv
 
 nmap <F8> :TagbarToggle<CR>
-nmap <F4> :MRU<CR>
+nmap <F4> :MRU<CR>/
 nmap <F9> :NextColorScheme<CR>
 nmap <s-F9> :PrevColorScheme<CR>
 
-imap <c-l> <Plug>IMAP_JumpForward
-nmap <c-l> <Plug>IMAP_JumpForward
-vmap <c-l> <Plug>IMAP_JumpForward
+nmap <c-l> f,w
+nmap <c-h> F,;w
+"imap <c-l> <Plug>IMAP_JumpForward
+"nmap <c-l> <Plug>IMAP_JumpForward
+"vmap <c-l> <Plug>IMAP_JumpForward
 
 nmap \p :call EasyMotion#SelectLinesPaste()<CR>
 

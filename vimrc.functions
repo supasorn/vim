@@ -17,3 +17,13 @@ function! FirstLineCompile()
   endif
 endfunction 
 
+
+function! JumpThroughParameter(direction)
+  if a:direction == 1
+    let line = search(', \S\|^[^(]\+(\S', 'e', line('.'))
+  else
+    let line = search(', \S\|^[^(]\+(\S', 'be', line('.'))
+  endif 
+  "let str = getline('.')
+  "echo strpart(getline('.'), col('.'))
+endfunction
