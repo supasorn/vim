@@ -19,11 +19,15 @@ endfunction
 
 
 function! JumpThroughParameter(direction)
-  if a:direction == 1
-    let line = search(', \S\|^[^(]\+(\S', 'e', line('.'))
+  let flag = a:direction == 1 ? '' : 'b'
+
+  let s1 = searchpos('\S(\S', 'en' . flag, line('.'))
+  let s2 = searchpos(', \S', 'en' . flag, line('.'))
+  if s1 != [0, 0] && (s2 == [0, 0] || 
+        \ ((flag == '' && s1[1] < s2[1]) || (flag == 'b' && s1[1] > s2[1])) )
+    call search('\S(\S', 'e' . flag, line('.'))
   else
-    let line = search(', \S\|^[^(]\+(\S', 'be', line('.'))
-  endif 
-  "let str = getline('.')
-  "echo strpart(getline('.'), col('.'))
+    call search(', \S', 'e' . flag, line('.'))
+  endif
+
 endfunction
