@@ -23,6 +23,7 @@ Bundle 'Shougo/neocomplcache.git'
 
 " Colorschemes
 Bundle 'xolox/vim-colorscheme-switcher'
+"Bundle 'chriskempson/base16-vim'
 
 Bundle 'surround.vim'
 Bundle 'SearchComplete'
@@ -55,6 +56,7 @@ Bundle 'godlygeek/tabular.git'
 Bundle 'skammer/vim-css-color.git'
 "Bundle 'terryma/vim-multiple-cursors.git'
 Bundle 'othree/html5.vim.git'
+Bundle 'mileszs/ack.vim.git'
 
 filetype plugin indent on     " required!
 
@@ -163,6 +165,8 @@ noremap ci(, T(ct,
 noremap ci,) T,ct)
 nnoremap j gj
 nnoremap k gk
+nnoremap ciw cw
+nnoremap diw dw
 nnoremap cw ciw
 nnoremap dw diw
 
@@ -202,6 +206,7 @@ map [[ ?{<CR>w99[{
 map ]] j0[[%/{<CR>
 vnoremap < <gv
 vnoremap > >gv
+vmap F 99[{O][
 
 nmap <F8> :TagbarToggle<CR>
 nmap <F4> :MRU<CR>/
