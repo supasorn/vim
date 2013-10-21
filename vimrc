@@ -30,7 +30,7 @@ Bundle 'SearchComplete'
 Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
 Bundle 'kien/ctrlp.vim.git'
 Bundle 'SingleCompile'
-Bundle "myusuf3/numbers.vim"
+"Bundle 'myusuf3/numbers.vim'
 Bundle 'vim-scripts/a.vim.git'
 Bundle 'Raimondi/delimitMate.git'
 Bundle 'nathanaelkane/vim-indent-guides.git'
@@ -57,6 +57,7 @@ Bundle 'skammer/vim-css-color.git'
 "Bundle 'terryma/vim-multiple-cursors.git'
 Bundle 'othree/html5.vim.git'
 Bundle 'mileszs/ack.vim.git'
+Bundle 'AndrewRadev/simple_bookmarks.vim'
 
 filetype plugin indent on     " required!
 
@@ -165,10 +166,12 @@ noremap ci(, T(ct,
 noremap ci,) T,ct)
 nnoremap j gj
 nnoremap k gk
-nnoremap ciw cw
-nnoremap diw dw
-nnoremap cw ciw
-nnoremap dw diw
+
+"nnoremap ciw cw
+"nnoremap diw dw
+"nnoremap cw ciw
+"nnoremap dw diw
+map <c-h> <esc>:A<CR>
 
 nnoremap \r :call FirstLineCompile()<CR>
 nmap <F5> :call FirstLineCompile()<CR>
@@ -240,6 +243,7 @@ nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 
 let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp|\.class$'
+let g:fuf_keyOpenVsplit = '<C-v>'
 
 au FileType c,cpp let delimitMate_matchpairs = "(:),[:]"
 
