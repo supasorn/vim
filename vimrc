@@ -8,6 +8,7 @@ Bundle 'gmarik/vundle'
 
 " original repos on github
 Bundle 'supasorn/vim-easymotion.git'
+"Bundle 'haya14busa/vim-easymotion.git'
 Bundle 'The-NERD-tree'
 Bundle 'scrooloose/nerdcommenter.git'
 
@@ -166,6 +167,7 @@ noremap ci(, T(ct,
 noremap ci,) T,ct)
 nnoremap j gj
 nnoremap k gk
+nnoremap =<SPACE> i <ESC>la <ESC>h
 
 "nnoremap ciw cw
 "nnoremap diw dw
@@ -235,6 +237,8 @@ noremap <C-n> :NERDTreeToggle<CR>
 "nmap <F2> :cd %:p:h<CR>:FufFile<CR>
 nmap <F2> :FufFileWithCurrentBufferDir<CR>
 imap <F2> <esc>:FufFileWithCurrentBufferDir<CR>
+nmap <s-F2> :FufRenewCache<CR>
+imap <s-F2> <esc>:FufRenewCache<CR>
 nmap <F3> :FufBuffer<CR>
 imap <F3> <esc>:FufBuffer<CR>
 nmap \gg {gq}<C-O><C-O>
