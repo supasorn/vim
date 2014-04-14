@@ -48,7 +48,6 @@ if executable('ctags')
 endif
 Bundle 'L9'
 Bundle 'vim-scripts/FuzzyFinder.git'
-Bundle 'tsaleh/vim-matchit.git'
 Bundle 'kshenoy/vim-signature.git'
 Bundle 'vim-scripts/mru.vim.git'
 Bundle 'mbbill/undotree.git'
