@@ -8,7 +8,8 @@ Bundle 'gmarik/vundle'
 
 " original repos on github
 Bundle 'supasorn/vim-easymotion.git'
-"Bundle 'haya14busa/vim-easymotion.git'
+"Bundle 'Lokaltog/vim-easymotion.git'
+Bundle 'haya14busa/vim-easyoperator-line'
 Bundle 'The-NERD-tree'
 Bundle 'scrooloose/nerdcommenter.git'
 
@@ -179,7 +180,6 @@ nnoremap \r :call FirstLineCompile()<CR>
 nmap <F5> :call FirstLineCompile()<CR>
 imap <F5> <esc>:call FirstLineCompile()<CR>
 
-
 command! OS OpenSession
 command! SS SaveSession
 command! RE RestartVim
@@ -230,7 +230,10 @@ map <c-k> <leader>k
 vmap <c-k> <leader>k
 map <c-f> <leader>f
 map <c-g> <leader>F
-nmap <SPACE> <leader>s
+
+"nmap <SPACE> <leader>s
+nmap <SPACE> <Plug>(easymotion-s)
+nmap <leader><SPACE> <Plug>(easymotion-s)
 vmap <SPACE> <leader>s
 map <c-c> <plug>NERDCommenterToggle<c-m>
 noremap <C-n> :NERDTreeToggle<CR>
