@@ -38,7 +38,7 @@ Bundle 'Raimondi/delimitMate.git'
 Bundle 'nathanaelkane/vim-indent-guides.git'
 Bundle 'xolox/vim-misc.git'
 Bundle 'xolox/vim-session.git'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'Lokaltog/powerline', {'rtp':  'powerline/bindings/vim'}
 Bundle 'tpope/vim-fugitive.git'
 Bundle 'corntrace/bufexplorer.git'
 Bundle 'tpope/vim-repeat.git'
@@ -148,14 +148,18 @@ let g:neocomplcache_fuzzy_completion_start_length = 2
 
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Linux"
-  set guifont=Inconsolata\ 9 
+  "set guifont=Inconsolata\ 9 
+  set guifont=Droid\ Sans\ Mono\ for\ Powerline:h13
   "set guifont=Menlo_for_Powerline:h12
-  let g:Powerline_symbols = 'fancy'
 else
   "set guifont=Menlo_Regular:h13
-  set guifont=Menlo_for_Powerline:h12
-  let g:Powerline_symbols = 'fancy'
+  "set guifont=Inconsolata\ for\ Powerline:h15 
+  set guifont=Droid\ Sans\ Mono\ for\ Powerline:h13
+
+  "set guifont=Menlo\ for\ Powerline:h12
 endif
+let g:Powerline_symbols = 'fancy'
+set encoding=utf-8
 set laststatus=2
 
 nmap \o yyPIprintf("<esc>A\n"); // GCODE <esc>
