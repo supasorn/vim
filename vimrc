@@ -30,7 +30,7 @@ Bundle 'xolox/vim-colorscheme-switcher'
 Bundle 'surround.vim'
 Bundle 'SearchComplete'
 Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
-"Bundle 'kien/ctrlp.vim.git'
+Bundle 'kien/ctrlp.vim.git'
 Bundle 'SingleCompile'
 "Bundle 'myusuf3/numbers.vim'
 Bundle 'vim-scripts/a.vim.git'
@@ -156,8 +156,7 @@ if os == "Linux"
 else
   "set guifont=Menlo_Regular:h13
   "set guifont=Inconsolata\ for\ Powerline:h15 
-  "set guifont=Droid\ Sans\ Mono\ for\ Powerline:h13
-  set guifont=Menlo\ for\ Powerline:h12
+  set guifont=Droid\ Sans\ Mono\ for\ Powerline:h13
 
   "set guifont=Menlo\ for\ Powerline:h12
 endif
@@ -174,7 +173,6 @@ noremap ci(, T(ct,
 noremap ci,) T,ct)
 nnoremap j gj
 nnoremap k gk
-nnoremap <c-p> "_diwP
 nnoremap =<SPACE> i <ESC>la <ESC>h
 
 "nnoremap ciw cw
