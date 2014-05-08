@@ -38,7 +38,8 @@ Bundle 'Raimondi/delimitMate.git'
 Bundle 'nathanaelkane/vim-indent-guides.git'
 Bundle 'xolox/vim-misc.git'
 Bundle 'xolox/vim-session.git'
-Bundle 'Lokaltog/powerline', {'rtp':  'powerline/bindings/vim'}
+"Bundle 'Lokaltog/powerline', {'rtp':  'powerline/bindings/vim'}
+Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-fugitive.git'
 Bundle 'corntrace/bufexplorer.git'
 Bundle 'tpope/vim-repeat.git'
@@ -85,6 +86,7 @@ set autoread
 
 colorscheme jellybeans
 
+let g:session_autoload = 'no'
 let g:colorscheme_switcher_define_mappings = 0
 let g:colorscheme_switcher_exclude = ['default', 'guardian', 'macvim', 'slate', 'torte', 'blue', 'delek', 'desert', 'elflord', 'koehler', 'morning', 'pablo', 'ron', 'zellner', 'darkblue', 'evening', 'shine', 'murphy', 'peachpuff']
 
@@ -148,8 +150,8 @@ let g:neocomplcache_fuzzy_completion_start_length = 2
 
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Linux"
-  "set guifont=Inconsolata\ 9 
-  set guifont=Droid\ Sans\ Mono\ for\ Powerline:h13
+  set guifont=Inconsolata\ 9 
+  "set guifont=Droid\ Sans\ Mono\ for\ Powerline:h13
   "set guifont=Menlo_for_Powerline:h12
 else
   "set guifont=Menlo_Regular:h13
@@ -198,6 +200,7 @@ nmap <silent> ) :call JumpThroughParameter(1)<CR>
       "\ endif
 
 au Filetype *.vim nmap <F5> :so %<CR>
+au BufNewFile,BufRead *.cuh set filetype=cpp
 
 nnoremap \m :w<CR>:execute "try \| cd %:p:h \| cd bin \| catch \| \| endtry"<CR>:make %:t:r<CR>
 nnoremap \[ :cp<Cr>
@@ -234,8 +237,8 @@ vmap <c-k> <leader>k
 map <c-f> <leader>f
 map <c-g> <leader>F
 
-"nmap <SPACE> <leader>s
-nmap <SPACE> <Plug>(easymotion-s)
+nmap <SPACE> <leader>s
+"nmap <SPACE> <Plug>(easymotion-s)
 nmap <leader><SPACE> <Plug>(easymotion-s)
 vmap <SPACE> <leader>s
 map <c-c> <plug>NERDCommenterToggle<c-m>
