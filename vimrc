@@ -258,7 +258,7 @@ vmap <Leader>a= :Tabularize /=<CR>
 let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp|\.class$'
 let g:fuf_keyOpenVsplit = '<C-v>'
 
-au FileType c,cpp let delimitMate_matchpairs = "(:),[:]"
+au FileType cu,c,cpp let delimitMate_matchpairs = "(:),[:]"
 
 nnoremap <silent> <leader>gs :Gstatus<CR>/modified:<CR>
 nnoremap <silent> <leader>gc :Gcommit -m "auto commit"<CR>
