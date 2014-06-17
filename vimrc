@@ -9,7 +9,7 @@ Bundle 'gmarik/vundle'
 " original repos on github
 Bundle 'supasorn/vim-easymotion.git'
 "Bundle 'Lokaltog/vim-easymotion.git'
-Bundle 'haya14busa/vim-easyoperator-line'
+"Bundle 'haya14busa/vim-easyoperator-line'
 Bundle 'The-NERD-tree'
 Bundle 'scrooloose/nerdcommenter.git'
 
