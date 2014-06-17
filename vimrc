@@ -30,7 +30,7 @@ Bundle 'xolox/vim-colorscheme-switcher'
 Bundle 'surround.vim'
 Bundle 'SearchComplete'
 Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
-"Bundle 'kien/ctrlp.vim.git'
+Bundle 'kien/ctrlp.vim.git'
 Bundle 'SingleCompile'
 "Bundle 'myusuf3/numbers.vim'
 Bundle 'vim-scripts/a.vim.git'
@@ -86,6 +86,7 @@ set autoread
 
 colorscheme jellybeans
 
+let g:session_autoload = 'no'
 let g:colorscheme_switcher_define_mappings = 0
 let g:colorscheme_switcher_exclude = ['default', 'guardian', 'macvim', 'slate', 'torte', 'blue', 'delek', 'desert', 'elflord', 'koehler', 'morning', 'pablo', 'ron', 'zellner', 'darkblue', 'evening', 'shine', 'murphy', 'peachpuff']
 
@@ -149,14 +150,13 @@ let g:neocomplcache_fuzzy_completion_start_length = 2
 
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Linux"
-  "set guifont=Inconsolata\ 9 
-  set guifont=Droid\ Sans\ Mono\ for\ Powerline:h13
+  set guifont=Inconsolata\ 9 
+  "set guifont=Droid\ Sans\ Mono\ for\ Powerline:h13
   "set guifont=Menlo_for_Powerline:h12
 else
   "set guifont=Menlo_Regular:h13
   "set guifont=Inconsolata\ for\ Powerline:h15 
-  "set guifont=Droid\ Sans\ Mono\ for\ Powerline:h13
-  set guifont=Menlo\ for\ Powerline:h12
+  set guifont=Droid\ Sans\ Mono\ for\ Powerline:h13
 
   "set guifont=Menlo\ for\ Powerline:h12
 endif
@@ -173,7 +173,6 @@ noremap ci(, T(ct,
 noremap ci,) T,ct)
 nnoremap j gj
 nnoremap k gk
-nnoremap <c-p> "_diwP
 nnoremap =<SPACE> i <ESC>la <ESC>h
 
 "nnoremap ciw cw
@@ -201,6 +200,7 @@ nmap <silent> ) :call JumpThroughParameter(1)<CR>
       "\ endif
 
 au Filetype *.vim nmap <F5> :so %<CR>
+au BufNewFile,BufRead *.cuh set filetype=cpp
 
 nnoremap \m :w<CR>:execute "try \| cd %:p:h \| cd bin \| catch \| \| endtry"<CR>:make %:t:r<CR>
 nnoremap \[ :cp<Cr>
@@ -237,8 +237,8 @@ vmap <c-k> <leader>k
 map <c-f> <leader>f
 map <c-g> <leader>F
 
-"nmap <SPACE> <leader>s
-nmap <SPACE> <Plug>(easymotion-s)
+nmap <SPACE> <leader>s
+"nmap <SPACE> <Plug>(easymotion-s)
 nmap <leader><SPACE> <Plug>(easymotion-s)
 vmap <SPACE> <leader>s
 map <c-c> <plug>NERDCommenterToggle<c-m>
@@ -258,7 +258,7 @@ vmap <Leader>a= :Tabularize /=<CR>
 let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp|\.class$'
 let g:fuf_keyOpenVsplit = '<C-v>'
 
-au FileType c,cpp let delimitMate_matchpairs = "(:),[:]"
+au FileType cu,c,cpp let delimitMate_matchpairs = "(:),[:]"
 
 nnoremap <silent> <leader>gs :Gstatus<CR>/modified:<CR>
 nnoremap <silent> <leader>gc :Gcommit -m "auto commit"<CR>

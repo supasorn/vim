@@ -9,7 +9,11 @@ function! FirstLineCompile()
     let l:command = l:s[1]
     cd %:p:h
     let l:out = system(l:command)
-    cexpr l:out
+    try
+      cexpr l:out 
+    catch
+      "echo l:out
+    endtry
     botright cwindow 8
     echo 'Compiling finished!'
   else
