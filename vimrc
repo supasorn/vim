@@ -28,7 +28,7 @@ Bundle 'xolox/vim-colorscheme-switcher'
 "Bundle 'chriskempson/base16-vim'
 
 Bundle 'surround.vim'
-Bundle 'SearchComplete'
+"Bundle 'SearchComplete'
 Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
 Bundle 'kien/ctrlp.vim.git'
 Bundle 'SingleCompile'
