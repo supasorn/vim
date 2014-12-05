@@ -37,8 +37,6 @@ Bundle 'Raimondi/delimitMate.git'
 Bundle 'nathanaelkane/vim-indent-guides.git'
 Bundle 'xolox/vim-misc.git'
 Bundle 'xolox/vim-session.git'
-"Bundle 'Lokaltog/powerline', {'rtp':  'powerline/bindings/vim'}
-"Bundle 'Lokaltog/vim-powerline'
 Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive.git'
 Bundle 'corntrace/bufexplorer.git'
