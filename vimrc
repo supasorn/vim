@@ -29,7 +29,6 @@ Bundle 'xolox/vim-colorscheme-switcher'
 
 Bundle 'surround.vim'
 "Bundle 'SearchComplete'
-Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
 Bundle 'kien/ctrlp.vim.git'
 Bundle 'SingleCompile'
 "Bundle 'myusuf3/numbers.vim'
@@ -39,7 +38,8 @@ Bundle 'nathanaelkane/vim-indent-guides.git'
 Bundle 'xolox/vim-misc.git'
 Bundle 'xolox/vim-session.git'
 "Bundle 'Lokaltog/powerline', {'rtp':  'powerline/bindings/vim'}
-Bundle 'Lokaltog/vim-powerline'
+"Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive.git'
 Bundle 'corntrace/bufexplorer.git'
 Bundle 'tpope/vim-repeat.git'
@@ -60,7 +60,7 @@ Bundle 'skammer/vim-css-color.git'
 Bundle 'othree/html5.vim.git'
 Bundle 'mileszs/ack.vim.git'
 Bundle 'AndrewRadev/simple_bookmarks.vim'
-
+Bundle 'ctags.vim'
 filetype plugin indent on     " required!
 
 syntax on
@@ -148,11 +148,17 @@ let g:neocomplcache_enable_fuzzy_completion = 1
 let g:neocomplcache_fuzzy_completion_start_length = 2
 
 
+let g:airline_powerline_fonts = 1
+let g:airline_theme="dark"
+let g:airline_section_z=airline#section#create_right(['%l'])
+let g:airline_section_warning=airline#section#create_right(['%c'])
+
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Linux"
-  set guifont=Inconsolata\ 9 
-  "set guifont=Droid\ Sans\ Mono\ for\ Powerline:h13
-  "set guifont=Menlo_for_Powerline:h12
+  "set guifont=Liberation\ Mono\ for\ Powerline\ 10
+  "set guifont=Inconsolata\ 9 
+  set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9 
+  "set guifont=Menlo\ for\ Powerline\ 9 
 else
   "set guifont=Menlo_Regular:h13
   "set guifont=Inconsolata\ for\ Powerline:h15 
@@ -184,6 +190,9 @@ map <c-h> <esc>:A<CR>
 nnoremap \r :call FirstLineCompile()<CR>
 nmap <F5> :call FirstLineCompile()<CR>
 imap <F5> <esc>:call FirstLineCompile()<CR>
+
+command! -nargs=1 Gr call GrepCurrentDirectory(<f-args>)
+nnoremap gr :grep '\b<cword>\b' %:p:h/*<CR>
 
 command! OS OpenSession
 command! SS SaveSession

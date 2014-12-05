@@ -36,8 +36,7 @@ function! JumpThroughParameter(direction)
 
 endfunction
 
-function! s:GrepCurrentDirectory(myParam)
+function! GrepCurrentDirectory(myParam)
   execute "grep -I " . a:myParam . " %:p:h/*"
 endfunction
 
-command! -nargs=1 Gr call s:GrepCurrentDirectory(<f-args>)
