@@ -158,11 +158,9 @@ if os == "Linux"
   set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9 
   "set guifont=Menlo\ for\ Powerline\ 9 
 else
-  "set guifont=Menlo_Regular:h13
-  "set guifont=Inconsolata\ for\ Powerline:h15 
-  "set guifont=Droid\ Sans\ Mono\ for\ Powerline:h13
-
-  set guifont=Menlo\ for\ Powerline:h12
+  "set guifont=Inconsolata\ for\ Powerline:h14 
+  set guifont=Droid\ Sans\ Mono\ for\ Powerline:h12
+  "set guifont=Menlo\ for\ Powerline:h12
 endif
 let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
