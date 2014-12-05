@@ -1,6 +1,7 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
+set shell=/bin/bash
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -8,30 +9,23 @@ Bundle 'gmarik/vundle'
 
 " original repos on github
 Bundle 'supasorn/vim-easymotion.git'
-"Bundle 'Lokaltog/vim-easymotion.git'
-"Bundle 'haya14busa/vim-easyoperator-line'
 Bundle 'The-NERD-tree'
 Bundle 'scrooloose/nerdcommenter.git'
 
 "Bundle 'SuperTab'
-
 " To install YouCompleteMe
 "    cd ~/.vim/bundle/YouCompleteMe
 "    ./install.sh --clang-completer
 "Bundle 'Valloric/YouCompleteMe.git'
 Bundle 'Shougo/neocomplcache.git'
-"Bundle 'Shougo/neosnippet'
-"Bundle 'honza/vim-snippets.git'
 
 " Colorschemes
 Bundle 'xolox/vim-colorscheme-switcher'
-"Bundle 'chriskempson/base16-vim'
 
 Bundle 'surround.vim'
-"Bundle 'SearchComplete'
 Bundle 'kien/ctrlp.vim.git'
 Bundle 'SingleCompile'
-"Bundle 'myusuf3/numbers.vim'
+
 Bundle 'vim-scripts/a.vim.git'
 Bundle 'Raimondi/delimitMate.git'
 Bundle 'nathanaelkane/vim-indent-guides.git'
@@ -51,10 +45,8 @@ Bundle 'kshenoy/vim-signature.git'
 Bundle 'vim-scripts/mru.vim.git'
 Bundle 'mbbill/undotree.git'
 Bundle 'godlygeek/tabular.git'
-"Bundle 'vim-scripts/VIM-Color-Picker.git'
-"Bundle 'iandoe/vim-osx-colorpicker.git'
+
 Bundle 'skammer/vim-css-color.git'
-"Bundle 'terryma/vim-multiple-cursors.git'
 Bundle 'othree/html5.vim.git'
 Bundle 'mileszs/ack.vim.git'
 Bundle 'AndrewRadev/simple_bookmarks.vim'
@@ -62,6 +54,8 @@ Bundle 'ctags.vim'
 filetype plugin indent on     " required!
 
 syntax on
+
+colorscheme jellybeans
 set noswapfile
 set smartindent
 set autoindent
@@ -81,8 +75,26 @@ set display=lastline
 "set foldmethod=syntax
 set scrolloff=3
 set autoread
+set encoding=utf-8
+set laststatus=2
+let os = substitute(system('uname'), "\n", "", "")
+if os == "Linux"
+  "set guifont=Liberation\ Mono\ for\ Powerline\ 10
+  "set guifont=Inconsolata\ 9 
+  set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9 
+  "set guifont=Menlo\ for\ Powerline\ 9 
+else
+  "set guifont=Inconsolata\ for\ Powerline:h14 
+  set guifont=Droid\ Sans\ Mono\ for\ Powerline:h12
+  "set guifont=Menlo\ for\ Powerline:h12
+endif
 
-colorscheme jellybeans
+
+"----------------------------
+""""""    Constants    """""" 
+"----------------------------
+let g:Powerline_symbols = 'fancy'
+
 
 let g:session_autoload = 'no'
 let g:colorscheme_switcher_define_mappings = 0
@@ -117,21 +129,6 @@ let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
 let g:neocomplcache_max_list = 15
-" Plugin key-mappings.
-inoremap <expr><C-h>     neocomplcache#undo_completion()
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-inoremap <expr><C-k> neocomplcache#close_popup()
-"imap <C-TAB>  <Plug>(neocomplcache_snippets_force_expand_or_jump)
-
-" Enable omni completion. Not required if they are already set elsewhere in .vimrc
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete | set ts=4 | set sw=4
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-autocmd BufNewFile,BufReadPost *.ejs set filetype=html
 
 " Enable heavy omni completion, which require computational power and may stall the vim. 
 if !exists('g:neocomplcache_omni_patterns')
@@ -151,20 +148,20 @@ let g:airline_theme="dark"
 let g:airline_section_z=airline#section#create_right(['%l'])
 let g:airline_section_warning=airline#section#create_right(['%c'])
 
-let os = substitute(system('uname'), "\n", "", "")
-if os == "Linux"
-  "set guifont=Liberation\ Mono\ for\ Powerline\ 10
-  "set guifont=Inconsolata\ 9 
-  set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9 
-  "set guifont=Menlo\ for\ Powerline\ 9 
-else
-  "set guifont=Inconsolata\ for\ Powerline:h14 
-  set guifont=Droid\ Sans\ Mono\ for\ Powerline:h12
-  "set guifont=Menlo\ for\ Powerline:h12
-endif
-let g:Powerline_symbols = 'fancy'
-set encoding=utf-8
-set laststatus=2
+
+let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp|\.class$'
+let g:fuf_keyOpenVsplit = '<C-v>'
+
+
+"----------------------------
+""""""    Remapping    """""" 
+"----------------------------
+"
+inoremap <expr><C-h>     neocomplcache#undo_completion()
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+inoremap <expr><C-k> neocomplcache#close_popup()
+"imap <C-TAB>  <Plug>(neocomplcache_snippets_force_expand_or_jump)
 
 nmap \o yyPIprintf("<esc>A\n"); // GCODE <esc>
 
@@ -177,10 +174,6 @@ nnoremap j gj
 nnoremap k gk
 nnoremap =<SPACE> i <ESC>la <ESC>h
 
-"nnoremap ciw cw
-"nnoremap diw dw
-"nnoremap cw ciw
-"nnoremap dw diw
 map <c-h> <esc>:A<CR>
 
 nnoremap \r :call FirstLineCompile()<CR>
@@ -190,30 +183,9 @@ imap <F5> <esc>:call FirstLineCompile()<CR>
 command! -nargs=1 Gr call GrepCurrentDirectory(<f-args>)
 nnoremap gr :grep '\b<cword>\b' %:p:h/*<CR>
 
-command! OS OpenSession
-command! SS SaveSession
-command! RE RestartVim
-
-
-" For jumping through function arguments
-nmap <silent> ( :call JumpThroughParameter(-1)<CR>
-nmap <silent> ) :call JumpThroughParameter(1)<CR>
-"let blacklist = ['tex', 'txt', 'latex']
-"au Filetype * if index(blacklist, &ft) < 0 | 
-      "\ nmap <silent> ( :call JumpThroughParameter(-1)<CR>|
-      "\ nmap <silent> ) :call JumpThroughParameter(1)<CR>| 
-      "\ endif
-
-au Filetype *.vim nmap <F5> :so %<CR>
-au BufNewFile,BufRead *.cuh set filetype=cpp
-
 nnoremap \m :w<CR>:execute "try \| cd %:p:h \| cd bin \| catch \| \| endtry"<CR>:make %:t:r<CR>
 nnoremap \[ :cp<Cr>
 nnoremap \] :cn<Cr>
-
-" Auto open quickfix
-autocmd QuickFixCmdPost [^l]* nested botright cwindow 8
-autocmd QuickFixCmdPost    l* nested lwindow
 
 noremap -= =a}``
 inoremap } }<Esc>=%``a
@@ -228,10 +200,6 @@ nmap <F8> :TagbarToggle<CR>
 nmap <F4> :MRU<CR>/
 nmap <F9> :NextColorScheme<CR>
 nmap <s-F9> :PrevColorScheme<CR>
-
-imap <c-l> <Plug>IMAP_JumpForward
-nmap <c-l> <Plug>IMAP_JumpForward
-vmap <c-l> <Plug>IMAP_JumpForward
 
 nmap \p :call EasyMotion#SelectLinesPaste()<CR>
 
@@ -260,14 +228,45 @@ nmap \gg {gq}<C-O><C-O>
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 
-let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp|\.class$'
-let g:fuf_keyOpenVsplit = '<C-v>'
-
-au FileType cu,c,cpp let delimitMate_matchpairs = "(:),[:]"
-
 nnoremap <silent> <leader>gs :Gstatus<CR>/modified:<CR>
 nnoremap <silent> <leader>gc :Gcommit -m "auto commit"<CR>
 nnoremap <silent> <leader>gp :Git push<CR>
+
+command! OS OpenSession
+command! SS SaveSession
+command! RE RestartVim
+
+" For jumping through function arguments
+nmap <silent> ( :call JumpThroughParameter(-1)<CR>
+nmap <silent> ) :call JumpThroughParameter(1)<CR>
+"let blacklist = ['tex', 'txt', 'latex']
+"au Filetype * if index(blacklist, &ft) < 0 | 
+      "\ nmap <silent> ( :call JumpThroughParameter(-1)<CR>|
+      "\ nmap <silent> ) :call JumpThroughParameter(1)<CR>| 
+      "\ endif
+
+
+
+"----------------------------
+""""""     autocmd     """""" 
+"----------------------------
+
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete | set ts=4 | set sw=4
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+autocmd BufNewFile,BufReadPost *.ejs set filetype=html
+
+au Filetype *.vim nmap <F5> :so %<CR>
+au BufNewFile,BufRead *.cuh set filetype=cpp
+
+" Auto open quickfix
+autocmd QuickFixCmdPost [^l]* nested botright cwindow 8
+autocmd QuickFixCmdPost    l* nested lwindow
+
+au FileType cu,c,cpp let delimitMate_matchpairs = "(:),[:]"
 
 filetype plugin on
 
