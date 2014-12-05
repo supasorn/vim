@@ -9,6 +9,3 @@ ln -sf ~/.vim/vimrc ~/.vimrc
 ln -sf ~/.vim/gvimrc ~/.gvimrc
 
 vim +BundleInstall! +BundleClean +qall
-
-cd ~/.vim/bundle/YouCompleteMe
-./install.sh --clang-completer
