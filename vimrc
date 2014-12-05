@@ -95,7 +95,6 @@ endif
 "----------------------------
 let g:Powerline_symbols = 'fancy'
 
-
 let g:session_autoload = 'no'
 let g:colorscheme_switcher_define_mappings = 0
 let g:colorscheme_switcher_exclude = ['default', 'guardian', 'macvim', 'slate', 'torte', 'blue', 'delek', 'desert', 'elflord', 'koehler', 'morning', 'pablo', 'ron', 'zellner', 'darkblue', 'evening', 'shine', 'murphy', 'peachpuff']
@@ -110,9 +109,6 @@ let g:Imap_UsePlaceHolders = 0
 let tex_no_error=1
 let g:session_autosave = 'no'
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
-
-let g:syntastic_check_on_open=1
-let g:syntastic_enable_signs=1
 
 let g:fuf_fuzzyRefining = 1
 
@@ -147,7 +143,6 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme="dark"
 let g:airline_section_z=airline#section#create_right(['%l'])
 let g:airline_section_warning=airline#section#create_right(['%c'])
-
 
 let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp|\.class$'
 let g:fuf_keyOpenVsplit = '<C-v>'
