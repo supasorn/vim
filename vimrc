@@ -50,7 +50,9 @@ Bundle 'skammer/vim-css-color.git'
 Bundle 'othree/html5.vim.git'
 Bundle 'mileszs/ack.vim.git'
 Bundle 'AndrewRadev/simple_bookmarks.vim'
+Bundle 'xolox/vim-easytags'
 Bundle 'ctags.vim'
+
 filetype plugin indent on     " required!
 
 syntax on
