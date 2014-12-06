@@ -25,7 +25,6 @@ Bundle 'xolox/vim-colorscheme-switcher'
 Bundle 'surround.vim'
 Bundle 'kien/ctrlp.vim.git'
 Bundle 'SingleCompile'
-
 Bundle 'vim-scripts/a.vim.git'
 Bundle 'Raimondi/delimitMate.git'
 Bundle 'nathanaelkane/vim-indent-guides.git'
