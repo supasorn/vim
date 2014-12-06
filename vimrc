@@ -281,6 +281,7 @@ au BufNewFile,BufRead *.as           setf actionscript
 
 " This beauty remembers where you were the last time you edited the file, and returns to the same position.
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+autocmd BufWritePost *.cpp,*.h,*.c,*.cc call UpdateTags()
 
 if filereadable(expand("~/.vim/vimrc.functions"))
   source ~/.vim/vimrc.functions
