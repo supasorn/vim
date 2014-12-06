@@ -95,8 +95,13 @@ endif
 "----------------------------
 """"""    Constants    """""" 
 "----------------------------
-let g:EchoFuncKeyNext = '<D-j>'
-let g:EchoFuncKeyPrev = '<D-k>'
+if os == "Linux"
+  let g:EchoFuncKeyNext = '<m-j>'
+  let g:EchoFuncKeyPrev = '<m-k>'
+else
+  let g:EchoFuncKeyNext = '<D-j>'
+  let g:EchoFuncKeyPrev = '<D-k>'
+endif
 
 let g:Powerline_symbols = 'fancy'
 
