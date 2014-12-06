@@ -50,8 +50,9 @@ Bundle 'skammer/vim-css-color.git'
 Bundle 'othree/html5.vim.git'
 Bundle 'mileszs/ack.vim.git'
 Bundle 'AndrewRadev/simple_bookmarks.vim'
-Bundle 'xolox/vim-easytags'
+"Bundle 'xolox/vim-easytags'
 Bundle 'ctags.vim'
+Bundle 'mbbill/echofunc.git'
 
 filetype plugin indent on     " required!
 
@@ -95,6 +96,9 @@ endif
 "----------------------------
 """"""    Constants    """""" 
 "----------------------------
+let g:EchoFuncKeyNext = '<D-j>'
+let g:EchoFuncKeyPrev = '<D-k>'
+
 let g:Powerline_symbols = 'fancy'
 
 let g:session_autoload = 'no'
