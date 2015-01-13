@@ -190,7 +190,7 @@ imap <F5> <esc>:call FirstLineCompile()<CR>
 command! -nargs=1 Gr call GrepCurrentDirectory(<f-args>)
 nnoremap gr :grep '\b<cword>\b' %:p:h/*<CR>
 
-nnoremap \m :w<CR>:execute "try \| cd %:p:h \| cd bin \| catch \| try \| cd ../bin \| catch \| endtry \| endtry"<CR>:make %:t:r<CR>
+nnoremap \m :w<CR>:execute "cd %:p:h \| try \| cd bin \| catch \| try \| cd ../bin \| catch \| endtry \| endtry"<CR>:make %:t:r<CR>
 nnoremap \[ :cp<Cr>
 nnoremap \] :cn<Cr>
 
