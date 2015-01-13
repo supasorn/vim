@@ -57,7 +57,9 @@ filetype plugin indent on     " required!
 
 syntax on
 
-colorscheme jellybeans
+"colorscheme jellybeans
+colorscheme hybrid
+
 set noswapfile
 set smartindent
 set autoindent
@@ -107,7 +109,7 @@ let g:Powerline_symbols = 'fancy'
 
 let g:session_autoload = 'no'
 let g:colorscheme_switcher_define_mappings = 0
-let g:colorscheme_switcher_exclude = ['default', 'guardian', 'macvim', 'slate', 'torte', 'blue', 'delek', 'desert', 'elflord', 'koehler', 'morning', 'pablo', 'ron', 'zellner', 'darkblue', 'evening', 'shine', 'murphy', 'peachpuff']
+let g:colorscheme_switcher_exclude = ['default', 'guardian', 'macvim', 'slate', 'torte', 'blue', 'delek', 'desert', 'elflord', 'koehler', 'morning', 'pablo', 'ron', 'zellner', 'darkblue', 'evening', 'shine', 'murphy', 'peachpuff', 'chlordane']
 
 "let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 1
