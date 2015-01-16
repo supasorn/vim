@@ -85,6 +85,9 @@ let os = substitute(system('uname'), "\n", "", "")
 if os == "Linux"
   if match(system('uname -n'), "washington") >= 0
     set guifont=Inconsolata\ 9 
+    set go-=m
+    set go-=r
+    set go-=L
   else
     set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9 
   endif
