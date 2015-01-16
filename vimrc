@@ -83,9 +83,13 @@ set encoding=utf-8
 set laststatus=2
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Linux"
+  if match(system('uname -n'), "washington") >= 0
+    set guifont=Inconsolata\ 9 
+  else
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9 
+  endif
   "set guifont=Liberation\ Mono\ for\ Powerline\ 10
   "set guifont=Inconsolata\ 9 
-  set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9 
   "set guifont=Menlo\ for\ Powerline\ 9 
 else
   "set guifont=Inconsolata\ for\ Powerline:h14 
