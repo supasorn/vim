@@ -88,6 +88,8 @@ if os == "Linux"
     set go-=m
     set go-=r
     set go-=L
+  elseif match(system('uname -n'), "raspberrypi") >= 0
+    set guifont=Inconsolata\ 9 
   else
     set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9 
   endif
