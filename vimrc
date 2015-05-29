@@ -51,7 +51,6 @@ Bundle 'mileszs/ack.vim.git'
 Bundle 'AndrewRadev/simple_bookmarks.vim'
 "Bundle 'xolox/vim-easytags'
 Bundle 'ctags.vim'
-Bundle 'mbbill/echofunc.git'
 Bundle 'PeterRincker/vim-argumentative.git'
 
 filetype plugin indent on     " required!
