@@ -76,7 +76,8 @@ set wildmenu
 set wildmode=list:longest,full
 set incsearch
 set display=lastline
-"set foldmethod=syntax
+
+set foldmethod=syntax
 set scrolloff=3
 set autoread
 set encoding=utf-8
@@ -89,6 +90,8 @@ if os == "Linux"
     set go-=r
     set go-=L
   elseif match(system('uname -n'), "raspberrypi") >= 0
+    set guifont=Inconsolata\ 9 
+  elseif match(system('uname -n'), "supasorn.cam.corp.google.com") >= 0
     set guifont=Inconsolata\ 9 
   else
     set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9 
