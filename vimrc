@@ -92,7 +92,9 @@ if os == "Linux"
   elseif match(system('uname -n'), "raspberrypi") >= 0
     set guifont=Inconsolata\ 9 
   elseif match(system('uname -n'), "supasorn.cam.corp.google.com") >= 0
-    set guifont=Inconsolata\ 9 
+    "set guifont=Inconsolata\ 9 
+    "set guifont=Inconsolata\ for\ Powerline\ 11 
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9 
   else
     set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9 
   endif
