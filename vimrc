@@ -60,6 +60,7 @@ syntax on
 "colorscheme jellybeans
 colorscheme hybrid
 
+set noeb vb t_vb=
 set noswapfile
 set smartindent
 set autoindent
