@@ -21,6 +21,7 @@ Bundle 'Shougo/neocomplcache.git'
 
 " Colorschemes
 Bundle 'xolox/vim-colorscheme-switcher'
+Bundle 'freeo/vim-kalisi'
 
 Bundle 'surround.vim'
 Bundle 'kien/ctrlp.vim.git'
