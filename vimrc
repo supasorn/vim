@@ -61,6 +61,8 @@ syntax on
 "colorscheme jellybeans
 colorscheme hybrid
 
+autocmd GUIEnter * set visualbell t_vb=
+set noeb
 set noswapfile
 set smartindent
 set autoindent
@@ -77,7 +79,8 @@ set wildmenu
 set wildmode=list:longest,full
 set incsearch
 set display=lastline
-"set foldmethod=syntax
+
+set foldmethod=syntax
 set scrolloff=3
 set autoread
 set encoding=utf-8
@@ -91,6 +94,11 @@ if os == "Linux"
     set go-=L
   elseif match(system('uname -n'), "raspberrypi") >= 0
     set guifont=Inconsolata\ 9 
+  elseif match(system('uname -n'), "supasorn.cam.corp.google.com") >= 0
+    set go-=m
+    set go-=r
+    set go-=L
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9 
   else
     set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9 
   endif
