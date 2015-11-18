@@ -4,6 +4,7 @@ filetype off                   " required!
 set shell=/bin/bash
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+set mouse=a
 
 Bundle 'gmarik/vundle'
 
@@ -80,7 +81,7 @@ set wildmode=list:longest,full
 set incsearch
 set display=lastline
 
-set foldmethod=syntax
+"set foldmethod=syntax
 set scrolloff=3
 set autoread
 set encoding=utf-8
