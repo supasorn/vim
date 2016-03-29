@@ -280,7 +280,7 @@ nmap <silent> ) :call JumpThroughParameter(1)<CR>
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete | set ts=4 | set sw=4
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete | set ts=2 | set sw=2
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 autocmd BufNewFile,BufReadPost *.ejs set filetype=html
