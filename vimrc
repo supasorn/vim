@@ -12,6 +12,7 @@ Bundle 'gmarik/vundle'
 Bundle 'supasorn/vim-easymotion.git'
 Bundle 'The-NERD-tree'
 Bundle 'scrooloose/nerdcommenter.git'
+Bundle 'Rename2'
 
 "Bundle 'SuperTab'
 " To install YouCompleteMe
