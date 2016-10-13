@@ -193,6 +193,7 @@ map <c-h> <esc>:A<CR>
 nnoremap \r :call FirstLineCompile()<CR>
 nmap <F5> :call FirstLineCompile()<CR>
 imap <F5> <esc>:call FirstLineCompile()<CR>
+nnoremap \u :call SCPSourceFile()<CR>
 
 command! -nargs=1 Gr call GrepCurrentDirectory(<f-args>)
 nnoremap gr :grep '\b<cword>\b' %:p:h/*<CR>
