@@ -4,6 +4,7 @@ filetype off                   " required!
 set shell=/bin/bash
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+set mouse=a
 
 Bundle 'gmarik/vundle'
 
@@ -11,6 +12,7 @@ Bundle 'gmarik/vundle'
 Bundle 'supasorn/vim-easymotion.git'
 Bundle 'The-NERD-tree'
 Bundle 'scrooloose/nerdcommenter.git'
+Bundle 'Rename2'
 
 "Bundle 'SuperTab'
 " To install YouCompleteMe
@@ -21,6 +23,7 @@ Bundle 'Shougo/neocomplcache.git'
 
 " Colorschemes
 Bundle 'xolox/vim-colorscheme-switcher'
+Bundle 'freeo/vim-kalisi'
 
 Bundle 'surround.vim'
 Bundle 'kien/ctrlp.vim.git'
@@ -51,7 +54,7 @@ Bundle 'mileszs/ack.vim.git'
 Bundle 'AndrewRadev/simple_bookmarks.vim'
 "Bundle 'xolox/vim-easytags'
 Bundle 'ctags.vim'
-Bundle 'mbbill/echofunc.git'
+Bundle 'PeterRincker/vim-argumentative.git'
 
 filetype plugin indent on     " required!
 
@@ -60,6 +63,8 @@ syntax on
 "colorscheme jellybeans
 colorscheme hybrid
 
+autocmd GUIEnter * set visualbell t_vb=
+set noeb
 set noswapfile
 set smartindent
 set autoindent
@@ -76,6 +81,7 @@ set wildmenu
 set wildmode=list:longest,full
 set incsearch
 set display=lastline
+
 "set foldmethod=syntax
 set scrolloff=3
 set autoread
@@ -88,6 +94,13 @@ if os == "Linux"
     set go-=m
     set go-=r
     set go-=L
+  elseif match(system('uname -n'), "raspberrypi") >= 0
+    set guifont=Inconsolata\ 9 
+  elseif match(system('uname -n'), "supasorn.cam.corp.google.com") >= 0
+    set go-=m
+    set go-=r
+    set go-=L
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9 
   else
     set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9 
   endif
@@ -269,7 +282,7 @@ nmap <silent> ) :call JumpThroughParameter(1)<CR>
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete | set ts=4 | set sw=4
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete | set ts=2 | set sw=2
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 autocmd BufNewFile,BufReadPost *.ejs set filetype=html
