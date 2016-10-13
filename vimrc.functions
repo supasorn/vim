@@ -59,3 +59,9 @@ function! UpdateTags()
   call DelTagOfFile(f)
   let resp = system(cmd)
 endfunction
+
+function! SCPSourceFile() 
+  let dir = expand("%:p:h") 
+  echo match("/Users/supasorn/Research/", dir)
+  echo dir
+endfunction 
