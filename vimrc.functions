@@ -62,6 +62,12 @@ endfunction
 
 function! SCPSourceFile() 
   let dir = expand("%:p:h") 
-  echo match("/Users/supasorn/Research/", dir)
-  echo dir
+  let ldir = "/Users/supasorn/Research/"
+  let rdir = "/home/supasorn/research/"
+  if match(dir, ldir) == 0
+    let cmd = "scp " . expand("%:p") . " supasorn@174.21.163.107:" . substitute(expand("%:p"), ldir, rdir, "g")
+    echo cmd
+    let resp = system(cmd)
+    echo resp
+  endif
 endfunction 
