@@ -55,6 +55,7 @@ Bundle 'AndrewRadev/simple_bookmarks.vim'
 "Bundle 'xolox/vim-easytags'
 Bundle 'ctags.vim'
 Bundle 'PeterRincker/vim-argumentative.git'
+Bundle 'skywind3000/asyncrun.vim'
 
 filetype plugin indent on     " required!
 
@@ -203,6 +204,10 @@ nnoremap =<SPACE> i <ESC>la <ESC>h
 
 map <c-h> <esc>:A<CR>
 
+" Map keyboard clipboard to k, mouse clipboard to m
+map "k "+
+map "m "*
+
 nnoremap \r :call FirstLineCompile()<CR>
 nmap <F5> :call FirstLineCompile()<CR>
 imap <F5> <esc>:call FirstLineCompile()<CR>
@@ -309,3 +314,9 @@ autocmd BufWritePost *.cpp,*.h,*.c,*.cc call UpdateTags()
 if filereadable(expand("~/.vim/vimrc.functions"))
   source ~/.vim/vimrc.functions
 endif
+
+augroup QuickfixStatus
+    au! BufWinEnter quickfix setlocal 
+        \ statusline=%t\ [%{g:asyncrun_status}]\ %{exists('w:quickfix_title')?\ '\ '.w:quickfix_title\ :\ ''}\ %=%-15(%l,%c%V%)\ %P
+augroup END
+let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
