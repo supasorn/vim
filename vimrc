@@ -12,7 +12,6 @@ Bundle 'gmarik/vundle'
 Bundle 'supasorn/vim-easymotion.git'
 Bundle 'The-NERD-tree'
 Bundle 'scrooloose/nerdcommenter.git'
-Bundle 'Rename2'
 
 "Bundle 'SuperTab'
 " To install YouCompleteMe
@@ -27,15 +26,14 @@ Bundle 'freeo/vim-kalisi'
 
 Bundle 'surround.vim'
 Bundle 'kien/ctrlp.vim.git'
-Bundle 'SingleCompile'
-Bundle 'vim-scripts/a.vim.git'
+
+Bundle 'vim-scripts/a.vim.git' 
 Bundle 'Raimondi/delimitMate.git'
-Bundle 'nathanaelkane/vim-indent-guides.git'
 Bundle 'xolox/vim-misc.git'
 Bundle 'xolox/vim-session.git'
 Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive.git'
-Bundle 'corntrace/bufexplorer.git'
+
 Bundle 'tpope/vim-repeat.git'
 Bundle 'dahu/vim-fanfingtastic.git'
 if executable('ctags')
@@ -50,12 +48,12 @@ Bundle 'godlygeek/tabular.git'
 
 Bundle 'skammer/vim-css-color.git'
 Bundle 'othree/html5.vim.git'
-Bundle 'mileszs/ack.vim.git'
 Bundle 'AndrewRadev/simple_bookmarks.vim'
-"Bundle 'xolox/vim-easytags'
+
 Bundle 'ctags.vim'
 Bundle 'PeterRincker/vim-argumentative.git'
 Bundle 'skywind3000/asyncrun.vim'
+Bundle 'vim-scripts/Conque-GDB'
 
 filetype plugin indent on     " required!
 
@@ -180,7 +178,9 @@ let g:airline_section_warning=airline#section#create_right(['%c'])
 let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp|\.class$'
 let g:fuf_keyOpenVsplit = '<C-v>'
 
-
+let g:ConqueTerm_Color = 2         " 1: strip color after 200 lines, 2: always with color
+let g:ConqueTerm_CloseOnEnd = 1    " close conque when program ends running
+let g:ConqueTerm_StartMessages = 0 " display warning messages if conqueTerm is configured incorrectly
 "----------------------------
 """"""    Remapping    """""" 
 "----------------------------
@@ -191,15 +191,11 @@ inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 inoremap <expr><C-k> neocomplcache#close_popup()
 "imap <C-TAB>  <Plug>(neocomplcache_snippets_force_expand_or_jump)
 
-nmap \o yyPIprintf("<esc>A\n"); // GCODE <esc>
-
 noremap Y y$
 vnoremap y y`>
-noremap ci,, T,ct,
-noremap ci(, T(ct,
-noremap ci,) T,ct)
 nnoremap j gj
 nnoremap k gk
+
 nnoremap =<SPACE> i <ESC>la <ESC>h
 
 map <c-h> <esc>:A<CR>
@@ -208,10 +204,7 @@ map <c-h> <esc>:A<CR>
 map "k "+
 map "m "*
 
-nnoremap \r :call FirstLineCompile()<CR>
-nmap <F5> :call FirstLineCompile()<CR>
-imap <F5> <esc>:call FirstLineCompile()<CR>
-nnoremap \u :call SCPSourceFile()<CR>
+"nnoremap \r :call FirstLineCompile()<CR>
 
 command! -nargs=1 Gr call GrepCurrentDirectory(<f-args>)
 nnoremap gr :grep '\b<cword>\b' %:p:h/*<CR>
@@ -221,13 +214,11 @@ nnoremap \[ :cp<Cr>
 nnoremap \] :cn<Cr>
 
 noremap -= =a}``
-inoremap } }<Esc>=%``a
 
 map [[ ?{<CR>w99[{
 map ]] j0[[%/{<CR>
 vnoremap < <gv
 vnoremap > >gv
-vmap F 99[{O][
 
 nmap <F8> :TagbarToggle<CR>
 nmap <F4> :MRU<CR>/
@@ -240,15 +231,16 @@ map <c-j> <leader>j
 vmap <c-j> <leader>j
 map <c-k> <leader>k
 vmap <c-k> <leader>k
-map <c-f> <leader>f
-map <c-g> <leader>F
+ 
+" ConqueGDB
+map <leader>r :execute "ConqueGdb ../bin_debug/%:t:r"<CR>
+
 
 nmap <SPACE> <leader>s
-"nmap <SPACE> <Plug>(easymotion-s)
-nmap <leader><SPACE> <Plug>(easymotion-s)
 vmap <SPACE> <leader>s
 map <c-c> <plug>NERDCommenterToggle<c-m>
 noremap <C-n> :NERDTreeToggle<CR>
+
 "nmap <F2> :cd %:p:h<CR>:FufFile<CR>
 nmap <F2> :FufFileWithCurrentBufferDir<CR>
 imap <F2> <esc>:FufFileWithCurrentBufferDir<CR>
@@ -256,7 +248,6 @@ nmap <s-F2> :FufRenewCache<CR>
 imap <s-F2> <esc>:FufRenewCache<CR>
 nmap <F3> :FufBuffer<CR>
 imap <F3> <esc>:FufBuffer<CR>
-nmap \gg {gq}<C-O><C-O>
 
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
