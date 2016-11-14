@@ -181,6 +181,11 @@ let g:fuf_keyOpenVsplit = '<C-v>'
 let g:ConqueTerm_Color = 2         " 1: strip color after 200 lines, 2: always with color
 let g:ConqueTerm_CloseOnEnd = 1    " close conque when program ends running
 let g:ConqueTerm_StartMessages = 0 " display warning messages if conqueTerm is configured incorrectly
+
+let g:ConqueGdb_Continue = '<F5>'
+let g:ConqueGdb_Run = '<C-F5>'
+let g:ConqueGdb_Next = '<F6>'
+let g:ConqueGdb_Step = '<F7>'
 "----------------------------
 """"""    Remapping    """""" 
 "----------------------------
