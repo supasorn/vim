@@ -186,6 +186,8 @@ let g:ConqueGdb_Continue = '<F5>'
 let g:ConqueGdb_Run = '<C-F5>'
 let g:ConqueGdb_Next = '<F6>'
 let g:ConqueGdb_Step = '<F7>'
+
+let g:netrw_silent = 1
 "----------------------------
 """"""    Remapping    """""" 
 "----------------------------
@@ -274,6 +276,7 @@ nmap <silent> ) :call JumpThroughParameter(1)<CR>
       "\ nmap <silent> ) :call JumpThroughParameter(1)<CR>| 
       "\ endif
 
+nmap <C-r> :call OpenRemoteOrLocal()<CR>
 
 
 "----------------------------
