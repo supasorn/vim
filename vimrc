@@ -276,7 +276,7 @@ nmap <silent> ) :call JumpThroughParameter(1)<CR>
       "\ nmap <silent> ) :call JumpThroughParameter(1)<CR>| 
       "\ endif
 
-nmap <C-r> :call OpenRemoteOrLocal()<CR>
+nmap <F10> :call OpenRemoteOrLocal()<CR>
 
 
 "----------------------------
