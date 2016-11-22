@@ -186,6 +186,7 @@ let g:ConqueGdb_Continue = '<F5>'
 let g:ConqueGdb_Run = '<C-F5>'
 let g:ConqueGdb_Next = '<F6>'
 let g:ConqueGdb_Step = '<F7>'
+let g:ConqueTerm_ToggleKey = ''
 
 let g:netrw_silent = 1
 "----------------------------
