@@ -61,7 +61,7 @@ function! UpdateTags()
 endfunction
 
 function! SCPSourceFile() 
-  let dir = expand("%:p:h") 
+  let dir = expand("%:p") 
   let ldir = "/Users/supasorn/Research/"
   let rdir = "/home/supasorn/research/"
   if match(dir, ldir) == 0
