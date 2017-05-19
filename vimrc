@@ -35,7 +35,7 @@ Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive.git'
 
 Bundle 'tpope/vim-repeat.git'
-Bundle 'dahu/vim-fanfingtastic.git' "find character across lines
+Bundle 'dahu/vim-fanfingtastic.git' 
 
 if executable('ctags')
   Bundle 'majutsushi/tagbar'
