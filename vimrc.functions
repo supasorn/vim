@@ -71,3 +71,17 @@ function! SCPSourceFile()
     echo resp
   endif
 endfunction 
+
+function! OpenRemoteOrLocal() 
+  let dir = expand("%:p:h") 
+  let ldir = "/home/supasorn/research/"
+  let rdir = "/homes/grail/supasorn/research/"
+  let scp = "scp://flatwhite.cs.washington.edu/"
+  if match(dir, ldir) == 0
+    let cmd = "e " . scp . substitute(expand("%:p"), ldir, rdir, "g")
+    execute cmd
+  elseif match(dir, "scp") == 0
+    let cmd = "e " . substitute(substitute(expand("%:p"), scp, "", "g"), rdir, ldir, "g")
+    execute cmd
+  endif
+endfunction 
