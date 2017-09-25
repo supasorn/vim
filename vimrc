@@ -55,6 +55,9 @@ Bundle 'ctags.vim'
 Bundle 'PeterRincker/vim-argumentative.git'
 Bundle 'skywind3000/asyncrun.vim'
 Bundle 'vim-scripts/Conque-GDB'
+"Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'Yggdroot/indentLine'
+
 
 filetype plugin indent on     " required!
 
@@ -81,6 +84,7 @@ set wildmenu
 set wildmode=list:longest,full
 set incsearch
 set display=lastline
+"set colorcolumn=80
 
 "set foldmethod=syntax
 set scrolloff=3
@@ -96,11 +100,13 @@ if os == "Linux"
     set go-=L
   elseif match(system('uname -n'), "raspberrypi") >= 0
     set guifont=Inconsolata\ 9 
-  elseif match(system('uname -n'), "supasorn.cam.corp.google.com") >= 0
+  elseif match(system('uname -n'), "supasorn.mtv.corp.google.com") >= 0
     set go-=m
     set go-=r
     set go-=L
-    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9 
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11 
+    "set guifont=Inconsolata\ for\ Powerline\ 13 
+    "set guifont=Inconsolata\ 9 
   else
     set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9 
   endif
@@ -112,7 +118,7 @@ else
   set guifont=Droid\ Sans\ Mono\ for\ Powerline:h12
   "set guifont=Menlo\ for\ Powerline:h12
 endif
-
+set completeopt-=preview
 
 "----------------------------
 """"""    Constants    """""" 
@@ -183,8 +189,9 @@ let g:ConqueTerm_Color = 2         " 1: strip color after 200 lines, 2: always w
 let g:ConqueTerm_CloseOnEnd = 1    " close conque when program ends running
 let g:ConqueTerm_StartMessages = 0 " display warning messages if conqueTerm is configured incorrectly
 
-let g:ConqueGdb_Continue = '<F5>'
-let g:ConqueGdb_Run = '<C-F5>'
+"let g:ConqueGdb_Continue = '<F5>'
+"let g:ConqueGdb_Run = '<C-F5>'
+"
 let g:ConqueGdb_Next = '<F6>'
 let g:ConqueGdb_Step = '<F7>'
 let g:ConqueTerm_ToggleKey = ''
@@ -242,13 +249,16 @@ map <c-k> <leader>k
 vmap <c-k> <leader>k
  
 " ConqueGDB
-map <leader>r :execute "ConqueGdb ../bin_debug/%:t:r"<CR>
+map <leader>r :NERDTreeFind<cr>
 
 
 nmap <SPACE> <leader>s
 vmap <SPACE> <leader>s
 map <c-c> <plug>NERDCommenterToggle<c-m>
 noremap <C-n> :NERDTreeToggle<CR>
+
+nmap <F5> :e %<CR>
+imap <F5> <esc>:e %<CR>
 
 "nmap <F2> :cd %:p:h<CR>:FufFile<CR>
 nmap <F2> :FufFileWithCurrentBufferDir<CR>
