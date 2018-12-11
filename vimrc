@@ -28,7 +28,7 @@ Bundle 'surround.vim'
 Bundle 'kien/ctrlp.vim.git'
 
 Bundle 'vim-scripts/a.vim.git' 
-Bundle 'Raimondi/delimitMate.git'
+Bundle 'wellle/targets.vim.git'
 Bundle 'xolox/vim-misc.git'
 Bundle 'xolox/vim-session.git'
 Bundle 'bling/vim-airline'
@@ -67,6 +67,7 @@ syntax on
 colorscheme hybrid
 
 autocmd GUIEnter * set visualbell t_vb=
+"set encoding=UTF-8
 set noeb
 set noswapfile
 set smartindent
@@ -92,26 +93,23 @@ set autoread
 set encoding=utf-8
 set laststatus=2
 let os = substitute(system('uname'), "\n", "", "")
+
+set go-=m
+set go-=r
+set go-=L
 if os == "Linux"
   if match(system('uname -n'), "washington") >= 0
     set guifont=Inconsolata\ 9 
-    set go-=m
-    set go-=r
-    set go-=L
   elseif match(system('uname -n'), "raspberrypi") >= 0
     set guifont=Inconsolata\ 9 
   elseif match(system('uname -n'), "supasorn.mtv.corp.google.com") >= 0
-    set go-=m
-    set go-=r
-    set go-=L
     set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11 
     "set guifont=Inconsolata\ for\ Powerline\ 13 
     "set guifont=Inconsolata\ 9 
   else
-    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9 
+    "set guifont=Inconsolata\ for\ Powerline\ 10 
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11 
   endif
-  "set guifont=Liberation\ Mono\ for\ Powerline\ 10
-  "set guifont=Inconsolata\ 9 
   "set guifont=Menlo\ for\ Powerline\ 9 
 else
   "set guifont=Inconsolata\ for\ Powerline:h14 
