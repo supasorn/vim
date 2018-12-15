@@ -32,6 +32,8 @@ Plug 'Raimondi/delimitMate'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 Plug 'tpope/vim-fugitive'
 
 Plug 'tpope/vim-repeat'
@@ -59,11 +61,12 @@ Plug 'PeterRincker/vim-argumentative'
 Plug 'skywind3000/asyncrun.vim'
 call plug#end()
 
+set background=dark
 colorscheme gruvbox
 
 autocmd GUIEnter * set visualbell t_vb=
 
-set t_Co=256
+"set t_Co=256
 set mouse=a
 set noeb
 set noswapfile
@@ -140,7 +143,8 @@ let tex_no_error=1
 let g:session_autosave = 'no'
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 
-let g:fuf_fuzzyRefining = 1
+let g:fuf_fuzzyRefining = 0
+let g:fuf_patternSeparator = ' '
 
 let g:neocomplcache_enable_at_startup = 1
 " Use smartcase.
@@ -171,10 +175,11 @@ let g:neocomplcache_fuzzy_completion_start_length = 2
 
 if !empty(glob('~/.vim/plugged/vim-airline'))
   let g:airline_powerline_fonts = 1
-  let g:airline_theme="dark"
+  let g:airline_theme="wombat"
   let g:airline_section_z=airline#section#create_right(['%l'])
   let g:airline_section_warning=airline#section#create_right(['%c'])
   let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
+  let g:airline_section_c = '%<%f %#__accent_red#%m%#__restore__# %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
 endif
 
 let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp|\.class$'
