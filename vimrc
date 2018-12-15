@@ -5,6 +5,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+else
+  colorscheme gruvbox
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -60,7 +62,6 @@ Plug 'Yggdroot/indentLine'
 call plug#end()
 
 
-colorscheme gruvbox
 
 autocmd GUIEnter * set visualbell t_vb=
 set mouse=a
@@ -168,7 +169,7 @@ let g:neocomplcache_enable_fuzzy_completion = 1
 let g:neocomplcache_fuzzy_completion_start_length = 2
 
 
-if exists('g:airline_loaded')
+if !empty(glob('~/.vim/plugged/vim-airline'))
   let g:airline_powerline_fonts = 1
   let g:airline_theme="dark"
   let g:airline_section_z=airline#section#create_right(['%l'])
