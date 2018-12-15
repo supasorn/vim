@@ -130,8 +130,8 @@ else
   let g:EchoFuncKeyPrev = '<D-k>'
 endif
 
-let g:session_autoload = 'no'
-let g:session_autosave = 'no'
+let g:session_autoload = 'yes'
+let g:session_autosave = 'yes'
 
 let g:colorscheme_switcher_define_mappings = 0
 let g:colorscheme_switcher_exclude_builtins = 1
