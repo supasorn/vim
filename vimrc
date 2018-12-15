@@ -25,8 +25,8 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'junegunn/seoul256.vim'
 
 Plug 'tpope/vim-surround'
-Plug 'kien/ctrlp.vim'
 
+"Change between .c <-> .h
 Plug 'vim-scripts/a.vim' 
 Plug 'Raimondi/delimitMate'
 Plug 'xolox/vim-misc'
@@ -43,6 +43,8 @@ Plug 'dahu/vim-fanfingtastic'
 
 Plug 'vim-scripts/L9'
 Plug 'vim-scripts/FuzzyFinder'
+
+" bookmark display
 Plug 'kshenoy/vim-signature'
 Plug 'vim-scripts/mru.vim'
 Plug 'mbbill/undotree'
@@ -55,8 +57,6 @@ Plug 'AndrewRadev/simple_bookmarks.vim'
 Plug 'vim-scripts/ctags.vim'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'skywind3000/asyncrun.vim'
-"Plug 'nathanaelkane/vim-indent-guides'
-Plug 'Yggdroot/indentLine'
 call plug#end()
 
 colorscheme gruvbox
