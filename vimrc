@@ -59,10 +59,10 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'Yggdroot/indentLine'
 call plug#end()
 
+colorscheme gruvbox
 
 autocmd GUIEnter * set visualbell t_vb=
 
-colorscheme gruvbox
 set t_Co=256
 set mouse=a
 set noeb
