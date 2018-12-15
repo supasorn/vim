@@ -9,13 +9,25 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" original repos on github
+" Fast
 Plug 'supasorn/vim-easymotion'
-Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-
+Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
+Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-repeat'
+Plug 'dahu/vim-fanfingtastic' 
+Plug 'vim-scripts/FuzzyFinder'
+Plug 'vim-scripts/mru.vim'
+Plug 'PeterRincker/vim-argumentative'
+
+" Utilities
+Plug 'scrooloose/nerdtree'
+Plug 'xolox/vim-session'
 Plug 'Shougo/neocomplcache'
+Plug 'vim-scripts/a.vim' 
+Plug 'mbbill/undotree'
+Plug 'godlygeek/tabular'
 
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
@@ -24,41 +36,31 @@ Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'junegunn/seoul256.vim'
 
-Plug 'tpope/vim-surround'
-
-"Change between .c <-> .h
-Plug 'vim-scripts/a.vim' 
-Plug 'Raimondi/delimitMate'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
+" Pretty
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'tpope/vim-fugitive'
+" Misc
+Plug 'xolox/vim-misc'
+Plug 'vim-scripts/L9'
 
-Plug 'tpope/vim-repeat'
-Plug 'dahu/vim-fanfingtastic' 
+" Integration
+Plug 'tpope/vim-fugitive'
 
 "if executable('ctags')
   "Plug 'majutsushi/tagbar'
 "endif
 
-Plug 'vim-scripts/L9'
-Plug 'vim-scripts/FuzzyFinder'
-
-" bookmark display
+" Bookmark Display
 Plug 'kshenoy/vim-signature'
-Plug 'vim-scripts/mru.vim'
-Plug 'mbbill/undotree'
-Plug 'godlygeek/tabular'
 
+" Syntax
 Plug 'skammer/vim-css-color'
 Plug 'othree/html5.vim'
 Plug 'AndrewRadev/simple_bookmarks.vim'
 
 Plug 'vim-scripts/ctags.vim'
-Plug 'PeterRincker/vim-argumentative'
-Plug 'skywind3000/asyncrun.vim'
+
 call plug#end()
 
 set background=dark
@@ -144,6 +146,8 @@ let g:session_autosave = 'no'
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 
 let g:fuf_fuzzyRefining = 0
+let g:fuf_maxMenuWidth = 150
+
 let g:fuf_patternSeparator = ' '
 
 let g:neocomplcache_enable_at_startup = 1
@@ -260,7 +264,7 @@ noremap <C-n> :NERDTreeToggle<CR>
 nmap <F5> :e %<CR>
 imap <F5> <esc>:e %<CR>
 
-"nmap <F2> :cd %:p:h<CR>:FufFile<CR>
+nmap ? :FufLine<CR>
 nmap <F2> :FufFileWithCurrentBufferDir<CR>
 imap <F2> <esc>:FufFileWithCurrentBufferDir<CR>
 nmap <s-F2> :FufRenewCache<CR>
