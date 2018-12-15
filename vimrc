@@ -55,7 +55,6 @@ Plug 'AndrewRadev/simple_bookmarks.vim'
 Plug 'vim-scripts/ctags.vim'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'skywind3000/asyncrun.vim'
-Plug 'vim-scripts/Conque-GDB'
 "Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Yggdroot/indentLine'
 call plug#end()
