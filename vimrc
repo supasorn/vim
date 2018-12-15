@@ -168,10 +168,13 @@ let g:neocomplcache_enable_fuzzy_completion = 1
 let g:neocomplcache_fuzzy_completion_start_length = 2
 
 
-let g:airline_powerline_fonts = 1
-let g:airline_theme="dark"
-let g:airline_section_z=airline#section#create_right(['%l'])
-let g:airline_section_warning=airline#section#create_right(['%c'])
+if exists('g:airline_loaded')
+  let g:airline_powerline_fonts = 1
+  let g:airline_theme="dark"
+  let g:airline_section_z=airline#section#create_right(['%l'])
+  let g:airline_section_warning=airline#section#create_right(['%c'])
+  let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
+endif
 
 let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp|\.class$'
 let g:fuf_keyOpenVsplit = '<C-v>'
@@ -321,4 +324,3 @@ augroup QuickfixStatus
     au! BufWinEnter quickfix setlocal 
         \ statusline=%t\ [%{g:asyncrun_status}]\ %{exists('w:quickfix_title')?\ '\ '.w:quickfix_title\ :\ ''}\ %=%-15(%l,%c%V%)\ %P
 augroup END
-let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
