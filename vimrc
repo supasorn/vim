@@ -63,6 +63,7 @@ call plug#end()
 autocmd GUIEnter * set visualbell t_vb=
 
 colorscheme gruvbox
+set t_Co=256
 set mouse=a
 set noeb
 set noswapfile
