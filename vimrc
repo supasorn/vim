@@ -7,7 +7,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-
 call plug#begin('~/.vim/plugged')
 
 " original repos on github
@@ -91,21 +90,20 @@ set autoread
 set encoding=utf-8
 set laststatus=2
 let os = substitute(system('uname'), "\n", "", "")
+
+set go-=m
+set go-=r
+set go-=L
 if os == "Linux"
   if match(system('uname -n'), "washington") >= 0
     set guifont=Inconsolata\ 9 
-    set go-=m
-    set go-=r
-    set go-=L
   elseif match(system('uname -n'), "raspberrypi") >= 0
     set guifont=Inconsolata\ 9 
   elseif match(system('uname -n'), "supasorn.mtv.corp.google.com") >= 0
-    set go-=m
-    set go-=r
-    set go-=Larcticicestudio/nord-vim
     set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11 
   else
-    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9 
+    "set guifont=Inconsolata\ for\ Powerline\ 10 
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11 
   endif
 else
   "set guifont=Inconsolata:h9 
