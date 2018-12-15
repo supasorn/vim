@@ -1,72 +1,71 @@
 set nocompatible               " be iMproved
-filetype off                   " required!
 
-set shell=/bin/bash
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-set mouse=a
+" Auto install vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-Bundle 'gmarik/vundle'
+
+call plug#begin('~/.vim/plugged')
 
 " original repos on github
-Bundle 'supasorn/vim-easymotion.git'
-Bundle 'The-NERD-tree'
-Bundle 'scrooloose/nerdcommenter.git'
+Plug 'supasorn/vim-easymotion'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
 
-"Bundle 'SuperTab'
-" To install YouCompleteMe
-"    cd ~/.vim/bundle/YouCompleteMe
-"    ./install.sh --clang-completer
-"Bundle 'Valloric/YouCompleteMe.git'
-Bundle 'Shougo/neocomplcache.git'
+Plug 'wellle/targets.vim'
+Plug 'Shougo/neocomplcache'
 
 " Colorschemes
-Bundle 'xolox/vim-colorscheme-switcher'
-Bundle 'freeo/vim-kalisi'
+Plug 'xolox/vim-colorscheme-switcher'
+Plug 'freeo/vim-kalisi'
+Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
+Plug 'junegunn/seoul256.vim'
 
-Bundle 'surround.vim'
-Bundle 'kien/ctrlp.vim.git'
+Plug 'tpope/vim-surround'
+Plug 'kien/ctrlp.vim'
 
-Bundle 'vim-scripts/a.vim.git' 
-Bundle 'Raimondi/delimitMate.git'
-Bundle 'xolox/vim-misc.git'
-Bundle 'xolox/vim-session.git'
-Bundle 'bling/vim-airline'
-Bundle 'tpope/vim-fugitive.git'
+Plug 'vim-scripts/a.vim' 
+Plug 'Raimondi/delimitMate'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
+Plug 'bling/vim-airline'
+Plug 'tpope/vim-fugitive'
 
-Bundle 'tpope/vim-repeat.git'
-Bundle 'dahu/vim-fanfingtastic.git' 
+Plug 'tpope/vim-repeat'
+Plug 'dahu/vim-fanfingtastic' 
 
-if executable('ctags')
-  Bundle 'majutsushi/tagbar'
-endif
-Bundle 'L9'
-Bundle 'vim-scripts/FuzzyFinder.git'
-Bundle 'kshenoy/vim-signature.git'
-Bundle 'vim-scripts/mru.vim.git'
-Bundle 'mbbill/undotree.git'
-Bundle 'godlygeek/tabular.git'
+"if executable('ctags')
+  "Plug 'majutsushi/tagbar'
+"endif
 
-Bundle 'skammer/vim-css-color.git'
-Bundle 'othree/html5.vim.git'
-Bundle 'AndrewRadev/simple_bookmarks.vim'
+Plug 'vim-scripts/L9'
+Plug 'vim-scripts/FuzzyFinder'
+Plug 'kshenoy/vim-signature'
+Plug 'vim-scripts/mru.vim'
+Plug 'mbbill/undotree'
+Plug 'godlygeek/tabular'
 
-Bundle 'ctags.vim'
-Bundle 'PeterRincker/vim-argumentative.git'
-Bundle 'skywind3000/asyncrun.vim'
-Bundle 'vim-scripts/Conque-GDB'
-"Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'Yggdroot/indentLine'
+Plug 'skammer/vim-css-color'
+Plug 'othree/html5.vim'
+Plug 'AndrewRadev/simple_bookmarks.vim'
+
+Plug 'vim-scripts/ctags.vim'
+Plug 'PeterRincker/vim-argumentative'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'vim-scripts/Conque-GDB'
+"Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentLine'
+call plug#end()
 
 
-filetype plugin indent on     " required!
-
-syntax on
-
-"colorscheme jellybeans
-colorscheme hybrid
+colorscheme gruvbox
 
 autocmd GUIEnter * set visualbell t_vb=
+set mouse=a
 set noeb
 set noswapfile
 set smartindent
@@ -103,20 +102,15 @@ if os == "Linux"
   elseif match(system('uname -n'), "supasorn.mtv.corp.google.com") >= 0
     set go-=m
     set go-=r
-    set go-=L
+    set go-=Larcticicestudio/nord-vim
     set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11 
-    "set guifont=Inconsolata\ for\ Powerline\ 13 
-    "set guifont=Inconsolata\ 9 
   else
     set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 9 
   endif
-  "set guifont=Liberation\ Mono\ for\ Powerline\ 10
-  "set guifont=Inconsolata\ 9 
-  "set guifont=Menlo\ for\ Powerline\ 9 
 else
-  "set guifont=Inconsolata\ for\ Powerline:h14 
-  set guifont=Droid\ Sans\ Mono\ for\ Powerline:h12
-  "set guifont=Menlo\ for\ Powerline:h12
+  "set guifont=Inconsolata:h9 
+  set guifont=DejaVu_Sans_Mono_for_Powerline:h12
+  "set guifont=Droid_Sans_Mono_for_Powerline:h12
 endif
 set completeopt-=preview
 
@@ -135,7 +129,7 @@ let g:Powerline_symbols = 'fancy'
 
 let g:session_autoload = 'no'
 let g:colorscheme_switcher_define_mappings = 0
-let g:colorscheme_switcher_exclude = ['default', 'guardian', 'macvim', 'slate', 'torte', 'blue', 'delek', 'desert', 'elflord', 'koehler', 'morning', 'pablo', 'ron', 'zellner', 'darkblue', 'evening', 'shine', 'murphy', 'peachpuff', 'chlordane']
+let g:colorscheme_switcher_exclude_builtins = 1
 
 "let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 1
