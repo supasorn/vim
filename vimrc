@@ -13,21 +13,23 @@ call plug#begin('~/.vim/plugged')
 Plug 'supasorn/vim-easymotion'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
-Plug 'wellle/targets.vim'
-Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-repeat'
 Plug 'dahu/vim-fanfingtastic' 
+Plug 'PeterRincker/vim-argumentative'
+Plug 'wellle/targets.vim'
+Plug 'Raimondi/delimitMate' 
+
+" File
 Plug 'vim-scripts/FuzzyFinder'
 Plug 'vim-scripts/mru.vim'
-Plug 'PeterRincker/vim-argumentative'
 
 " Utilities
 Plug 'scrooloose/nerdtree'
 Plug 'xolox/vim-session'
-Plug 'Shougo/neocomplcache'
 Plug 'vim-scripts/a.vim' 
 Plug 'mbbill/undotree'
 Plug 'godlygeek/tabular'
+Plug 'Shougo/neocomplcache'
 
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
@@ -128,40 +130,30 @@ else
   let g:EchoFuncKeyPrev = '<D-k>'
 endif
 
-let g:Powerline_symbols = 'fancy'
-
 let g:session_autoload = 'no'
+let g:session_autosave = 'no'
+
 let g:colorscheme_switcher_define_mappings = 0
 let g:colorscheme_switcher_exclude_builtins = 1
 
-"let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 1
-let g:indent_guides_guide_size = 1
-let g:indent_guides_start_level = 2
 let g:EasyMotion_leader_key = '<leader>'
 let g:Tex_CompileRule_dvi = 'pdflatex \\nonstopmode \\input\{$*\}'
-let g:Imap_UsePlaceHolders = 0
-let tex_no_error=1
-let g:session_autosave = 'no'
+
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 
 let g:fuf_fuzzyRefining = 0
 let g:fuf_maxMenuWidth = 150
-
 let g:fuf_patternSeparator = ' '
+let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp|\.class$'
+let g:fuf_keyOpenVsplit = '<C-v>'
+
 
 let g:neocomplcache_enable_at_startup = 1
-" Use smartcase.
 let g:neocomplcache_enable_smart_case = 1
-" Use camel case completion.
 let g:neocomplcache_enable_camel_case_completion = 1
-" Use underscore completion.
 let g:neocomplcache_enable_underbar_completion = 1
-" Sets minimum char length of syntax keyword.
 let g:neocomplcache_min_syntax_length = 3
-" buffer file name pattern that locks neocomplcache. e.g. ku.vim or fuzzyfinder 
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
 let g:neocomplcache_max_list = 15
 
 " Enable heavy omni completion, which require computational power and may stall the vim. 
@@ -169,7 +161,6 @@ if !exists('g:neocomplcache_omni_patterns')
   let g:neocomplcache_omni_patterns = {}
 endif
 let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-"autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
@@ -182,34 +173,20 @@ if !empty(glob('~/.vim/plugged/vim-airline'))
   let g:airline_theme="wombat"
   let g:airline_section_z=airline#section#create_right(['%l'])
   let g:airline_section_warning=airline#section#create_right(['%c'])
-  let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
   let g:airline_section_c = '%<%f %#__accent_red#%m%#__restore__# %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
 endif
 
-let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp|\.class$'
-let g:fuf_keyOpenVsplit = '<C-v>'
-
-let g:ConqueTerm_Color = 2         " 1: strip color after 200 lines, 2: always with color
-let g:ConqueTerm_CloseOnEnd = 1    " close conque when program ends running
-let g:ConqueTerm_StartMessages = 0 " display warning messages if conqueTerm is configured incorrectly
-
-"let g:ConqueGdb_Continue = '<F5>'
-"let g:ConqueGdb_Run = '<C-F5>'
-"
-let g:ConqueGdb_Next = '<F6>'
-let g:ConqueGdb_Step = '<F7>'
-let g:ConqueTerm_ToggleKey = ''
 
 let g:netrw_silent = 1
 "----------------------------
 """"""    Remapping    """""" 
 "----------------------------
 "
-inoremap <expr><C-h>     neocomplcache#undo_completion()
+
+inoremap <expr><C-h> neocomplcache#undo_completion()
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 inoremap <expr><C-k> neocomplcache#close_popup()
-"imap <C-TAB>  <Plug>(neocomplcache_snippets_force_expand_or_jump)
 
 noremap Y y$
 vnoremap y y`>
@@ -252,14 +229,13 @@ vmap <c-j> <leader>j
 map <c-k> <leader>k
 vmap <c-k> <leader>k
  
-" ConqueGDB
-map <leader>r :NERDTreeFind<cr>
 
 
 nmap <SPACE> <leader>s
 vmap <SPACE> <leader>s
 map <c-c> <plug>NERDCommenterToggle<c-m>
 noremap <C-n> :NERDTreeToggle<CR>
+map <leader>r :NERDTreeFind<cr>
 
 nmap <F5> :e %<CR>
 imap <F5> <esc>:e %<CR>
@@ -314,7 +290,7 @@ au BufNewFile,BufRead *.cuh set filetype=cpp
 autocmd QuickFixCmdPost [^l]* nested botright cwindow 8
 autocmd QuickFixCmdPost    l* nested lwindow
 
-au FileType cu,c,cpp let delimitMate_matchpairs = "(:),[:]"
+au FileType cu,c,cpp,py let delimitMate_matchpairs = "(:),[:]"
 
 filetype plugin on
 
