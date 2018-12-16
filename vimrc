@@ -22,6 +22,8 @@ Plug 'Raimondi/delimitMate'
 " File
 Plug 'vim-scripts/FuzzyFinder'
 Plug 'vim-scripts/mru.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Utilities
 Plug 'scrooloose/nerdtree'
@@ -30,6 +32,7 @@ Plug 'vim-scripts/a.vim'
 Plug 'mbbill/undotree'
 Plug 'godlygeek/tabular'
 Plug 'Shougo/neocomplcache'
+Plug 'wesQ3/vim-windowswap'
 
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
@@ -41,6 +44,7 @@ Plug 'junegunn/seoul256.vim'
 " Pretty
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
 
 " Misc
 Plug 'xolox/vim-misc'
@@ -240,13 +244,13 @@ map <leader>r :NERDTreeFind<cr>
 nmap <F5> :e %<CR>
 imap <F5> <esc>:e %<CR>
 
-nmap ? :FufLine<CR>
+nmap ? :BLines<CR>
 nmap <F2> :FufFileWithCurrentBufferDir<CR>
 imap <F2> <esc>:FufFileWithCurrentBufferDir<CR>
 nmap <s-F2> :FufRenewCache<CR>
 imap <s-F2> <esc>:FufRenewCache<CR>
-nmap <F3> :FufBuffer<CR>
-imap <F3> <esc>:FufBuffer<CR>
+nmap <F3> :Buffers<CR>
+imap <F3> <esc>:Buffers<CR>
 
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
