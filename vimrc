@@ -25,6 +25,8 @@ Plug 'vim-scripts/mru.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+Plug 'jremmen/vim-ripgrep'
+
 " Utilities
 Plug 'scrooloose/nerdtree'
 Plug 'xolox/vim-session'
