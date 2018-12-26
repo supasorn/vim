@@ -18,6 +18,9 @@ Plug 'dahu/vim-fanfingtastic'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'wellle/targets.vim'
 Plug 'Raimondi/delimitMate' 
+"Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch.vim'
+"Plug 'haya14busa/incsearch-easymotion.vim'
 
 " File
 Plug 'vim-scripts/FuzzyFinder'
@@ -136,7 +139,7 @@ else
   let g:EchoFuncKeyPrev = '<D-k>'
 endif
 
-let g:session_autoload = 'yes'
+let g:session_autoload = 'no'
 let g:session_autosave = 'yes'
 
 let g:colorscheme_switcher_define_mappings = 0
@@ -188,6 +191,7 @@ let g:netrw_silent = 1
 """"""    Remapping    """""" 
 "----------------------------
 "
+map /  <Plug>(incsearch-forward)
 
 inoremap <expr><C-h> neocomplcache#undo_completion()
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
