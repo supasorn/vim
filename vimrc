@@ -18,8 +18,8 @@ Plug 'dahu/vim-fanfingtastic'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'wellle/targets.vim'
 Plug 'Raimondi/delimitMate' 
-"Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
+"Plug 'easymotion/vim-easymotion'
 "Plug 'haya14busa/incsearch-easymotion.vim'
 
 " File
@@ -38,6 +38,7 @@ Plug 'mbbill/undotree'
 Plug 'godlygeek/tabular'
 Plug 'Shougo/neocomplcache'
 Plug 'wesQ3/vim-windowswap'
+Plug 'terryma/vim-smooth-scroll'
 
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
@@ -187,10 +188,16 @@ endif
 
 
 let g:netrw_silent = 1
+
 "----------------------------
 """"""    Remapping    """""" 
 "----------------------------
-"
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 5)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 5)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 5)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 5)<CR>
+
+map <c-r> :History:<CR>
 map /  <Plug>(incsearch-forward)
 
 inoremap <expr><C-h> neocomplcache#undo_completion()
