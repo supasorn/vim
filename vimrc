@@ -27,8 +27,8 @@ Plug 'vim-scripts/FuzzyFinder'
 Plug 'vim-scripts/mru.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
 Plug 'jremmen/vim-ripgrep'
+Plug 'pbogut/fzf-mru.vim'
 
 " Utilities
 Plug 'scrooloose/nerdtree'
@@ -235,7 +235,8 @@ vnoremap < <gv
 vnoremap > >gv
 
 nmap <F8> :TagbarToggle<CR>
-nmap <F4> :MRU<CR>/
+"nmap <F4> :MRU<CR>/
+nmap <F4> :FZFMru --no-sort<CR>
 nmap <F9> :NextColorScheme<CR>
 nmap <s-F9> :PrevColorScheme<CR>
 
