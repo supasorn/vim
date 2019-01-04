@@ -37,7 +37,7 @@ function! JumpThroughParameter(direction)
 endfunction
 
 function! GrepCurrentDirectory(myParam)
-  execute "grep -I " . a:myParam . " %:p:h/*"
+  execute "Rg " . a:myParam . " %:p:h/*"
 endfunction
 
 function! DelTagOfFile(file)
