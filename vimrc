@@ -262,8 +262,10 @@ nmap <F2> :FufFileWithCurrentBufferDir<CR>
 imap <F2> <esc>:FufFileWithCurrentBufferDir<CR>
 nmap <s-F2> :FufRenewCache<CR>
 imap <s-F2> <esc>:FufRenewCache<CR>
-nmap <F3> :Buffers<CR>
-imap <F3> <esc>:Buffers<CR>
+"nmap <F3> :Buffers<CR>
+"imap <F3> <esc>:Buffers<CR>
+nmap <F3> :FufBuffer<CR>
+imap <F3> <esc>:FufBuffer<CR>
 
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
