@@ -58,6 +58,7 @@ Plug 'vim-scripts/L9'
 
 " Integration
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 "if executable('ctags')
   "Plug 'majutsushi/tagbar'
@@ -70,6 +71,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'skammer/vim-css-color'
 Plug 'othree/html5.vim'
 Plug 'AndrewRadev/simple_bookmarks.vim'
+Plug 'sheerun/vim-polyglot'
 
 Plug 'vim-scripts/ctags.vim'
 
@@ -132,6 +134,8 @@ set completeopt-=preview
 "----------------------------
 """"""    Constants    """""" 
 "----------------------------
+let g:gitgutter_enabled = 0
+
 if os == "Linux"
   let g:EchoFuncKeyNext = '<m-j>'
   let g:EchoFuncKeyPrev = '<m-k>'
@@ -271,6 +275,7 @@ imap <F3> <esc>:FufBuffer<CR>
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 
+nnoremap <silent> <leader>gg :GitGutterToggle<CR>
 nnoremap <silent> <leader>gs :Gstatus<CR>/modified:<CR>
 nnoremap <silent> <leader>gc :Gcommit -m "auto commit"<CR>
 nnoremap <silent> <leader>gp :Git push<CR>
