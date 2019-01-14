@@ -60,9 +60,10 @@ Plug 'vim-scripts/L9'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-"if executable('ctags')
-  "Plug 'majutsushi/tagbar'
-"endif
+if executable('ctags')
+  Plug 'majutsushi/tagbar'
+  Plug 'ludovicchabant/vim-gutentags'
+endif
 
 " Bookmark Display
 Plug 'kshenoy/vim-signature'
