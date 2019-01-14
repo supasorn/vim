@@ -74,8 +74,6 @@ Plug 'othree/html5.vim'
 Plug 'AndrewRadev/simple_bookmarks.vim'
 Plug 'sheerun/vim-polyglot'
 
-Plug 'vim-scripts/ctags.vim'
-
 call plug#end()
 
 set background=dark
