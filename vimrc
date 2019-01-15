@@ -36,9 +36,14 @@ Plug 'xolox/vim-session'
 Plug 'vim-scripts/a.vim' 
 Plug 'mbbill/undotree'
 Plug 'godlygeek/tabular'
-Plug 'Shougo/neocomplcache'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 Plug 'wesQ3/vim-windowswap'
-Plug 'terryma/vim-smooth-scroll'
 
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
@@ -133,6 +138,8 @@ set completeopt-=preview
 "----------------------------
 """"""    Constants    """""" 
 "----------------------------
+let g:deoplete#enable_at_startup = 1
+
 let g:gitgutter_enabled = 0
 
 if os == "Linux"
@@ -195,10 +202,10 @@ let g:netrw_silent = 1
 "----------------------------
 """"""    Remapping    """""" 
 "----------------------------
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 5)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 5)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 5)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 5)<CR>
+"noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 5)<CR>
+"noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 5)<CR>
+"noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 5)<CR>
+"noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 5)<CR>
 
 map <c-r> :History:<CR>
 map /  <Plug>(incsearch-forward)
@@ -298,6 +305,9 @@ nmap <F10> :call OpenRemoteOrLocal()<CR>
 "----------------------------
 """"""     autocmd     """""" 
 "----------------------------
+
+autocmd FileType fuf
+       \ call deoplete#custom#buffer_option('auto_complete', v:false)
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
