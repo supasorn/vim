@@ -97,7 +97,7 @@ set smarttab
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set number
+set nonumber
 set ignorecase
 set smartcase
 set gdefault
