@@ -38,12 +38,14 @@ Plug 'mbbill/undotree'
 Plug 'godlygeek/tabular'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'zchee/deoplete-jedi'
 else
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 Plug 'wesQ3/vim-windowswap'
+Plug 'skywind3000/asyncrun.vim'
 
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
@@ -207,7 +209,7 @@ let g:netrw_silent = 1
 "noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 5)<CR>
 "noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 5)<CR>
 
-map <c-r> :History:<CR>
+map <s-r> :History:<CR>
 map /  <Plug>(incsearch-forward)
 
 inoremap <expr><C-h> neocomplcache#undo_completion()
@@ -233,7 +235,7 @@ map "m "*
 command! -nargs=1 Gr call GrepCurrentDirectory(<f-args>)
 nnoremap gr :Rg '\b<cword>\b' %:p:h/*<CR>
 
-nnoremap \m :w<CR>:execute "cd %:p:h \| try \| cd bin \| catch \| try \| cd ../bin \| catch \| endtry \| endtry"<CR>:make %:t:r<CR>
+nnoremap \m :w<CR>:execute "cd %:p:h \| try \| cd bin \| catch \| try \| cd ../bin \| catch \| endtry \| endtry"<CR>:AsyncRun make %:t:r<CR>
 nnoremap \[ :cp<Cr>
 nnoremap \] :cn<Cr>
 
