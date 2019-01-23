@@ -45,6 +45,8 @@ else
 endif
 Plug 'wesQ3/vim-windowswap'
 
+Plug 'zchee/deoplete-jedi'
+
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'freeo/vim-kalisi'
@@ -67,7 +69,9 @@ Plug 'airblade/vim-gitgutter'
 
 if executable('ctags')
   Plug 'majutsushi/tagbar'
-  Plug 'ludovicchabant/vim-gutentags'
+  if v:version >= 8
+    Plug 'ludovicchabant/vim-gutentags'
+  endif
 endif
 
 " Bookmark Display
