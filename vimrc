@@ -40,12 +40,16 @@ if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'zchee/deoplete-jedi'
 else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+  if v:version >= 800
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+  endif
 endif
 Plug 'wesQ3/vim-windowswap'
 Plug 'skywind3000/asyncrun.vim'
+
+Plug 'zchee/deoplete-jedi'
 
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
@@ -69,7 +73,9 @@ Plug 'airblade/vim-gitgutter'
 
 if executable('ctags')
   Plug 'majutsushi/tagbar'
-  Plug 'ludovicchabant/vim-gutentags'
+  if v:version >= 800
+    Plug 'ludovicchabant/vim-gutentags'
+  endif
 endif
 
 " Bookmark Display
