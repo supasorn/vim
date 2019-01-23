@@ -48,11 +48,6 @@ else
 endif
 Plug 'wesQ3/vim-windowswap'
 Plug 'skywind3000/asyncrun.vim'
-
-Plug 'zchee/deoplete-jedi'
-
-Plug 'zchee/deoplete-jedi'
-
 Plug 'zchee/deoplete-jedi'
 
 " Colorschemes
@@ -150,6 +145,10 @@ set completeopt-=preview
 "----------------------------
 """"""    Constants    """""" 
 "----------------------------
+
+let g:asyncrun_open = 8
+let g:asyncrun_bell = 1
+
 let g:deoplete#enable_at_startup = 1
 
 let g:gitgutter_enabled = 0
@@ -246,6 +245,7 @@ command! -nargs=1 Gr call GrepCurrentDirectory(<f-args>)
 nnoremap gr :Rg '\b<cword>\b' %:p:h/*<CR>
 
 nnoremap \m :w<CR>:execute "cd %:p:h \| try \| cd bin \| catch \| try \| cd ../bin \| catch \| endtry \| endtry"<CR>:AsyncRun make %:t:r<CR>
+"nnoremap \m :w<CR>:execute "cd %:p:h \| try \| cd bin \| catch \| try \| cd ../bin \| catch \| endtry \| endtry"<CR>:make %:t:r<CR>
 nnoremap \[ :cp<Cr>
 nnoremap \] :cn<Cr>
 
@@ -332,9 +332,9 @@ autocmd BufNewFile,BufReadPost *.ejs set filetype=html
 au Filetype *.vim nmap <F5> :so %<CR>
 au BufNewFile,BufRead *.cuh set filetype=cpp
 
-" Auto open quickfix
-autocmd QuickFixCmdPost [^l]* nested botright cwindow 8
-autocmd QuickFixCmdPost    l* nested lwindow
+" Auto open quickfix : http://vim.wikia.com/wiki/Automatically_open_the_quickfix_window_on_:make
+"autocmd QuickFixCmdPost [^l]* nested botright cwindow 8
+"autocmd QuickFixCmdPost    l* nested lwindow
 
 au FileType cu,c,cpp,py let delimitMate_matchpairs = "(:),[:]"
 
