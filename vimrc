@@ -53,6 +53,8 @@ Plug 'zchee/deoplete-jedi'
 
 Plug 'zchee/deoplete-jedi'
 
+Plug 'zchee/deoplete-jedi'
+
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'freeo/vim-kalisi'
