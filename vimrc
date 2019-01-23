@@ -48,6 +48,7 @@ else
 endif
 Plug 'wesQ3/vim-windowswap'
 Plug 'skywind3000/asyncrun.vim'
+Plug 'drmingdrmer/vim-toggle-quickfix'
 Plug 'zchee/deoplete-jedi'
 
 " Colorschemes
@@ -307,11 +308,11 @@ nmap <silent> ( :call JumpThroughParameter(-1)<CR>
 nmap <silent> ) :call JumpThroughParameter(1)<CR>
 "let blacklist = ['tex', 'txt', 'latex']
 "au Filetype * if index(blacklist, &ft) < 0 | 
-      "\ nmap <silent> ( :call JumpThroughParameter(-1)<CR>|
+      "\ nmap <silent> ( :::call JumpThroughParameter(-1)<CR>|
       "\ nmap <silent> ) :call JumpThroughParameter(1)<CR>| 
       "\ endif
 
-nmap <F10> :call OpenRemoteOrLocal()<CR>
+nmap <F10> <Plug>window:quickfix:toggle
 
 
 "----------------------------
