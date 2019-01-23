@@ -39,9 +39,11 @@ Plug 'godlygeek/tabular'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+  if v:version >= 800
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+  endif
 endif
 Plug 'wesQ3/vim-windowswap'
 
@@ -69,7 +71,7 @@ Plug 'airblade/vim-gitgutter'
 
 if executable('ctags')
   Plug 'majutsushi/tagbar'
-  if v:version >= 8
+  if v:version >= 800
     Plug 'ludovicchabant/vim-gutentags'
   endif
 endif
