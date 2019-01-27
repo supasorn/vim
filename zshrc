@@ -118,6 +118,7 @@ setopt share_history
 #prompt pure
 
 source ~/fzf-z/fzf-z.plugin.zsh
+source ~/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
 export FZFZ_SUBDIR_LIMIT=0
 
 export PATH="$PATH:/usr/local/cuda-9.0/bin:~/.fzf_browser"
