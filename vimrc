@@ -105,7 +105,7 @@ set smarttab
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set number
+set nonumber
 set ignorecase
 set smartcase
 set gdefault
@@ -245,8 +245,8 @@ map "m "*
 command! -nargs=1 Gr call GrepCurrentDirectory(<f-args>)
 nnoremap gr :Rg '\b<cword>\b' %:p:h/*<CR>
 
-nnoremap \m :w<CR>:execute "cd %:p:h \| try \| cd bin \| catch \| try \| cd ../bin \| catch \| endtry \| endtry"<CR>:AsyncRun make %:t:r<CR>
-"nnoremap \m :w<CR>:execute "cd %:p:h \| try \| cd bin \| catch \| try \| cd ../bin \| catch \| endtry \| endtry"<CR>:make %:t:r<CR>
+"nnoremap \m :w<CR>:execute "cd %:p:h \| try \| cd bin \| catch \| try \| cd ../bin \| catch \| endtry \| endtry"<CR>:AsyncRun make %:t:r<CR>
+nnoremap \m :w<CR>:execute "cd %:p:h \| try \| cd bin \| catch \| try \| cd ../bin \| catch \| endtry \| endtry"<CR>:make %:t:r<CR>
 nnoremap \[ :cp<Cr>
 nnoremap \] :cn<Cr>
 
@@ -334,8 +334,8 @@ au Filetype *.vim nmap <F5> :so %<CR>
 au BufNewFile,BufRead *.cuh set filetype=cpp
 
 " Auto open quickfix : http://vim.wikia.com/wiki/Automatically_open_the_quickfix_window_on_:make
-"autocmd QuickFixCmdPost [^l]* nested botright cwindow 8
-"autocmd QuickFixCmdPost    l* nested lwindow
+autocmd QuickFixCmdPost [^l]* nested botright cwindow 8
+autocmd QuickFixCmdPost    l* nested lwindow
 
 au FileType cu,c,cpp,py let delimitMate_matchpairs = "(:),[:]"
 
