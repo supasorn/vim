@@ -1,7 +1,7 @@
-vim
+vim + zsh + tmux
 ===
 
-Vim config and bundle
+Vim config and bundle. And tmux and zsh.
 
 
 Installation:
