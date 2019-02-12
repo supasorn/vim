@@ -75,7 +75,6 @@ endif
 Plug 'kshenoy/vim-signature'
 
 " Syntax
-Plug 'skammer/vim-css-color'
 Plug 'othree/html5.vim'
 Plug 'AndrewRadev/simple_bookmarks.vim'
 Plug 'sheerun/vim-polyglot'
