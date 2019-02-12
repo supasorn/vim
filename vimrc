@@ -36,20 +36,11 @@ Plug 'xolox/vim-session'
 Plug 'vim-scripts/a.vim' 
 Plug 'mbbill/undotree'
 Plug 'godlygeek/tabular'
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'zchee/deoplete-jedi'
-else
-  if v:version >= 800
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-  endif
-endif
+Plug 'Shougo/neocomplcache'
+
 Plug 'wesQ3/vim-windowswap'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'drmingdrmer/vim-toggle-quickfix'
-Plug 'zchee/deoplete-jedi'
 
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
@@ -105,7 +96,7 @@ set smarttab
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set nonumber
+set number
 set ignorecase
 set smartcase
 set gdefault
@@ -187,15 +178,6 @@ let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 let g:neocomplcache_max_list = 15
-
-" Enable heavy omni completion, which require computational power and may stall the vim. 
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
-let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 let g:neocomplcache_enable_fuzzy_completion = 1
 let g:neocomplcache_fuzzy_completion_start_length = 2
 
@@ -214,11 +196,6 @@ let g:netrw_silent = 1
 "----------------------------
 """"""    Remapping    """""" 
 "----------------------------
-"noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 5)<CR>
-"noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 5)<CR>
-"noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 5)<CR>
-"noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 5)<CR>
-
 map <s-r> :History:<CR>
 map /  <Plug>(incsearch-forward)
 
