@@ -36,7 +36,9 @@ Plug 'xolox/vim-session'
 Plug 'vim-scripts/a.vim' 
 Plug 'mbbill/undotree'
 Plug 'godlygeek/tabular'
-Plug 'Shougo/neocomplcache'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+endif
 
 Plug 'wesQ3/vim-windowswap'
 Plug 'skywind3000/asyncrun.vim'
