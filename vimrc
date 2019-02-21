@@ -197,6 +197,9 @@ let g:netrw_silent = 1
 "----------------------------
 """"""    Remapping    """""" 
 "----------------------------
+nmap <c-s> :w<CR>
+imap <c-s> <Esc>:w<CR>a
+
 map <s-r> :History:<CR>
 map /  <Plug>(incsearch-forward)
 
@@ -280,6 +283,7 @@ nnoremap <silent> <leader>gp :Git push<CR>
 command! OS OpenSession
 command! SS SaveSession
 command! RE RestartVim
+command! W w
 
 " For jumping through function arguments
 nmap <silent> ( :call JumpThroughParameter(-1)<CR>
