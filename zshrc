@@ -121,12 +121,14 @@ source ~/fzf-z/fzf-z.plugin.zsh
 source ~/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
 export FZFZ_SUBDIR_LIMIT=0
 
-export PATH="$PATH:/usr/local/cuda-9.0/bin:~/.fzf_browser"
+export PATH="$PATH:/usr/local/cuda-10.0/bin:~/.fzf_browser"
 export PATH="/home2/supasorn/anaconda3/bin:$PATH"
-export LD_LIBRARY_PATH="/usr/local/cuda-9.0/lib64:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/lib/"
+export LD_LIBRARY_PATH="/usr/local/cuda-10.0/lib64:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/lib/"
 export TERM="xterm-256color"
 
 alias vim="nvim"
 alias vi="nvim"
 alias v="nvim"
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
