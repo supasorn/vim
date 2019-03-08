@@ -133,4 +133,5 @@ alias v="nvim"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+alias space="du -hs * | sort -h"
 #if [ "$TMUX" = "" ]; then tmux; fi
