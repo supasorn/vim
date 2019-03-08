@@ -132,3 +132,5 @@ alias v="nvim"
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#if [ "$TMUX" = "" ]; then tmux; fi

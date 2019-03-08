@@ -86,6 +86,7 @@ colorscheme gruvbox
 
 autocmd GUIEnter * set visualbell t_vb=
 
+set termguicolors
 set t_Co=256
 set mouse=a
 set noeb
