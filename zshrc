@@ -134,6 +134,17 @@ alias v="nvim"
 alias space="du -hs * | sort -h"
 #if [ "$TMUX" = "" ]; then tmux; fi
 
+tf-term() {
+  tmux new-session \; \
+  send-keys "$@" C-m \; \
+  send-keys "ls" C-m \; \
+  split-window -v \; \
+  send-keys "$@" C-m \; \
+  split-window -v \; \
+}
+
+
+
 source ~/fzf-z/fzf-z.plugin.zsh
 source ~/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
 
