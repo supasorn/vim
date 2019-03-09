@@ -117,8 +117,6 @@ setopt share_history
 #autoload -U promptinit; promptinit
 #prompt pure
 
-source ~/fzf-z/fzf-z.plugin.zsh
-source ~/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
 export FZFZ_SUBDIR_LIMIT=0
 
 export PATH="$PATH:/usr/local/cuda-10.0/bin:~/.fzf_browser"
@@ -135,3 +133,7 @@ alias v="nvim"
 
 alias space="du -hs * | sort -h"
 #if [ "$TMUX" = "" ]; then tmux; fi
+
+source ~/fzf-z/fzf-z.plugin.zsh
+source ~/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
+
