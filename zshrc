@@ -132,6 +132,7 @@ alias v="nvim"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias space="du -hs * | sort -h"
+alias rg1="rg --max-depth=1"
 #if [ "$TMUX" = "" ]; then tmux; fi
 
 tf-term() {
@@ -142,7 +143,6 @@ tf-term() {
   send-keys "$@" C-m \; \
   split-window -v \; \
 }
-
 
 
 source ~/fzf-z/fzf-z.plugin.zsh
