@@ -278,7 +278,8 @@ nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 
 nnoremap <silent> <leader>gg :GitGutterToggle<CR>
-nnoremap <silent> <leader>gs :Gstatus<CR>/modified:<CR>
+nnoremap <silent> <leader>gs :Gstatus<CR>
+
 nnoremap <silent> <leader>gc :Gcommit -m "auto commit"<CR>
 nnoremap <silent> <leader>gp :Git push<CR>
 
