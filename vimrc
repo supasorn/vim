@@ -224,8 +224,8 @@ map "m "*
 "nnoremap \r :call FirstLineCompile()<CR>
 
 command! -nargs=1 Gr call GrepCurrentDirectory(<f-args>)
-nnoremap gr :Rg --max-depth=1 '\b<cword>\b' %:p:h/*<CR>
-nnoremap <c-f> <esc>:Rg --max-depth=1 
+nnoremap gr :Rg --max-depth=1 '\b<cword>\b' %:p:h/<CR>
+nnoremap <c-f> <esc>:cd %:p:h<CR>:Rg --max-depth=1 
 
 "nnoremap \m :w<CR>:execute "cd %:p:h \| try \| cd bin \| catch \| try \| cd ../bin \| catch \| endtry \| endtry"<CR>:AsyncRun make %:t:r<CR>
 nnoremap \m :w<CR>:execute "cd %:p:h \| try \| cd bin \| catch \| try \| cd ../bin \| catch \| endtry \| endtry"<CR>:make %:t:r<CR>
