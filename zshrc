@@ -114,8 +114,6 @@ setopt inc_append_history
 # # Reloads the history whenever you use it
 setopt share_history
 
-#autoload -U promptinit; promptinit
-#prompt pure
 
 export FZFZ_SUBDIR_LIMIT=0
 export FZFZ_EXTRA_OPTS="--reverse"
@@ -130,12 +128,10 @@ alias vim="nvim"
 alias vi="nvim"
 alias v="nvim"
 
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias space="du -hs * | sort -h"
 alias rg1="rg --max-depth=1"
-#if [ "$TMUX" = "" ]; then tmux; fi
 
 tf-term() {
   tmux new-session \; \
@@ -145,7 +141,6 @@ tf-term() {
   send-keys "$@" C-m \; \
   split-window -v \; \
 }
-
 
 source ~/fzf-z/fzf-z.plugin.zsh
 source ~/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
