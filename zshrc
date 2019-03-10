@@ -68,7 +68,6 @@ plugins=(
   git
   z
   fzf
-  zsh-autosuggestions
   zsh-syntax-highlighting
   extract
 )
