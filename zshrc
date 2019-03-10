@@ -147,4 +147,14 @@ tf-term() {
 
 source ~/fzf-z/fzf-z.plugin.zsh
 source ~/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+bindkey '^[[Z' autosuggest-accept
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'
+
+###-tns-completion-start-###
+if [ -f /Users/supasorn/.tnsrc ]; then 
+    source /Users/supasorn/.tnsrc 
+fi
+###-tns-completion-end-###
