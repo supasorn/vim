@@ -142,9 +142,20 @@ tf-term() {
   split-window -v \; \
 }
 
-source ~/fzf-z/fzf-z.plugin.zsh
-source ~/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source-git() {
+  target=~/.zsh/$1:t:r
+  plugin=$target/$1:t:r.plugin.zsh
+  if [ ! -d "$target" ] ; then
+    git clone $1 $target
+    #echo "git clone $1 $target"
+  fi
+  source $plugin
+  #echo "source $plugin"
+}
+
+source-git https://github.com/supasorn/fzf-z.git 
+source-git https://github.com/changyuheng/zsh-interactive-cd.git 
+source-git https://github.com/zsh-users/zsh-autosuggestions.git 
 
 bindkey '^[[Z' autosuggest-accept
 
