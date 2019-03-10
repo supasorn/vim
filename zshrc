@@ -118,6 +118,8 @@ setopt share_history
 #prompt pure
 
 export FZFZ_SUBDIR_LIMIT=0
+export FZFZ_EXTRA_OPTS="--reverse"
+export FZF_CTRL_R_OPTS="--reverse"
 
 export PATH="$PATH:/usr/local/cuda-10.0/bin:~/.fzf_browser"
 export PATH="/home2/supasorn/anaconda3/bin:$PATH"
