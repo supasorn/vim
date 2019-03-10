@@ -138,6 +138,7 @@ set completeopt-=preview
 "----------------------------
 """"""    Constants    """""" 
 "----------------------------
+let g:fugitive_force_bang_command = 0
 
 let g:asyncrun_open = 8
 let g:asyncrun_bell = 1
@@ -280,7 +281,6 @@ nnoremap <silent> <leader>gg :GitGutterToggle<CR>
 nnoremap <silent> <leader>gs :Gstatus<CR>/modified:<CR>
 nnoremap <silent> <leader>gc :Gcommit -m "auto commit"<CR>
 nnoremap <silent> <leader>gp :Git push<CR>
-
 
 command! OS OpenSession
 command! SS SaveSession
