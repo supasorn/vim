@@ -140,7 +140,6 @@ set completeopt-=preview
 "----------------------------
 let g:fugitive_force_bang_command = 1
 
-
 let g:asyncrun_open = 8
 let g:asyncrun_bell = 1
 
