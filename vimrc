@@ -281,6 +281,7 @@ nnoremap <silent> <leader>gs :Gstatus<CR>/modified:<CR>
 nnoremap <silent> <leader>gc :Gcommit -m "auto commit"<CR>
 nnoremap <silent> <leader>gp :Git push<CR>
 
+
 command! OS OpenSession
 command! SS SaveSession
 command! RE RestartVim
