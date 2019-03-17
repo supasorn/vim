@@ -10,7 +10,7 @@ cp ~/.vim/init.vim ~/.config/nvim/init.vim
 
 vim +PlugInstall +qall
 
-mv ~/.vim/key-bindings.zsh ~/.fzf/shell/ 
+cp ~/.vim/key-bindings.zsh ~/.fzf/shell/ 
 
 cd ~/.vim/plugged/FuzzyFinder
 curl -Lo fix-top-left-focus-bug.patch https://github.com/vim-scripts/FuzzyFinder/pull/2.diff
