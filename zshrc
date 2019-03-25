@@ -132,6 +132,9 @@ alias v="nvim"
 alias space="du -hs * | sort -h"
 alias rg1="rg --max-depth=1"
 
+alias tm="tmux"
+alias tma="tmux a"
+
 tf-term() {
   tmux new-session \; \
   send-keys "$@" C-m \; \
@@ -139,6 +142,13 @@ tf-term() {
   split-window -v \; \
   send-keys "$@" C-m \; \
   split-window -v \; \
+}
+
+tl-term() {
+  tmux new-session \; \
+  send-keys "/home2/; python remote_timelapse.py" C-m \; \
+  split-window -h \; \
+  send-keys "/home2; python timelapse_day_maker_runner.py" C-m \; \
 }
 
 source-git() {
