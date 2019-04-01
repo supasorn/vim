@@ -154,11 +154,6 @@ bindkey '^[[Z' autosuggest-accept
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'
 
-###-tns-completion-start-###
-if [ -f /Users/supasorn/.tnsrc ]; then 
-    source /Users/supasorn/.tnsrc 
-fi
-###-tns-completion-end-###
 
 hn="$(hostname)"
 if [[ $hn == "ROG504" ]]; then
@@ -180,5 +175,11 @@ if [[ $hn == "ROG504" ]]; then
     split-window -h \; \
     send-keys "/home2; python timelapse_day_maker_runner.py" C-m \; \
   }
+elif [[ $hn == "Supasorns-MacBook-Pro.local" ]]; then
+  ###-tns-completion-start-###
+  if [ -f /Users/supasorn/.tnsrc ]; then 
+      source /Users/supasorn/.tnsrc 
+  fi
+  ###-tns-completion-end-###
 fi
 
