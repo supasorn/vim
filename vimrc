@@ -36,9 +36,11 @@ Plug 'xolox/vim-session'
 Plug 'vim-scripts/a.vim' 
 Plug 'mbbill/undotree'
 Plug 'godlygeek/tabular'
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-endif
+Plug 'Shougo/neocomplcache'
+"if has('nvim')
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"endif
+
 
 Plug 'wesQ3/vim-windowswap'
 Plug 'skywind3000/asyncrun.vim'
@@ -143,7 +145,7 @@ let g:fugitive_force_bang_command = 1
 let g:asyncrun_open = 8
 let g:asyncrun_bell = 1
 
-let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_at_startup = 1
 
 let g:gitgutter_enabled = 0
 
@@ -182,7 +184,6 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 let g:neocomplcache_max_list = 15
 let g:neocomplcache_enable_fuzzy_completion = 1
 let g:neocomplcache_fuzzy_completion_start_length = 2
-
 
 if !empty(glob('~/.vim/plugged/vim-airline'))
   let g:airline_powerline_fonts = 1
@@ -304,8 +305,8 @@ nmap <F10> <Plug>window:quickfix:toggle
 """"""     autocmd     """""" 
 "----------------------------
 
-autocmd FileType fuf
-       \ call deoplete#custom#buffer_option('auto_complete', v:false)
+"autocmd FileType fuf
+       "\ call deoplete#custom#buffer_option('auto_complete', v:false)
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags

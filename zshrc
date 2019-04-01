@@ -118,9 +118,9 @@ export FZFZ_SUBDIR_LIMIT=0
 export FZFZ_EXTRA_OPTS="--reverse"
 export FZF_CTRL_R_OPTS="--reverse"
 
-export PATH="$PATH:/usr/local/cuda-10.0/bin:~/.fzf_browser"
-export PATH="/home2/supasorn/anaconda3/bin:$PATH"
-export LD_LIBRARY_PATH="/usr/local/cuda-10.0/lib64:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/lib/"
+export PATH="$PATH:~/.fzf_browser"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib/"
+
 export TERM="xterm-256color"
 
 alias vim="nvim"
@@ -135,21 +135,6 @@ alias rg1="rg --max-depth=1"
 alias tm="tmux"
 alias tma="tmux a"
 
-tf-term() {
-  tmux new-session \; \
-  send-keys "$@" C-m \; \
-  send-keys "ls" C-m \; \
-  split-window -v \; \
-  send-keys "$@" C-m \; \
-  split-window -v \; \
-}
-
-tl-term() {
-  tmux new-session \; \
-  send-keys "/home2/; python remote_timelapse.py" C-m \; \
-  split-window -h \; \
-  send-keys "/home2; python timelapse_day_maker_runner.py" C-m \; \
-}
 
 source-git() {
   target=~/.zsh/$1:t:r
@@ -175,3 +160,25 @@ if [ -f /Users/supasorn/.tnsrc ]; then
     source /Users/supasorn/.tnsrc 
 fi
 ###-tns-completion-end-###
+
+hn="$(hostname)"
+if [[ $hn == "ROG504" ]]; then
+  export PATH="$PATH:/home2/supasorn/anaconda3/bin:/usr/local/cuda-10.0/bin"
+  export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda-10.0/lib64:/usr/local/cuda/extras/CUPTI/lib64"
+  tf-term() {
+    tmux new-session \; \
+    send-keys "$@" C-m \; \
+    send-keys "ls" C-m \; \
+    split-window -v \; \
+    send-keys "$@" C-m \; \
+    split-window -v \; \
+  }
+
+  tl-term() {
+    tmux new-session \; \
+    send-keys "/home2/; python remote_timelapse.py" C-m \; \
+    split-window -h \; \
+    send-keys "/home2; python timelapse_day_maker_runner.py" C-m \; \
+  }
+fi
+
