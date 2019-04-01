@@ -118,8 +118,7 @@ export FZFZ_SUBDIR_LIMIT=0
 export FZFZ_EXTRA_OPTS="--reverse"
 export FZF_CTRL_R_OPTS="--reverse"
 
-export PATH="$PATH:~/.fzf_browser"
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib/"
+export LD_LIBRARY_PATH="/usr/local/lib/"
 
 export TERM="xterm-256color"
 
@@ -165,6 +164,7 @@ hn="$(hostname)"
 if [[ $hn == "ROG504" ]]; then
   export PATH="$PATH:/home2/supasorn/anaconda3/bin:/usr/local/cuda-10.0/bin"
   export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda-10.0/lib64:/usr/local/cuda/extras/CUPTI/lib64"
+
   tf-term() {
     tmux new-session \; \
     send-keys "$@" C-m \; \
