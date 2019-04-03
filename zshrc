@@ -163,10 +163,13 @@ if [[ $hn == "ROG504" ]]; then
   tf-term() {
     tmux new-session \; \
     send-keys "$@" C-m \; \
-    send-keys "ls" C-m \; \
+    send-keys "source ~/venv_tf2/bin/activate" C-m \; \
     split-window -v \; \
     send-keys "$@" C-m \; \
+    send-keys "source ~/venv_tf2/bin/activate" C-m \; \
+    send-keys "tensorboard --logdir=." C-m \; \
     split-window -v \; \
+    send-keys "$@" C-m \; \
   }
 
   tl-term() {
