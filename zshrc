@@ -109,8 +109,6 @@ SAVEHIST=$HISTSIZE
 
 # Appends every command to the history file once it is executed
 setopt inc_append_history
-# # Reloads the history whenever you use it
-setopt share_history
 
 
 export FZFZ_SUBDIR_LIMIT=0
@@ -132,6 +130,8 @@ alias rg1="rg --max-depth=1"
 
 alias tm="tmux"
 alias tma="tmux a"
+
+alias rgf='rg --files | rg'
 
 
 source-git() {
@@ -156,7 +156,9 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'
 
 hn="$(hostname)"
 if [[ $hn == "ROG504" ]]; then
-  export PATH="$PATH:/home2/supasorn/anaconda3/bin:/usr/local/cuda-10.0/bin"
+  export NOCONDA_PATH="$PATH:/usr/local/cuda-10.0/bin"
+  export PATH="$NOCONDA_PATH:/home2/supasorn/anaconda3/bin"
+
   export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda-10.0/lib64:/usr/local/cuda/extras/CUPTI/lib64"
 
   tf-term() {

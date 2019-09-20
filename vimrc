@@ -17,8 +17,8 @@ Plug 'tpope/vim-repeat'
 Plug 'dahu/vim-fanfingtastic' 
 Plug 'PeterRincker/vim-argumentative'
 Plug 'wellle/targets.vim'
-Plug 'Raimondi/delimitMate' 
 Plug 'haya14busa/incsearch.vim'
+"Plug 'Raimondi/delimitMate' 
 "Plug 'easymotion/vim-easymotion'
 "Plug 'haya14busa/incsearch-easymotion.vim'
 
@@ -191,6 +191,8 @@ if !empty(glob('~/.vim/plugged/vim-airline'))
   let g:airline_section_z=airline#section#create_right(['%l'])
   let g:airline_section_warning=airline#section#create_right(['%c'])
   let g:airline_section_c = '%<%f %#__accent_red#%m%#__restore__# %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
+
+  "let g:airline#extensions#tabline#enabled = 1
 endif
 
 
