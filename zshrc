@@ -153,14 +153,16 @@ bindkey '^[[Z' autosuggest-accept
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'
 
-
-hn="$(hostname)"
-if [[ $hn == "ROG504" ]]; then
+UNAME=$(uname | tr "[:upper:]" "[:lower:]")
+if [ "$UNAME" == "linux" ]; then
   export NOCONDA_PATH="$PATH:/usr/local/cuda-10.0/bin"
   export PATH="$NOCONDA_PATH:/home2/supasorn/anaconda3/bin"
 
   export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda-10.0/lib64:/usr/local/cuda/extras/CUPTI/lib64"
+fi
 
+hn="$(hostname)"
+if [[ $hn == "ROG504" ]]; then
   tf-term() {
     tmux new-session \; \
     send-keys "$@" C-m \; \
