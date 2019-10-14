@@ -154,7 +154,7 @@ bindkey '^[[Z' autosuggest-accept
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'
 
 UNAME=$(uname | tr "[:upper:]" "[:lower:]")
-if [ "$UNAME" == "linux" ]; then
+if [[ "$UNAME" == "linux" ]]; then
   export NOCONDA_PATH="$PATH:/usr/local/cuda-10.0/bin"
   export PATH="$NOCONDA_PATH:/home2/supasorn/anaconda3/bin"
 
