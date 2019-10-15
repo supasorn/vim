@@ -133,6 +133,13 @@ alias tma="tmux a"
 
 alias rgf='rg --files | rg'
 
+fshere() {
+  cmd="sudo sshfs -o allow_other -o IdentityFile=/home/$USER/.ssh/id_rsa $USER@10.204.162.213:$@ $PWD"
+  echo $cmd
+  eval $cmd
+  cd ..
+  cd -
+} 
 
 source-git() {
   target=~/.zsh/$1:t:r
