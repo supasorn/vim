@@ -134,7 +134,7 @@ alias tma="tmux a"
 alias rgf='rg --files | rg'
 
 fshere() {
-  cmd="sudo sshfs -o allow_other -o IdentityFile=/home/$USER/.ssh/id_rsa $USER@10.204.162.213:$@ $PWD"
+  cmd="sshfs -o cache=no -o IdentityFile=/home/$USER/.ssh/id_rsa $USER@$@ $PWD"
   echo $cmd
   eval $cmd
   cd ..
