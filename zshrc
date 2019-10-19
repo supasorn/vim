@@ -142,6 +142,9 @@ source-git() {
     git clone $1 $target
     #echo "git clone $1 $target"
   fi
+  if [ ! -f "$plugin" ]; then
+    plugin=$target/$1:t:r
+  fi
   source $plugin
   #echo "source $plugin"
 }
@@ -149,8 +152,12 @@ source-git() {
 source-git https://github.com/supasorn/fzf-z.git 
 source-git https://github.com/changyuheng/zsh-interactive-cd.git 
 source-git https://github.com/zsh-users/zsh-autosuggestions.git 
+source-git https://github.com/hchbaw/zce.zsh.git
 
 bindkey '^[[Z' autosuggest-accept
+bindkey '^f' zce
+
+zstyle ':zce:*' bg 'fg=3'
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'
 
