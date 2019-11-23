@@ -195,6 +195,10 @@ if [[ $hn == "ROG504" ]]; then
     split-window -h \; \
     send-keys "/home2; python timelapse_day_maker_runner.py" C-m \; \
   }
+
+  alias tl="python /home2/research/orbiter/cluster_utils/tasklauncher.py"
+  alias rs="python /home2/research/orbiter/cluster_utils/rsync_folder.py"
+
 elif [[ $hn == "Supasorns-MacBook-Pro.local" ]]; then
   ###-tns-completion-start-###
   if [ -f /Users/supasorn/.tnsrc ]; then 
