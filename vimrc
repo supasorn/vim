@@ -63,7 +63,9 @@ Plug 'vim-scripts/L9'
 
 " Integration
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-dispatch'
 Plug 'airblade/vim-gitgutter'
+
 
 if executable('ctags')
   Plug 'majutsushi/tagbar'
