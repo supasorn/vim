@@ -64,6 +64,7 @@ Plug 'vim-scripts/L9'
 " Integration
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
+Plug 'radenling/vim-dispatch-neovim'
 Plug 'airblade/vim-gitgutter'
 
 
