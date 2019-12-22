@@ -196,7 +196,8 @@ if [[ $hn == "ROG504" ]]; then
     send-keys "/home2; python timelapse_day_maker_runner.py" C-m \; \
   }
 
-  alias tl="python /home2/research/orbiter/cluster_utils/tasklauncher.py"
+  alias run="python /home2/research/orbiter/cluster_utils/tasklauncher.py"
+  alias tm="python /home2/research/orbiter/cluster_utils/tasklauncher.py tm"
   alias rs="python /home2/research/orbiter/cluster_utils/rsync_folder.py"
 
 elif [[ $hn == "Supasorns-MacBook-Pro.local" ]]; then
