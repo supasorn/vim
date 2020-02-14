@@ -111,6 +111,8 @@ SAVEHIST=$HISTSIZE
 setopt inc_append_history
 
 
+export FZF_MARKS_JUMP=^h
+
 export FZFZ_SUBDIR_LIMIT=0
 export FZFZ_EXTRA_OPTS="--reverse"
 export FZF_CTRL_R_OPTS="--reverse"
@@ -159,6 +161,7 @@ source-git https://github.com/supasorn/fzf-z.git
 source-git https://github.com/changyuheng/zsh-interactive-cd.git 
 source-git https://github.com/zsh-users/zsh-autosuggestions.git 
 source-git https://github.com/hchbaw/zce.zsh.git
+source-git https://github.com/urbainvaes/fzf-marks
 
 bindkey '^[[Z' autosuggest-accept
 bindkey '^f' zce
@@ -169,10 +172,10 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'
 
 UNAME=$(uname | tr "[:upper:]" "[:lower:]")
 if [[ "$UNAME" == "linux" ]]; then
-  export NOCONDA_PATH="$PATH:/usr/local/cuda-10.0/bin"
+  export NOCONDA_PATH="$PATH:/usr/local/cuda-10.1/bin"
   export PATH="$NOCONDA_PATH:/home2/supasorn/anaconda3/bin"
 
-  export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda-10.0/lib64:/usr/local/cuda/extras/CUPTI/lib64"
+  export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda-10.1/lib64:/usr/local/cuda/extras/CUPTI/lib64"
 fi
 
 hn="$(hostname)"
