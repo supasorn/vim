@@ -112,7 +112,7 @@ set incsearch
 set display=lastline
 "set colorcolumn=80
 
-"set foldmethod=syntax
+set foldmethod=indent
 set scrolloff=3
 set autoread
 set encoding=utf-8
@@ -347,4 +347,9 @@ endif
 augroup QuickfixStatus
     au! BufWinEnter quickfix setlocal 
         \ statusline=%t\ [%{g:asyncrun_status}]\ %{exists('w:quickfix_title')?\ '\ '.w:quickfix_title\ :\ ''}\ %=%-15(%l,%c%V%)\ %P
+augroup END
+
+augroup OpenAllFoldsOnFileOpen
+    autocmd!
+    autocmd BufRead * normal zR
 augroup END
