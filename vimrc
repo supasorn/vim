@@ -143,6 +143,9 @@ set completeopt-=preview
 "----------------------------
 """"""    Constants    """""" 
 "----------------------------
+let g:alternateExtensions_cc = "h,hpp,hh"
+let g:alternateExtensions_hh = "cc"
+
 let g:fugitive_force_bang_command = 1
 
 let g:asyncrun_open = 8
