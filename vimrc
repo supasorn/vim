@@ -268,7 +268,7 @@ nmap <SPACE> <leader>s
 vmap <SPACE> <leader>s
 map <c-c> <plug>NERDCommenterToggle<c-m>
 noremap <C-n> :NERDTreeToggle<CR>
-map <leader>r :NERDTreeFind<cr>
+map <leader>r :NERDTreeFind<cr>:wincmd p<cr>
 
 nmap <F5> :e %<CR>
 imap <F5> <esc>:e %<CR>
