@@ -112,7 +112,7 @@ set incsearch
 set display=lastline
 "set colorcolumn=80
 
-set foldmethod=indent
+"set foldmethod=indent
 set scrolloff=3
 set autoread
 set encoding=utf-8
