@@ -16,12 +16,15 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'dahu/vim-fanfingtastic' 
 Plug 'PeterRincker/vim-argumentative'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'wellle/targets.vim'
 Plug 'haya14busa/incsearch.vim'
 "Plug 'Raimondi/delimitMate' 
 "Plug 'easymotion/vim-easymotion'
 "Plug 'haya14busa/incsearch-easymotion.vim'
+
+" textobject
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'kana/vim-textobj-user'
+Plug 'wellle/targets.vim'
 
 " File
 Plug 'vim-scripts/FuzzyFinder'
