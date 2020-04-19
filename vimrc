@@ -46,7 +46,8 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'drmingdrmer/vim-toggle-quickfix'
 Plug 'AndrewRadev/simple_bookmarks.vim'
 Plug 'junegunn/vim-peekaboo' " show registers
-Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'bfredl/nvim-miniyank'
+Plug 'junegunn/vim-slash'
 
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
@@ -58,6 +59,7 @@ Plug 'junegunn/seoul256.vim'
 " Pretty
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'junegunn/indentLine'
 
 " Misc
 Plug 'xolox/vim-misc'
@@ -249,7 +251,10 @@ nmap <F4> :FZFMru --no-sort<CR>
 nmap <F9> :NextColorScheme<CR>
 nmap <s-F9> :PrevColorScheme<CR>
 
-nmap <leader>p <Plug>yankstack_substitute_older_paste
+map p <Plug>(miniyank-autoput)
+map P <Plug>(miniyank-autoPut)
+map <leader>p <Plug>(miniyank-cycle)
+"nmap <leader>p <Plug>yankstack_substitute_older_paste
 "nmap \p :call EasyMotion#SelectLinesPaste()<CR>
 
 map <c-j> <leader>j

@@ -94,10 +94,32 @@ function! FunctionObject()
   return ['v', head_pos, tail_pos]
 endfunction 
 
+function! AfterEquationObject()
+  normal! $F=w
+  let head_pos = getpos('.')
+  normal! $
+  let tail_pos = getpos('.')
+  return ['v', head_pos, tail_pos]
+endfunction 
+
+function! BeforeEquationObject()
+  normal! ^
+  let head_pos = getpos('.')
+  normal! f=be
+  let tail_pos = getpos('.')
+  return ['v', head_pos, tail_pos]
+endfunction 
+
 call textobj#user#plugin('function', {
 \   'function': {
 \     'select-i-function': 'FunctionObject',
 \     'select-i': 'if',
+\   },
+\   'equation': {
+\     'select-i-function': 'AfterEquationObject',
+\     'select-i': '=',
+\     'select-a-function': 'BeforeEquationObject',
+\     'select-a': 'i=',
 \   },
 \ })
 
