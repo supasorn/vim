@@ -44,6 +44,7 @@ Plug 'drmingdrmer/vim-toggle-quickfix'
 Plug 'AndrewRadev/simple_bookmarks.vim'
 Plug 'junegunn/vim-peekaboo' " show registers
 Plug 'junegunn/vim-slash' " improved vim search
+Plug 'tpope/vim-eunuch' " add unix commands like Rename, SudoWrite
 
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
