@@ -17,9 +17,6 @@ Plug 'tpope/vim-repeat'
 Plug 'dahu/vim-fanfingtastic' 
 Plug 'PeterRincker/vim-argumentative'
 Plug 'haya14busa/incsearch.vim'
-"Plug 'Raimondi/delimitMate' 
-"Plug 'easymotion/vim-easymotion'
-"Plug 'haya14busa/incsearch-easymotion.vim'
 
 " textobject
 Plug 'michaeljsmith/vim-indent-object'
@@ -46,7 +43,7 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'drmingdrmer/vim-toggle-quickfix'
 Plug 'AndrewRadev/simple_bookmarks.vim'
 Plug 'junegunn/vim-peekaboo' " show registers
-Plug 'junegunn/vim-slash'
+Plug 'junegunn/vim-slash' " improved vim search
 
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
@@ -251,13 +248,10 @@ nmap <F9> :NextColorScheme<CR>
 nmap <s-F9> :PrevColorScheme<CR>
 
 "nmap \p :call EasyMotion#SelectLinesPaste()<CR>
-
 map <c-j> <leader>j
 vmap <c-j> <leader>j
 map <c-k> <leader>k
 vmap <c-k> <leader>k
- 
-
 
 nmap <SPACE> <leader>s
 vmap <SPACE> <leader>s
