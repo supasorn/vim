@@ -41,14 +41,14 @@ Plug 'vim-scripts/a.vim'
 Plug 'mbbill/undotree'
 Plug 'godlygeek/tabular'
 Plug 'Shougo/neocomplcache'
-"if has('nvim')
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"endif
-
-
 Plug 'wesQ3/vim-windowswap'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'drmingdrmer/vim-toggle-quickfix'
+Plug 'AndrewRadev/simple_bookmarks.vim'
+Plug 'junegunn/vim-peekaboo' " show registers
+Plug 'maxbrunsfeld/vim-yankstack'
+
+Plug 'maxbrunsfeld/vim-yankstack'
 
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
@@ -71,7 +71,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
 Plug 'airblade/vim-gitgutter'
 
-
 if executable('ctags')
   Plug 'majutsushi/tagbar'
   if v:version >= 800
@@ -84,7 +83,6 @@ Plug 'kshenoy/vim-signature'
 
 " Syntax
 Plug 'othree/html5.vim'
-Plug 'AndrewRadev/simple_bookmarks.vim'
 Plug 'sheerun/vim-polyglot'
 
 call plug#end()
@@ -95,6 +93,7 @@ colorscheme gruvbox
 autocmd GUIEnter * set visualbell t_vb=
 
 "set termguicolors
+set clipboard=unnamedplus " vim's clipboard = system's clipboard
 set t_Co=256
 set mouse=a
 set noeb
@@ -114,18 +113,15 @@ set wildmenu
 set wildmode=list:longest,full
 set incsearch
 set display=lastline
-"set colorcolumn=80
-
-"set foldmethod=indent
 set scrolloff=3
 set autoread
 set encoding=utf-8
 set laststatus=2
-let os = substitute(system('uname'), "\n", "", "")
-
 set go-=m
 set go-=r
 set go-=L
+
+let os = substitute(system('uname'), "\n", "", "")
 if os == "Linux"
   if match(system('uname -n'), "washington") >= 0
     set guifont=Inconsolata\ 9 
@@ -231,10 +227,6 @@ nnoremap =<SPACE> i <ESC>la <ESC>h
 
 map <c-h> <esc>:A<CR>
 
-" Map keyboard clipboard to k, mouse clipboard to m
-map "k "+
-map "m "*
-
 "nnoremap \r :call FirstLineCompile()<CR>
 
 "command! -nargs=1 Gr call GrepCurrentDirectory(<f-args>)
@@ -259,7 +251,8 @@ nmap <F4> :FZFMru --no-sort<CR>
 nmap <F9> :NextColorScheme<CR>
 nmap <s-F9> :PrevColorScheme<CR>
 
-nmap \p :call EasyMotion#SelectLinesPaste()<CR>
+nmap <leader>p <Plug>yankstack_substitute_older_paste
+"nmap \p :call EasyMotion#SelectLinesPaste()<CR>
 
 map <c-j> <leader>j
 vmap <c-j> <leader>j
