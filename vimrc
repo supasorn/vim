@@ -46,7 +46,6 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'drmingdrmer/vim-toggle-quickfix'
 Plug 'AndrewRadev/simple_bookmarks.vim'
 Plug 'junegunn/vim-peekaboo' " show registers
-Plug 'bfredl/nvim-miniyank'
 Plug 'junegunn/vim-slash'
 
 " Colorschemes
@@ -251,10 +250,6 @@ nmap <F4> :FZFMru --no-sort<CR>
 nmap <F9> :NextColorScheme<CR>
 nmap <s-F9> :PrevColorScheme<CR>
 
-map p <Plug>(miniyank-autoput)
-map P <Plug>(miniyank-autoPut)
-map <leader>p <Plug>(miniyank-cycle)
-"nmap <leader>p <Plug>yankstack_substitute_older_paste
 "nmap \p :call EasyMotion#SelectLinesPaste()<CR>
 
 map <c-j> <leader>j
