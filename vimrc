@@ -48,8 +48,6 @@ Plug 'AndrewRadev/simple_bookmarks.vim'
 Plug 'junegunn/vim-peekaboo' " show registers
 Plug 'maxbrunsfeld/vim-yankstack'
 
-Plug 'maxbrunsfeld/vim-yankstack'
-
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'freeo/vim-kalisi'
@@ -93,7 +91,7 @@ colorscheme gruvbox
 autocmd GUIEnter * set visualbell t_vb=
 
 "set termguicolors
-set clipboard=unnamedplus " vim's clipboard = system's clipboard
+"set clipboard=unnamedplus " vim's clipboard = system's clipboard
 set t_Co=256
 set mouse=a
 set noeb
