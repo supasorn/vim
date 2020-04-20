@@ -89,8 +89,8 @@ colorscheme gruvbox
 
 autocmd GUIEnter * set visualbell t_vb=
 
-"set termguicolors
 "set clipboard=unnamedplus " vim's clipboard = system's clipboard
+set termguicolors
 set t_Co=256
 set mouse=a
 set noeb
