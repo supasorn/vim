@@ -43,7 +43,7 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'drmingdrmer/vim-toggle-quickfix'
 Plug 'AndrewRadev/simple_bookmarks.vim'
 Plug 'junegunn/vim-peekaboo' " show registers
-Plug 'junegunn/vim-slash' " improved vim search
+"Plug 'junegunn/vim-slash' " improved vim search
 Plug 'tpope/vim-eunuch' " add unix commands like Rename, SudoWrite
 
 " Colorschemes
@@ -90,7 +90,7 @@ colorscheme gruvbox
 autocmd GUIEnter * set visualbell t_vb=
 
 "set clipboard=unnamedplus " vim's clipboard = system's clipboard
-set termguicolors
+"set termguicolors
 set t_Co=256
 set mouse=a
 set noeb
