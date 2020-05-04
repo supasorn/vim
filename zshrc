@@ -178,6 +178,7 @@ if [[ "$UNAME" == "linux" ]]; then
   export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda-10.1/lib64:/usr/local/cuda/extras/CUPTI/lib64"
 fi
 
+unset TMUX  # allow nested tmux
 hn="$(hostname)"
 if [[ $hn == "ROG504" ]]; then
   tf-term() {
@@ -199,9 +200,11 @@ if [[ $hn == "ROG504" ]]; then
     send-keys "/home2; python timelapse_day_maker_runner.py" C-m \; \
   }
 
-  alias run="python /home2/research/orbiter/cluster_utils/tasklauncher.py"
+  alias run="python /home2/research/orbiter/cluster_utils/tasklauncher_uni.py"
+  alias ul="tmux a -t UL"
   alias tm="python /home2/research/orbiter/cluster_utils/tasklauncher.py tm"
   alias rs="python /home2/research/orbiter/cluster_utils/rsync_folder.py"
+  alias mountall="sshfs -o IdentityFile=/home/supasorn/.ssh/id_rsa supasorn@v1:/ ~/mnt/v1; sshfs -o IdentityFile=/home/supasorn/.ssh/id_rsa supasorn@v2:/ ~/mnt/v2; sshfs -o IdentityFile=/home/supasorn/.ssh/id_rsa supasorn@v3:/ ~/mnt/v3; sshfs -o IdentityFile=/home/supasorn/.ssh/id_rsa supasorn@v4:/ ~/mnt/v4"
 
 elif [[ $hn == "Supasorns-MacBook-Pro.local" ]]; then
   ###-tns-completion-start-###
