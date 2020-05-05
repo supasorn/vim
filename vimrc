@@ -193,7 +193,7 @@ let g:neocomplcache_fuzzy_completion_start_length = 2
 
 if !empty(glob('~/.vim/plugged/vim-airline'))
   let g:airline_powerline_fonts = 1
-  let g:airline_theme="base16"
+  let g:airline_theme="bubblegum"
   let g:airline_section_z=airline#section#create_right(['%l'])
   let g:airline_section_warning=airline#section#create_right(['%c'])
   let g:airline_section_c = '%<%f %#__accent_red#%m%#__restore__# %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
