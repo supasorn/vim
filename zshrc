@@ -180,6 +180,9 @@ fi
 
 unset TMUX  # allow nested tmux
 hn="$(hostname)"
+
+export clusters="v1,v2,v3,v4,v7,v8,v9,v10,v23,v24" 
+
 if [[ $hn == "ROG504" ]]; then
   tf-term() {
     tmux new-session \; \
