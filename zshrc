@@ -230,3 +230,15 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+
+#if [ "$SHELL" = '/bin/zsh' ]; then 
+  #if [ "$SYNC" = "1" ]; then
+    #preexec () { 
+      #tmux select-pane -t 3 \; send-keys "^c" \; send-keys $1 \; select-pane -t 2
+    #};
+  #else
+    #preexec () { 
+    #}
+  #fi
+#fi
