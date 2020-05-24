@@ -172,14 +172,17 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'
 
 UNAME=$(uname | tr "[:upper:]" "[:lower:]")
 if [[ "$UNAME" == "linux" ]]; then
-  export NOCONDA_PATH="$PATH:/usr/local/cuda-10.1/bin"
-  export PATH="$NOCONDA_PATH:/home2/supasorn/anaconda3/bin"
+  export NOCONDA_PATH="$PATH:/usr/local/cuda-10.2/bin"
+  export PATH="$NOCONDA_PATH:/home2/$USER/anaconda3/bin"
 
-  export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda-10.1/lib64:/usr/local/cuda/extras/CUPTI/lib64"
+  export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda-10.2/lib64:/usr/local/cuda/extras/CUPTI/lib64"
 fi
 
 unset TMUX  # allow nested tmux
 hn="$(hostname)"
+
+export clusters="v1,v2,v3,v4,v7,v8,v9,v10,v23,v24" 
+
 if [[ $hn == "ROG504" ]]; then
   tf-term() {
     tmux new-session \; \
@@ -204,7 +207,7 @@ if [[ $hn == "ROG504" ]]; then
   alias ul="tmux a -t UL"
   alias tm="python /home2/research/orbiter/cluster_utils/tasklauncher.py tm"
   alias rs="python /home2/research/orbiter/cluster_utils/rsync_folder.py"
-  alias mountall="sshfs -o IdentityFile=/home/supasorn/.ssh/id_rsa supasorn@v1:/ ~/mnt/v1; sshfs -o IdentityFile=/home/supasorn/.ssh/id_rsa supasorn@v2:/ ~/mnt/v2; sshfs -o IdentityFile=/home/supasorn/.ssh/id_rsa supasorn@v3:/ ~/mnt/v3; sshfs -o IdentityFile=/home/supasorn/.ssh/id_rsa supasorn@v4:/ ~/mnt/v4"
+  alias mountall="sudo umount -l ~/mnt/v1; sudo umount -l ~/mnt/v2; sudo umount -l ~/mnt/v3; sudo umount -l ~/mnt/v4; sudo umount -l ~/mnt/v8; sshfs -o follow_symlinks -o IdentityFile=/home/$USER/.ssh/id_rsa $USER@v1:/ ~/mnt/v1; sshfs -o follow_symlinks -o IdentityFile=/home/$USER/.ssh/id_rsa $USER@v2:/ ~/mnt/v2; sshfs -o follow_symlinks -o IdentityFile=/home/$USER/.ssh/id_rsa $USER@v3:/ ~/mnt/v3; sshfs -o follow_symlinks -o IdentityFile=/home/$USER/.ssh/id_rsa $USER@v4:/ ~/mnt/v4; sshfs -o follow_symlinks -o IdentityFile=/home/$USER/.ssh/id_rsa $USER@v8:/ ~/mnt/v8"
 
 elif [[ $hn == "Supasorns-MacBook-Pro.local" ]]; then
   ###-tns-completion-start-###

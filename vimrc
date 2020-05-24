@@ -85,7 +85,10 @@ Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 set background=dark
+
+let g:gruvbox_contrast_dark = "medium"
 colorscheme gruvbox
+
 
 autocmd GUIEnter * set visualbell t_vb=
 
