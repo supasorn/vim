@@ -15,10 +15,10 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'dahu/vim-fanfingtastic' 
-Plug 'PeterRincker/vim-argumentative'
 Plug 'haya14busa/incsearch.vim'
 
 " textobject
+Plug 'PeterRincker/vim-argumentative'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'kana/vim-textobj-user'
 Plug 'wellle/targets.vim'
@@ -120,6 +120,7 @@ set laststatus=2
 set go-=m
 set go-=r
 set go-=L
+set shortmess-=S
 
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Linux"
@@ -207,6 +208,9 @@ let g:netrw_silent = 1
 "----------------------------
 """"""    Remapping    """""" 
 "----------------------------
+omap ia Ia 
+vmap ia Ia
+
 nmap <c-s> :w<CR>
 imap <c-s> <Esc>:w<CR>a
 
