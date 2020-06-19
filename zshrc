@@ -115,7 +115,8 @@ export FZF_MARKS_JUMP=^h
 
 export FZFZ_SUBDIR_LIMIT=0
 export FZFZ_EXTRA_OPTS="--reverse"
-export FZF_CTRL_R_OPTS="--reverse"
+#export FZF_CTRL_R_OPTS="--reverse"
+export FZF_CTRL_R_OPTS="--reverse --preview 'echo {} |sed -e \"s/^ *\([0-9]*\) *//\" -e \"s/.\\{\$COLUMNS\\}/&\\n/g\"' --preview-window down:3:hidden --bind ?:toggle-preview"
 
 export LD_LIBRARY_PATH="/usr/local/lib/"
 
@@ -181,7 +182,8 @@ fi
 unset TMUX  # allow nested tmux
 hn="$(hostname)"
 
-export clusters="v1,v2,v3,v4,v7,v8,v9,v10,v23,v24" 
+export clusters="v1,v2,v3,v4,v5,v6,v7,v8,v9,v10,v11,v12,v13,v14,v15,v16,v17" 
+export CUDA_DEVICE_ORDER=PCI_BUS_ID
 
 if [[ $hn == "ROG504" ]]; then
   tf-term() {
@@ -207,7 +209,7 @@ if [[ $hn == "ROG504" ]]; then
   alias ul="tmux a -t UL"
   alias tm="python /home2/research/orbiter/cluster_utils/tasklauncher.py tm"
   alias rs="python /home2/research/orbiter/cluster_utils/rsync_folder.py"
-  alias mountall="sudo umount -l ~/mnt/v1; sudo umount -l ~/mnt/v2; sudo umount -l ~/mnt/v3; sudo umount -l ~/mnt/v4; sudo umount -l ~/mnt/v8; sshfs -o follow_symlinks -o IdentityFile=/home/$USER/.ssh/id_rsa $USER@v1:/ ~/mnt/v1; sshfs -o follow_symlinks -o IdentityFile=/home/$USER/.ssh/id_rsa $USER@v2:/ ~/mnt/v2; sshfs -o follow_symlinks -o IdentityFile=/home/$USER/.ssh/id_rsa $USER@v3:/ ~/mnt/v3; sshfs -o follow_symlinks -o IdentityFile=/home/$USER/.ssh/id_rsa $USER@v4:/ ~/mnt/v4; sshfs -o follow_symlinks -o IdentityFile=/home/$USER/.ssh/id_rsa $USER@v8:/ ~/mnt/v8"
+  alias mountall="python /home2/research/orbiter/cluster_utils/mountall.py"
 
 elif [[ $hn == "Supasorns-MacBook-Pro.local" ]]; then
   ###-tns-completion-start-###
@@ -234,14 +236,3 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 
-
-#if [ "$SHELL" = '/bin/zsh' ]; then 
-  #if [ "$SYNC" = "1" ]; then
-    #preexec () { 
-      #tmux select-pane -t 3 \; send-keys "^c" \; send-keys $1 \; select-pane -t 2
-    #};
-  #else
-    #preexec () { 
-    #}
-  #fi
-#fi
