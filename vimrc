@@ -214,7 +214,6 @@ vmap ia Ia
 nmap <c-s> :w<CR>
 imap <c-s> <Esc>:w<CR>a
 
-map <s-r> :History:<CR>
 map /  <Plug>(incsearch-forward)
 
 inoremap <expr><C-h> neocomplcache#undo_completion()
@@ -269,6 +268,9 @@ map <leader>r :NERDTreeFind<cr>:wincmd p<cr>
 
 nmap <F5> :e %<CR>
 imap <F5> <esc>:e %<CR>
+
+"map <s-r> :History:<CR>
+map <s-r> <esc>:silent exe "!tmux send -t 2 'fc -e : -1' Enter"<CR>
 
 nmap ? :BLines<CR>
 nmap <F2> :FufFileWithCurrentBufferDir<CR>
