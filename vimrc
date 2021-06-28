@@ -28,7 +28,7 @@ Plug 'vim-scripts/FuzzyFinder'
 Plug 'vim-scripts/mru.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'jremmen/vim-ripgrep'
+"Plug 'jremmen/vim-ripgrep'
 Plug 'pbogut/fzf-mru.vim'
 
 " Utilities
@@ -136,7 +136,7 @@ if os == "Linux"
   endif
 else
   "set guifont=Inconsolata:h9 
-  set guifont=DejaVu_Sans_Mono_for_Powerline:h12
+  set guifont=DejaVu_Sans_Mono_for_Powerline:h13
   "set guifont=Droid_Sans_Mono_for_Powerline:h12
 endif
 set completeopt-=preview
@@ -235,7 +235,7 @@ map <c-h> <esc>:A<CR>
 
 "command! -nargs=1 Gr call GrepCurrentDirectory(<f-args>)
 nnoremap gr :Rg -g '!tags' --max-depth=1 '\b<cword>\b' %:p:h/<CR>
-nnoremap <c-f> <esc>:cd %:p:h<CR>:Rg -g '!tags' --max-depth=1 
+nnoremap <c-f> <esc>:cd %:p:h<CR>:Rg<CR>
 
 "nnoremap \m :w<CR>:execute "cd %:p:h \| try \| cd bin \| catch \| try \| cd ../bin \| catch \| endtry \| endtry"<CR>:AsyncRun make %:t:r<CR>
 nnoremap \m :w<CR>:execute "cd %:p:h \| try \| cd bin \| catch \| try \| cd ../bin \| catch \| endtry \| endtry"<CR>:make %:t:r<CR>
@@ -279,6 +279,11 @@ imap <s-F2> <esc>:FufRenewCache<CR>
 "imap <F3> <esc>:Buffers<CR>
 nmap <F3> :FufBuffer<CR>
 imap <F3> <esc>:FufBuffer<CR>
+
+nmap <F6> :Files<CR>
+imap <F6> <esc>:Files<CR>
+nmap <F7> :Rg<CR>
+imap <F7> <esc>:Rg<CR>
 
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>

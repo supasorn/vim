@@ -216,6 +216,7 @@ elif [[ $hn == "Supasorns-MacBook-Pro.local" ]]; then
   if [ -f /Users/supasorn/.tnsrc ]; then 
       source /Users/supasorn/.tnsrc 
   fi
+  alias ut="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4'"
   ###-tns-completion-end-###
 fi
 
