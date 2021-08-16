@@ -135,6 +135,7 @@ alias tm="tmux"
 alias tma="tmux a"
 
 alias rgf='rg --files | rg'
+alias pdf='cd /Users/supasorn/pdf_signer; source ~/venv/bin/activate; python multisign.py'
 
 fshere() {
   cmd="sshfs -o cache=no -o IdentityFile=/home/$USER/.ssh/id_rsa $USER@$@ $PWD"
