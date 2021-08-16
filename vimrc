@@ -233,7 +233,8 @@ map <c-h> <esc>:A<CR>
 "nnoremap \r :call FirstLineCompile()<CR>
 
 "command! -nargs=1 Gr call GrepCurrentDirectory(<f-args>)
-nnoremap gr :Rg -g '!tags' --max-depth=1 '\b<cword>\b' %:p:h/<CR>
+"nnoremap gr :Rg -g '!tags' --max-depth=1 '\b<cword>\b' %:p:h/<CR>
+nnoremap gr :Rg <C-R><C-W><CR>
 nnoremap <c-f> <esc>:cd %:p:h<CR>:Rg<CR>
 
 "nnoremap \m :w<CR>:execute "cd %:p:h \| try \| cd bin \| catch \| try \| cd ../bin \| catch \| endtry \| endtry"<CR>:AsyncRun make %:t:r<CR>
