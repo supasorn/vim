@@ -11,7 +11,7 @@ call plug#begin('~/.vim/plugged')
 
 " Fast
 Plug 'supasorn/vim-easymotion'
-Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter' " ctrl-c to toggle comment
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'dahu/vim-fanfingtastic' 
@@ -25,11 +25,11 @@ Plug 'wellle/targets.vim'
 
 " File
 Plug 'vim-scripts/FuzzyFinder'
-Plug 'vim-scripts/mru.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-"Plug 'jremmen/vim-ripgrep'
 Plug 'pbogut/fzf-mru.vim'
+"Plug 'jremmen/vim-ripgrep'
+"Plug 'vim-scripts/mru.vim'
 
 " Utilities
 Plug 'scrooloose/nerdtree'
@@ -43,8 +43,9 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'drmingdrmer/vim-toggle-quickfix'
 Plug 'AndrewRadev/simple_bookmarks.vim'
 Plug 'junegunn/vim-peekaboo' " show registers
-"Plug 'junegunn/vim-slash' " improved vim search
 Plug 'tpope/vim-eunuch' " add unix commands like Rename, SudoWrite
+Plug 'svermeulen/vim-yoink' " cycle through yank with ctrl-p
+Plug 'svermeulen/vim-subversive' " quick paste in normal mode, use s.. instead of v->p
 
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
@@ -209,6 +210,17 @@ let g:netrw_silent = 1
 "----------------------------
 """"""    Remapping    """""" 
 "----------------------------
+
+nmap s <plug>(SubversiveSubstitute)
+nmap ss <plug>(SubversiveSubstituteLine)
+nmap S <plug>(SubversiveSubstituteToEndOfLine)
+
+nmap <c-p> <plug>(YoinkPostPasteSwapBack)
+"nmap <c-n> <plug>(YoinkPostPasteSwapForward)
+
+nmap p <plug>(YoinkPaste_p)
+nmap P <plug>(YoinkPaste_P)
+
 omap ia Ia 
 vmap ia Ia
 
