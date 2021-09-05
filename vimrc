@@ -18,18 +18,16 @@ Plug 'dahu/vim-fanfingtastic'
 Plug 'haya14busa/incsearch.vim'
 
 " textobject
-Plug 'PeterRincker/vim-argumentative'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'kana/vim-textobj-user'
-Plug 'wellle/targets.vim'
+Plug 'PeterRincker/vim-argumentative' " <, >, for shifting arguments. a, i, text object
+Plug 'michaeljsmith/vim-indent-object' " ai, ii
+Plug 'kana/vim-textobj-user' " my own =, i= for changing the RHS, LSH of equation. if for changing the function call
+Plug 'wellle/targets.vim' " () {} [] text object
 
 " File
-Plug 'vim-scripts/FuzzyFinder'
+Plug 'vim-scripts/FuzzyFinder' " F2
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'pbogut/fzf-mru.vim'
-"Plug 'jremmen/vim-ripgrep'
-"Plug 'vim-scripts/mru.vim'
+Plug 'junegunn/fzf.vim' " F3
+Plug 'pbogut/fzf-mru.vim' " F4
 
 " Utilities
 Plug 'scrooloose/nerdtree'
@@ -38,7 +36,7 @@ Plug 'vim-scripts/a.vim'
 Plug 'mbbill/undotree'
 Plug 'godlygeek/tabular'
 Plug 'Shougo/neocomplcache'
-Plug 'wesQ3/vim-windowswap'
+Plug 'wesQ3/vim-windowswap' " \ww to mark two windows
 Plug 'skywind3000/asyncrun.vim'
 Plug 'drmingdrmer/vim-toggle-quickfix'
 Plug 'AndrewRadev/simple_bookmarks.vim'
@@ -221,7 +219,7 @@ nmap <c-p> <plug>(YoinkPostPasteSwapBack)
 nmap p <plug>(YoinkPaste_p)
 nmap P <plug>(YoinkPaste_P)
 
-omap ia Ia 
+omap ia Ia  
 vmap ia Ia
 
 nmap <c-s> :w<CR>
@@ -318,6 +316,7 @@ command! W w
 " For jumping through function arguments
 nmap <silent> ( :call JumpThroughParameter(-1)<CR>
 nmap <silent> ) :call JumpThroughParameter(1)<CR>
+
 "let blacklist = ['tex', 'txt', 'latex']
 "au Filetype * if index(blacklist, &ft) < 0 | 
       "\ nmap <silent> ( :::call JumpThroughParameter(-1)<CR>|
