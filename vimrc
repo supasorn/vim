@@ -30,6 +30,9 @@ Plug 'junegunn/fzf.vim' " F3
 Plug 'pbogut/fzf-mru.vim' " F4
 
 " Utilities
+"Plug 'lambdalisue/fern.vim'
+"Plug 'antoinemadec/FixCursorHold.nvim'
+
 Plug 'scrooloose/nerdtree'
 Plug 'xolox/vim-session'
 Plug 'vim-scripts/a.vim' 
@@ -80,6 +83,9 @@ Plug 'kshenoy/vim-signature'
 " Syntax
 Plug 'othree/html5.vim'
 Plug 'sheerun/vim-polyglot'
+
+" Icon
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -135,7 +141,8 @@ if os == "Linux"
   endif
 else
   "set guifont=Inconsolata:h9 
-  set guifont=DejaVu_Sans_Mono_for_Powerline:h13
+  "set guifont=DejaVu_Sans_Mono_for_Powerline:h13
+  set guifont=DejaVu_Sans_Mono_Nerd_Font_Complete:h13
   "set guifont=Droid_Sans_Mono_for_Powerline:h12
 endif
 set completeopt-=preview
@@ -199,11 +206,15 @@ if !empty(glob('~/.vim/plugged/vim-airline'))
   let g:airline_section_c = '%<%f %#__accent_red#%m%#__restore__# %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
 
   "let g:airline#extensions#tabline#enabled = 1
+  "let g:airline#extensions#tabline#left_sep = ' '
+  "let g:airline#extensions#tabline#left_alt_sep = '|'
+  "let g:airline#extensions#tabline#formatter = 'unique_tail'
+
 endif
 
 
 let g:netrw_silent = 1
-"let g:fzf_layout = {'up': '~20%'}
+let g:fzf_layout = {'down': '~10%'}
 
 "----------------------------
 """"""    Remapping    """""" 
