@@ -111,6 +111,8 @@ SAVEHIST=$HISTSIZE
 setopt inc_append_history
 
 
+export BAT_THEME="gruvbox-dark"
+
 export FZF_MARKS_JUMP=^h
 
 export FZFZ_SUBDIR_LIMIT=0

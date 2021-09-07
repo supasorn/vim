@@ -214,7 +214,9 @@ endif
 
 
 let g:netrw_silent = 1
-let g:fzf_layout = {'down': '~10%'}
+"let g:fzf_layout = {'down': '~20%'}
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
+let $FZF_DEFAULT_OPTS="--preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'bat --color=always --style=grid --line-range :300 {}'"
 
 "----------------------------
 """"""    Remapping    """""" 
@@ -292,8 +294,8 @@ map <leader>r :NERDTreeFind<cr>:wincmd p<cr>
 nmap <F5> :e %<CR>
 imap <F5> <esc>:e %<CR>
 
-"map <s-r> :History:<CR>
-map <s-r> <esc>:silent exe "!tmux send -t 2 'fc -e : -1' Enter"<CR>
+map <s-r> :History:<CR>
+"map <s-r> <esc>:silent exe "!tmux send -t 2 'fc -e : -1' Enter"<CR>
 
 nmap ? :BLines<CR>
 nmap <F2> :FufFileWithCurrentBufferDir<CR>
