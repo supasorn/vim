@@ -25,19 +25,30 @@ require'nvim-treesitter.configs'.setup {
     },
   },
 }
-EOF
 
+require'lspinstall'.setup() -- important
 
-lua <<EOF
-require('telescope').setup {
-  extensions = {
-    fzf = {
-      fuzzy = true,                    
-      override_generic_sorter = false,
-      override_file_sorter = true,    
-      case_mode = "smart_case",       
-    }
+local servers = require'lspinstall'.installed_servers()
+for _, server in pairs(servers) do
+  require'lspconfig'[server].setup{}
+end
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    -- This will disable virtual text, like doing:
+    -- let g:diagnostic_enable_virtual_text = 0
+    virtual_text = false,
+
+    -- This is similar to:
+    -- let g:diagnostic_show_sign = 1
+    -- To configure sign display,
+    --  see: ":help vim.lsp.diagnostic.set_signs()"
+    signs = false,
+
+    -- This is similar to:
+    -- "let g:diagnostic_insert_delay = 1"
+    update_in_insert = false,
   }
-}
-require('telescope').load_extension('fzf')
+)
 EOF
+

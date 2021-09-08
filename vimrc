@@ -29,14 +29,13 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " F3
 Plug 'pbogut/fzf-mru.vim' " F4
 
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+"Plug 'nvim-lua/plenary.nvim'
+"Plug 'nvim-telescope/telescope.nvim'
+"Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 " Utilities
 "Plug 'lambdalisue/fern.vim'
 "Plug 'antoinemadec/FixCursorHold.nvim'
-
 Plug 'scrooloose/nerdtree'
 Plug 'xolox/vim-session'
 Plug 'vim-scripts/a.vim' 
@@ -84,10 +83,15 @@ endif
 Plug 'kshenoy/vim-signature'
 
 " Syntax
-"Plug 'othree/html5.vim'
-"Plug 'sheerun/vim-polyglot'
 Plug 'nvim-treesitter/nvim-treesitter', {'branch' : '0.5-compat', 'do': 'TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'branch' : '0.5-compat'}
+"Plug 'othree/html5.vim'
+"Plug 'sheerun/vim-polyglot'
+
+" LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'kabouzeid/nvim-lspinstall'
+Plug 'hrsh7th/nvim-compe'
 
 " Icon
 Plug 'ryanoasis/vim-devicons'
@@ -151,11 +155,44 @@ else
   set guifont=DejaVu_Sans_Mono_Nerd_Font_Complete:h13
   "set guifont=Droid_Sans_Mono_for_Powerline:h12
 endif
-set completeopt-=preview
+"set completeopt-=preview
+"set completeopt=menuone,noinsert,noselect
+set completeopt=menuone,noselect
 
 "----------------------------
 """"""    Constants    """""" 
 "----------------------------
+let g:diagnostic_enable_virtual_text = 0
+let g:diagnostic_insert_delay = 5
+
+let g:compe = {}
+let g:compe.enabled = v:true
+let g:compe.autocomplete = v:true
+let g:compe.debug = v:false
+let g:compe.min_length = 1
+let g:compe.preselect = 'enable'
+let g:compe.throttle_time = 80
+let g:compe.source_timeout = 200
+let g:compe.resolve_timeout = 800
+let g:compe.incomplete_delay = 400
+let g:compe.max_abbr_width = 100
+let g:compe.max_kind_width = 100
+let g:compe.max_menu_width = 100
+let g:compe.documentation = v:true
+
+let g:compe.source = {}
+let g:compe.source.path = v:true
+let g:compe.source.buffer = v:true
+let g:compe.source.calc = v:true
+let g:compe.source.nvim_lsp = v:true
+let g:compe.source.nvim_lua = v:true
+let g:compe.source.vsnip = v:true
+let g:compe.source.ultisnips = v:true
+let g:compe.source.luasnip = v:true
+let g:compe.source.emoji = v:true
+
+
+
 let g:alternateExtensions_cc = "h,hpp,hh"
 let g:alternateExtensions_hh = "cc"
 
@@ -247,10 +284,10 @@ imap <c-s> <Esc>:w<CR>a
 
 map /  <Plug>(incsearch-forward)
 
-inoremap <expr><C-h> neocomplcache#undo_completion()
+"inoremap <expr><C-h> neocomplcache#undo_completion()
+"inoremap <expr><C-k> neocomplcache#close_popup()
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-inoremap <expr><C-k> neocomplcache#close_popup()
 
 noremap Y y$
 vnoremap y y`>
@@ -308,10 +345,12 @@ nmap <F2> :FufFileWithCurrentBufferDir<CR>
 imap <F2> <esc>:FufFileWithCurrentBufferDir<CR>
 nmap <s-F2> :FufRenewCache<CR>
 imap <s-F2> <esc>:FufRenewCache<CR>
-nmap <F3> :Buffers<CR>
-imap <F3> <esc>:Buffers<CR>
-"nmap <F3> :FufBuffer<CR>
-"imap <F3> <esc>:FufBuffer<CR>
+"nmap <F3> :Telescope buffers<CR>
+"imap <F3> <esc>:Telescope buffers<CR>
+"nmap <F3> :Buffers<CR>
+"imap <F3> <esc>:Buffers<CR>
+nmap <F3> :FufBuffer<CR>
+imap <F3> <esc>:FufBuffer<CR>
 
 nmap <F6> :Files<CR>
 imap <F6> <esc>:Files<CR>
