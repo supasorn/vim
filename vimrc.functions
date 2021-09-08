@@ -111,10 +111,10 @@ function! BeforeEquationObject()
 endfunction 
 
 call textobj#user#plugin('function', {
-\   'function': {
-\     'select-i-function': 'FunctionObject',
-\     'select-i': 'if',
-\   },
+"\   'function': {
+"\     'select-i-function': 'FunctionObject',
+"\     'select-i': 'if',
+"\   },
 \   'equation': {
 \     'select-i-function': 'AfterEquationObject',
 \     'select-i': '=',

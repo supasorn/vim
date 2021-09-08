@@ -20,7 +20,7 @@ Plug 'haya14busa/incsearch.vim'
 " textobject
 Plug 'PeterRincker/vim-argumentative' " <, >, for shifting arguments. a, i, text object
 Plug 'michaeljsmith/vim-indent-object' " ai, ii
-Plug 'kana/vim-textobj-user' " my own =, i= for changing the RHS, LSH of equation. if for changing the function call
+Plug 'kana/vim-textobj-user' " my own =, i= for changing the RHS, LSH of equation. (Deprecated) if for changing the function call
 Plug 'wellle/targets.vim' " () {} [] text object
 
 " File
@@ -34,14 +34,11 @@ Plug 'pbogut/fzf-mru.vim' " F4
 "Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 " Utilities
-"Plug 'lambdalisue/fern.vim'
-"Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'scrooloose/nerdtree'
 Plug 'xolox/vim-session'
 Plug 'vim-scripts/a.vim' 
 Plug 'mbbill/undotree'
 Plug 'godlygeek/tabular'
-"Plug 'Shougo/neocomplcache'
 Plug 'wesQ3/vim-windowswap' " \ww to mark two windows
 Plug 'skywind3000/asyncrun.vim'
 Plug 'drmingdrmer/vim-toggle-quickfix'
@@ -50,6 +47,8 @@ Plug 'junegunn/vim-peekaboo' " show registers
 Plug 'tpope/vim-eunuch' " add unix commands like Rename, SudoWrite
 Plug 'svermeulen/vim-yoink' " cycle through yank with ctrl-p
 Plug 'svermeulen/vim-subversive' " quick paste in normal mode, use s.. instead of v->p
+"Plug 'Shougo/neocomplcache'
+"Plug 'lambdalisue/fern.vim'
 
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
@@ -85,7 +84,6 @@ Plug 'kshenoy/vim-signature'
 " Syntax
 Plug 'nvim-treesitter/nvim-treesitter', {'branch' : '0.5-compat', 'do': 'TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'branch' : '0.5-compat'}
-"Plug 'othree/html5.vim'
 "Plug 'sheerun/vim-polyglot'
 
 " LSP
@@ -98,7 +96,6 @@ Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
 Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
-
 
 let g:gruvbox_contrast_dark = "medium"
 
@@ -268,6 +265,7 @@ let $FZF_DEFAULT_OPTS="--preview-window 'right:60%' --layout reverse --margin=1,
 "----------------------------
 """"""    Remapping    """""" 
 "----------------------------
+noremap gD :lua vim.lsp.buf.definition()<CR>
 
 nmap s <plug>(SubversiveSubstitute)
 nmap ss <plug>(SubversiveSubstituteLine)
@@ -275,7 +273,6 @@ nmap S <plug>(SubversiveSubstituteToEndOfLine)
 
 nmap <c-p> <plug>(YoinkPostPasteSwapBack)
 "nmap <c-n> <plug>(YoinkPostPasteSwapForward)
-
 nmap p <plug>(YoinkPaste_p)
 nmap P <plug>(YoinkPaste_P)
 
