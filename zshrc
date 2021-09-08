@@ -162,7 +162,7 @@ source-git() {
   #echo "source $plugin"
 }
 
-source-git https://github.com/supasorn/fzf-z.git 
+source-git https://github.com/supasorn/fzf-z.git  # ctrl-g function
 source-git https://github.com/changyuheng/zsh-interactive-cd.git 
 source-git https://github.com/zsh-users/zsh-autosuggestions.git 
 source-git https://github.com/hchbaw/zce.zsh.git

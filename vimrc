@@ -9,6 +9,16 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+" Syntax
+Plug 'nvim-treesitter/nvim-treesitter', {'branch' : '0.5-compat', 'do': 'TSUpdate'} " syntax highlighting
+"Plug 'sheerun/vim-polyglot'
+
+" LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'kabouzeid/nvim-lspinstall'
+Plug 'hrsh7th/nvim-compe'
+Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
+
 " Fast
 Plug 'supasorn/vim-easymotion'
 Plug 'scrooloose/nerdcommenter' " ctrl-c to toggle comment
@@ -22,6 +32,7 @@ Plug 'PeterRincker/vim-argumentative' " <, >, for shifting arguments. a, i, text
 Plug 'michaeljsmith/vim-indent-object' " ai, ii
 Plug 'kana/vim-textobj-user' " my own =, i= for changing the RHS, LSH of equation. (Deprecated) if for changing the function call
 Plug 'wellle/targets.vim' " () {} [] text object
+Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'branch' : '0.5-compat'} " indent object f, c, ]m ]] 
 
 " File
 Plug 'vim-scripts/FuzzyFinder' " F2
@@ -29,9 +40,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " F3
 Plug 'pbogut/fzf-mru.vim' " F4
 
-"Plug 'nvim-lua/plenary.nvim'
-"Plug 'nvim-telescope/telescope.nvim'
-"Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 " Utilities
 Plug 'scrooloose/nerdtree'
@@ -80,17 +91,6 @@ endif
 
 " Bookmark Display
 Plug 'kshenoy/vim-signature'
-
-" Syntax
-Plug 'nvim-treesitter/nvim-treesitter', {'branch' : '0.5-compat', 'do': 'TSUpdate'}
-Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'branch' : '0.5-compat'}
-"Plug 'sheerun/vim-polyglot'
-
-" LSP
-Plug 'neovim/nvim-lspconfig'
-Plug 'kabouzeid/nvim-lspinstall'
-Plug 'hrsh7th/nvim-compe'
-Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
 
 " Icon
 Plug 'ryanoasis/vim-devicons'
@@ -162,6 +162,8 @@ set completeopt=menuone,noselect
 "----------------------------
 """"""    Constants    """""" 
 "----------------------------
+let g:netrw_liststyle = 3
+
 let g:diagnostic_enable_virtual_text = 0
 let g:diagnostic_insert_delay = 5
 
@@ -200,8 +202,6 @@ let g:fugitive_force_bang_command = 1
 
 let g:asyncrun_open = 8
 let g:asyncrun_bell = 1
-
-"let g:deoplete#enable_at_startup = 1
 
 let g:gitgutter_enabled = 0
 
@@ -388,9 +388,6 @@ nmap <F10> <Plug>window:quickfix:toggle
 """"""     autocmd     """""" 
 "----------------------------
 
-"autocmd FileType fuf
-       "\ call deoplete#custom#buffer_option('auto_complete', v:false)
-
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
@@ -405,8 +402,6 @@ au BufNewFile,BufRead *.cuh set filetype=cpp
 " Auto open quickfix : http://vim.wikia.com/wiki/Automatically_open_the_quickfix_window_on_:make
 autocmd QuickFixCmdPost [^l]* nested botright cwindow 8
 autocmd QuickFixCmdPost    l* nested lwindow
-
-au FileType cu,c,cpp,py let delimitMate_matchpairs = "(:),[:]"
 
 filetype plugin on
 
