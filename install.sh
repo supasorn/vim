@@ -6,7 +6,7 @@ ln -sf ~/.vim/tmux.conf ~/.tmux.conf
 ln -sf ~/.vim/zshrc ~/.zshrc
 
 mkdir -p ~/.config/nvim
-cp ~/.vim/init.vim ~/.config/nvim/init.vim
+ln -sf ~/.vim/init.vim ~/.config/nvim/init.vim
 
 vim +PlugInstall +qall
 

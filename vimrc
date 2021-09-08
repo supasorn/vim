@@ -29,6 +29,10 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " F3
 Plug 'pbogut/fzf-mru.vim' " F4
 
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+
 " Utilities
 "Plug 'lambdalisue/fern.vim'
 "Plug 'antoinemadec/FixCursorHold.nvim'
@@ -38,7 +42,7 @@ Plug 'xolox/vim-session'
 Plug 'vim-scripts/a.vim' 
 Plug 'mbbill/undotree'
 Plug 'godlygeek/tabular'
-Plug 'Shougo/neocomplcache'
+"Plug 'Shougo/neocomplcache'
 Plug 'wesQ3/vim-windowswap' " \ww to mark two windows
 Plug 'skywind3000/asyncrun.vim'
 Plug 'drmingdrmer/vim-toggle-quickfix'
@@ -51,7 +55,7 @@ Plug 'svermeulen/vim-subversive' " quick paste in normal mode, use s.. instead o
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'freeo/vim-kalisi'
-Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 Plug 'arcticicestudio/nord-vim'
 Plug 'junegunn/seoul256.vim'
 
@@ -69,7 +73,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
 Plug 'airblade/vim-gitgutter'
-
 if executable('ctags')
   Plug 'majutsushi/tagbar'
   if v:version >= 800
@@ -81,24 +84,27 @@ endif
 Plug 'kshenoy/vim-signature'
 
 " Syntax
-Plug 'othree/html5.vim'
-Plug 'sheerun/vim-polyglot'
+"Plug 'othree/html5.vim'
+"Plug 'sheerun/vim-polyglot'
+Plug 'nvim-treesitter/nvim-treesitter', {'branch' : '0.5-compat', 'do': 'TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'branch' : '0.5-compat'}
 
 " Icon
 Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
-set background=dark
 
+colorscheme gruvbox-material
 let g:gruvbox_contrast_dark = "medium"
-colorscheme gruvbox
+let g:gruvbox_material_palette = 'mix'
+set background=dark
 
 
 autocmd GUIEnter * set visualbell t_vb=
 
 "set clipboard=unnamedplus " vim's clipboard = system's clipboard
-"set termguicolors
+set termguicolors
 set t_Co=256
 set mouse=a
 set noeb
@@ -201,6 +207,7 @@ let g:neocomplcache_fuzzy_completion_start_length = 2
 if !empty(glob('~/.vim/plugged/vim-airline'))
   let g:airline_powerline_fonts = 1
   let g:airline_theme="bubblegum"
+  "let g:airline_theme="gruvbox_material"
   let g:airline_section_z=airline#section#create_right(['%l'])
   let g:airline_section_warning=airline#section#create_right(['%c'])
   let g:airline_section_c = '%<%f %#__accent_red#%m%#__restore__# %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
@@ -288,8 +295,7 @@ vmap <c-k> <leader>k
 nmap <SPACE> <leader>s
 vmap <SPACE> <leader>s
 map <c-c> <plug>NERDCommenterToggle<c-m>
-noremap <C-n> :NERDTreeToggle<CR>
-map <leader>r :NERDTreeFind<cr>:wincmd p<cr>
+noremap <C-n> :NERDTreeToggle %<CR>
 
 nmap <F5> :e %<CR>
 imap <F5> <esc>:e %<CR>

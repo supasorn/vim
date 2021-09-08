@@ -123,6 +123,7 @@ export FZF_CTRL_R_OPTS="--reverse --preview 'echo {} |sed -e \"s/^ *\([0-9]*\) *
 export LD_LIBRARY_PATH="/usr/local/lib/"
 
 export TERM="xterm-256color"
+#export TERM="screen-256color"
 
 alias vim="nvim"
 alias vi="nvim"
