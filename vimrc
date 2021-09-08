@@ -100,9 +100,11 @@ Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 
-colorscheme gruvbox-material
 let g:gruvbox_contrast_dark = "medium"
+
+colorscheme gruvbox-material
 let g:gruvbox_material_palette = 'mix'
+let g:gruvbox_material_background = 'medium'
 set background=dark
 
 
