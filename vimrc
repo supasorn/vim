@@ -92,6 +92,7 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'branch' : '0.5-compat'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'hrsh7th/nvim-compe'
+Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
 
 " Icon
 Plug 'ryanoasis/vim-devicons'
