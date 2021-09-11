@@ -89,5 +89,6 @@ require('bufferline').setup {
     show_tab_indicators = true
   }
 }
+
 EOF
 

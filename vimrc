@@ -346,7 +346,8 @@ nmap <SPACE> <leader>s
 vmap <SPACE> <leader>s
 map <c-c> <plug>NERDCommenterToggle<c-m>
 noremap <C-n> :NERDTreeToggle %<CR>
-noremap <C-m> :Telescope file_browser<CR>
+map <c-t> :lua require('telescope.builtin').file_browser({cwd = vim.fn.expand('%:p:h')})<CR>
+ 
 
 
 map <s-r> :History:<CR>
@@ -369,15 +370,15 @@ imap <F6> <esc>:Files<CR>
 nmap <F7> :Rg<CR>
 imap <F7> <esc>:Rg<CR>
 
-if expand('%:t') == 'vimrc' || expand('%:t') == 'init.vim'
-  echo 'Save + Source'
-  nmap <F5> :w<CR>:so %<CR>
-  imap <F5> <esc>:w<CR>:so %<CR>
-else
-  echo 'Reload'
-  nmap <F5> :e %<CR>
-  imap <F5> <esc>:e %<CR>
-endif
+"if expand('%:t') == 'vimrc' || expand('%:t') == 'init.vim'
+  "echo 'Save + Source'
+  "nmap <F5> :w<CR>:so %<CR>
+  "imap <F5> <esc>:w<CR>:so %<CR>
+"else
+  "echo 'Reload'
+"endif
+nmap <F5> :e %<CR>
+imap <F5> <esc>:e %<CR>
 
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
