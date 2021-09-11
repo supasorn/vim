@@ -94,6 +94,9 @@ Plug 'kshenoy/vim-signature'
 
 " Icon
 Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons' 
+Plug 'akinsho/bufferline.nvim'
+"Plug 'romgrk/barbar.nvim'
 
 call plug#end()
 
@@ -265,6 +268,16 @@ let $FZF_DEFAULT_OPTS="--preview-window 'right:60%' --layout reverse --margin=1,
 "----------------------------
 """"""    Remapping    """""" 
 "----------------------------
+nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
+nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
+nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
+nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
+nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
+nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
+nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
+nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
+nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
+
 noremap gD :lua vim.lsp.buf.definition()<CR>
 
 nmap s <plug>(SubversiveSubstitute)
@@ -334,8 +347,6 @@ vmap <SPACE> <leader>s
 map <c-c> <plug>NERDCommenterToggle<c-m>
 noremap <C-n> :NERDTreeToggle %<CR>
 
-nmap <F5> :e %<CR>
-imap <F5> <esc>:e %<CR>
 
 map <s-r> :History:<CR>
 "map <s-r> <esc>:silent exe "!tmux send -t 2 'fc -e : -1' Enter"<CR>
@@ -356,6 +367,16 @@ nmap <F6> :Files<CR>
 imap <F6> <esc>:Files<CR>
 nmap <F7> :Rg<CR>
 imap <F7> <esc>:Rg<CR>
+
+if expand('%:t') == 'vimrc' || expand('%:t') == 'init.vim'
+  echo 'Save + Source'
+  nmap <F5> :w<CR>:so %<CR>
+  imap <F5> <esc>:w<CR>:so %<CR>
+else
+  echo 'Reload'
+  nmap <F5> :e %<CR>
+  imap <F5> <esc>:e %<CR>
+endif
 
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
@@ -396,7 +417,6 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 autocmd BufNewFile,BufReadPost *.ejs set filetype=html
 
-au Filetype *.vim nmap <F5> :so %<CR>
 au BufNewFile,BufRead *.cuh set filetype=cpp
 
 " Auto open quickfix : http://vim.wikia.com/wiki/Automatically_open_the_quickfix_window_on_:make
