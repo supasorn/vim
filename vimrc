@@ -346,6 +346,7 @@ nmap <SPACE> <leader>s
 vmap <SPACE> <leader>s
 map <c-c> <plug>NERDCommenterToggle<c-m>
 noremap <C-n> :NERDTreeToggle %<CR>
+noremap <C-m> :Telescope file_browser<CR>
 
 
 map <s-r> :History:<CR>
