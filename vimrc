@@ -395,6 +395,9 @@ command! SS SaveSession
 command! RE RestartVim
 command! W w
 
+command! To2spaces %s;^\(\s\+\);\=repeat(' ', len(submatch(0))/2);g
+command! To4spaces %s/^\s*/&&/g
+
 " For jumping through function arguments
 nmap <silent> ( :call JumpThroughParameter(-1)<CR>
 nmap <silent> ) :call JumpThroughParameter(1)<CR>
