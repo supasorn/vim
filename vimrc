@@ -268,8 +268,6 @@ let $FZF_DEFAULT_OPTS="--preview-window 'right:60%' --layout reverse --margin=1,
 "----------------------------
 """"""    Remapping    """""" 
 "----------------------------
-"nnoremap <silent> gh :Lspsaga lsp_finder<CR>
-"nnoremap <silent> gd :Lspsaga preview_definition<CR>
 nnoremap <silent> K :lua vim.lsp.buf.hover()<CR>
 nnoremap <leader>gd :vsp<CR>:lua vim.lsp.buf.definition()<CR>
 
@@ -353,8 +351,6 @@ map <c-c> <plug>NERDCommenterToggle<c-m>
 noremap <C-n> :NERDTreeToggle %<CR>
 map <c-t> :lua require('telescope.builtin').file_browser({cwd = vim.fn.expand('%:p:h')})<CR>
  
-
-
 map <s-r> :History:<CR>
 "map <s-r> <esc>:silent exe "!tmux send -t 2 'fc -e : -1' Enter"<CR>
 
