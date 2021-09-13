@@ -90,5 +90,6 @@ require('bufferline').setup {
   }
 }
 
+require'lspsaga'.init_lsp_saga()
 EOF
 

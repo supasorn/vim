@@ -268,6 +268,11 @@ let $FZF_DEFAULT_OPTS="--preview-window 'right:60%' --layout reverse --margin=1,
 "----------------------------
 """"""    Remapping    """""" 
 "----------------------------
+"nnoremap <silent> gh :Lspsaga lsp_finder<CR>
+"nnoremap <silent> gd :Lspsaga preview_definition<CR>
+nnoremap <silent> K :lua vim.lsp.buf.hover()<CR>
+nnoremap <leader>gd :vsp<CR>:lua vim.lsp.buf.definition()<CR>
+
 nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
 nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
 nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
