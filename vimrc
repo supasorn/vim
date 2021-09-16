@@ -18,6 +18,8 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'hrsh7th/nvim-compe'
 Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
+Plug 'othree/html5.vim' " to properly indent js file
+
 
 " Fast
 Plug 'supasorn/vim-easymotion'
@@ -39,6 +41,8 @@ Plug 'vim-scripts/FuzzyFinder' " F2
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " F3
 Plug 'pbogut/fzf-mru.vim' " F4
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -60,6 +64,7 @@ Plug 'svermeulen/vim-yoink' " cycle through yank with ctrl-p
 Plug 'svermeulen/vim-subversive' " quick paste in normal mode, use s.. instead of v->p
 "Plug 'Shougo/neocomplcache'
 "Plug 'lambdalisue/fern.vim'
+"Plug 'wellle/context.vim'
 
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
@@ -71,7 +76,8 @@ Plug 'junegunn/seoul256.vim'
 " Pretty
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'junegunn/indentLine'
+"Plug 'junegunn/indentLine'
+Plug 'Yggdroot/indentLine'
 
 " Misc
 Plug 'xolox/vim-misc'
@@ -165,6 +171,10 @@ set completeopt=menuone,noselect
 "----------------------------
 """"""    Constants    """""" 
 "----------------------------
+let g:context_presenter = 'nvim-float'
+
+let g:indentLine_char = '┆'
+
 let g:netrw_liststyle = 3
 
 let g:diagnostic_enable_virtual_text = 0
@@ -416,7 +426,7 @@ nmap <F10> <Plug>window:quickfix:toggle
 "----------------------------
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags | set ts=2 | set sw=2
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete | set ts=2 | set sw=2
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags

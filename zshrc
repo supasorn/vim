@@ -165,7 +165,7 @@ source-git() {
 source-git https://github.com/supasorn/fzf-z.git  # ctrl-g function
 source-git https://github.com/changyuheng/zsh-interactive-cd.git 
 source-git https://github.com/zsh-users/zsh-autosuggestions.git 
-source-git https://github.com/hchbaw/zce.zsh.git
+source-git https://github.com/hchbaw/zce.zsh.git  # easy motion
 source-git https://github.com/urbainvaes/fzf-marks
 
 bindkey '^[[Z' autosuggest-accept
@@ -241,3 +241,5 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 
+
+source /Users/supasorn/.config/broot/launcher/bash/br

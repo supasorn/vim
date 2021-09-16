@@ -3,6 +3,7 @@ let &packpath = &runtimepath
 source ~/.vimrc
 
 lua <<EOF
+
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   ignore_install = { }, -- List of parsers to ignore installing
@@ -15,6 +16,9 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+  indent = {
+    enable = false
+  },
   incremental_selection = {
     enable = false,
     keymaps = {
@@ -24,18 +28,6 @@ require'nvim-treesitter.configs'.setup {
       node_decremental = "grm",
     },
   },
-}
-
-require'lspinstall'.setup() -- important
-
-local servers = require'lspinstall'.installed_servers()
-for _, server in pairs(servers) do
-  require'lspconfig'[server].setup{}
-end
-
-require'toggle_lsp_diagnostics'.init({ underline = false, virtual_text = false, signs = false})
-
-require'nvim-treesitter.configs'.setup {
   textobjects = {
     select = {
       enable = true,
@@ -72,6 +64,15 @@ require'nvim-treesitter.configs'.setup {
     },
   },
 }
+
+require'lspinstall'.setup() -- important
+
+local servers = require'lspinstall'.installed_servers()
+for _, server in pairs(servers) do
+  require'lspconfig'[server].setup{}
+end
+
+require'toggle_lsp_diagnostics'.init({ underline = false, virtual_text = false, signs = false})
 
 require('bufferline').setup {
   options = {
