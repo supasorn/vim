@@ -71,6 +71,7 @@ local servers = require'lspinstall'.installed_servers()
 for _, server in pairs(servers) do
   require'lspconfig'[server].setup{}
 end
+require'lspconfig'.tsserver.setup{}
 
 require'toggle_lsp_diagnostics'.init({ underline = false, virtual_text = false, signs = false})
 
