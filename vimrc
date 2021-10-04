@@ -70,9 +70,10 @@ Plug 'dstein64/vim-startuptime'
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'freeo/vim-kalisi'
-Plug 'sainnhe/gruvbox-material'
+Plug 'supasorn/gruvbox-material'
 Plug 'arcticicestudio/nord-vim'
 Plug 'junegunn/seoul256.vim'
+"Plug 'sainnhe/gruvbox-material'
 
 " Pretty
 Plug 'bling/vim-airline'
