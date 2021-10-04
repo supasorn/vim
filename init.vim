@@ -75,6 +75,7 @@ require'lspconfig'.tsserver.setup{}
 
 require'toggle_lsp_diagnostics'.init({ underline = false, virtual_text = false, signs = false})
 
+--[[
 require('bufferline').setup {
   options = {
     numbers = function(opts)
@@ -83,14 +84,14 @@ require('bufferline').setup {
     separator_style = "thick",
     max_name_length = 18,
     max_prefix_length = 15, 
-    tab_size = 18,
+    tab_size = 10,
     diagnostics = false,
     show_buffer_icons = true,
     show_close_icon = true,
     show_buffer_close_icons = false,
     show_tab_indicators = true
   }
-}
+}--]]
 
 EOF
 

@@ -77,7 +77,6 @@ Plug 'junegunn/seoul256.vim'
 " Pretty
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"Plug 'junegunn/indentLine'
 Plug 'Yggdroot/indentLine'
 
 " Misc
@@ -102,7 +101,8 @@ Plug 'kshenoy/vim-signature'
 " Icon
 Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons' 
-Plug 'akinsho/bufferline.nvim'
+Plug 'mildred/vim-bufmru'
+"Plug 'akinsho/bufferline.nvim'
 "Plug 'romgrk/barbar.nvim'
 
 call plug#end()
@@ -263,10 +263,27 @@ if !empty(glob('~/.vim/plugged/vim-airline'))
   let g:airline_section_warning=airline#section#create_right(['%c'])
   let g:airline_section_c = '%<%f %#__accent_red#%m%#__restore__# %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
 
-  "let g:airline#extensions#tabline#enabled = 1
+
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#formatter = 'unique_tail'
+  let g:airline#extensions#tabline#show_tab_nr = 1
+  let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+  let g:airline#extensions#tabline#buffer_idx_mode = 1
+  let g:airline#extensions#tabline#buffer_idx_format = {
+        \ '0': '  0. ',
+        \ '1': '  1. ',
+        \ '2': '  2. ',
+        \ '3': '  3. ',
+        \ '4': '  4. ',
+        \ '5': '  5. ',
+        \ '6': '  6. ',
+        \ '7': '  7. ',
+        \ '8': '  8. ',
+        \ '9': '  9. '
+        \}
+
   "let g:airline#extensions#tabline#left_sep = ' '
-  "let g:airline#extensions#tabline#left_alt_sep = '|'
-  "let g:airline#extensions#tabline#formatter = 'unique_tail'
+  "let g:airline#extensions#tabline#left_alt_sep = ' '
 
 endif
 
@@ -282,15 +299,26 @@ let $FZF_DEFAULT_OPTS="--preview-window 'right:60%' --layout reverse --margin=1,
 nnoremap <silent> K :lua vim.lsp.buf.hover()<CR>
 nnoremap <leader>gd :vsp<CR>:lua vim.lsp.buf.definition()<CR>
 
-nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
-nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
-nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
-nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
-nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
-nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
-nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
-nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
-nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+
+
+"nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
+"nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
+"nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
+"nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
+"nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
+"nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
+"nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
+"nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
+"nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
 
 noremap gD :lua vim.lsp.buf.definition()<CR>
 
@@ -426,6 +454,7 @@ nmap <F10> <Plug>window:quickfix:toggle
 """"""     autocmd     """""" 
 "----------------------------
 
+"au BufEnter * :BufferLineMovePrev
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags | set ts=2 | set sw=2
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
