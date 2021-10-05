@@ -256,15 +256,20 @@ let g:neocomplcache_max_list = 15
 let g:neocomplcache_enable_fuzzy_completion = 1
 let g:neocomplcache_fuzzy_completion_start_length = 2
 
+
 if !empty(glob('~/.vim/plugged/vim-airline'))
   let g:airline_powerline_fonts = 1
   let g:airline_theme="bubblegum"
   "let g:airline_theme="gruvbox_material"
+  "
+  let g:airline_section_x=''
+  let g:airline_section_y=''
+  let g:webdevicons_enable_airline_statusline_fileformat_symbols = 0
   let g:airline_section_z=airline#section#create_right(['%l'])
   let g:airline_section_warning=airline#section#create_right(['%c'])
-  let g:airline_section_c = '%<%f %#__accent_red#%m%#__restore__# %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
+  "let g:airline_section_c = '%<%f %#__accent_red#%m%#__restore__# %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
 
-
+  let g:airline#extensions#tabline#show_tabs = 0
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#tabline#formatter = 'unique_tail'
   let g:airline#extensions#tabline#show_tab_nr = 1
@@ -282,7 +287,6 @@ if !empty(glob('~/.vim/plugged/vim-airline'))
         \ '8': ' 8. ',
         \ '9': ' 9. '
         \}
-
   let g:airline#extensions#tabline#left_sep = '│'
   let g:airline#extensions#tabline#left_alt_sep = '│'
 
