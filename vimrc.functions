@@ -87,9 +87,9 @@ function! OpenRemoteOrLocal()
 endfunction 
 
 function! FunctionObject()
-  normal! f(%
+  normal! f)%h
   let tail_pos = getpos('.')
-  normal! %b
+  normal! B
   let head_pos = getpos('.')
   return ['v', head_pos, tail_pos]
 endfunction 
@@ -111,10 +111,10 @@ function! BeforeEquationObject()
 endfunction 
 
 call textobj#user#plugin('function', {
-"\   'function': {
-"\     'select-i-function': 'FunctionObject',
-"\     'select-i': 'if',
-"\   },
+\   'function': {
+\     'select-i-function': 'FunctionObject',
+\     'select-i': 'in',
+\   },
 \   'equation': {
 \     'select-i-function': 'AfterEquationObject',
 \     'select-i': '=',

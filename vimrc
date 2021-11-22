@@ -41,6 +41,7 @@ Plug 'vim-scripts/FuzzyFinder' " F2
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " F3
 Plug 'pbogut/fzf-mru.vim' " F4
+Plug 'jesseleite/vim-agriculture'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 
@@ -294,9 +295,10 @@ endif
 
 
 let g:netrw_silent = 1
-"let g:fzf_layout = {'down': '~20%'}
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
 let $FZF_DEFAULT_OPTS="--preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'bat --color=always --style=grid --line-range :300 {}'"
+"let g:fzf_layout = {'down': '~30%'}
+"let $FZF_DEFAULT_OPTS="--preview-window 'right:60%' --layout reverse --preview 'bat --color=always --style=grid --line-range :300 {}'"
 
 "----------------------------
 """"""    Remapping    """""" 
@@ -361,8 +363,8 @@ map <c-h> <esc>:A<CR>
 "nnoremap \r :call FirstLineCompile()<CR>
 
 "command! -nargs=1 Gr call GrepCurrentDirectory(<f-args>)
-"nnoremap gr :Rg -g '!tags' --max-depth=1 '\b<cword>\b' %:p:h/<CR>
-nnoremap gr :Rg <C-R><C-W><CR>
+nnoremap gr :RgRaw -g '!tags' --max-depth=1 '\b<cword>\b' %:p:h/<CR>
+"nnoremap gr :Rg <C-R><C-W><CR>
 nnoremap <c-f> <esc>:cd %:p:h<CR>:Rg<CR>
 
 "nnoremap \m :w<CR>:execute "cd %:p:h \| try \| cd bin \| catch \| try \| cd ../bin \| catch \| endtry \| endtry"<CR>:AsyncRun make %:t:r<CR>

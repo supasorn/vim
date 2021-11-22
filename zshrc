@@ -221,6 +221,8 @@ elif [[ $hn == "Supasorns-MacBook-Pro.local" ]]; then
       source /Users/supasorn/.tnsrc 
   fi
   alias ut="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4'"
+  export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
   ###-tns-completion-end-###
 fi
 
