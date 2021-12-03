@@ -131,7 +131,9 @@ alias v="nvim"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias space="du -hs * | sort -h"
+alias spaces="du -hsx * | sort -h"
+alias space="du -hx * | sort -h"
+
 alias rg1="rg --max-depth=1"
 
 alias tm="tmux"
