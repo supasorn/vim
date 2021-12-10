@@ -456,6 +456,16 @@ nmap <silent> ) :call JumpThroughParameter(1)<CR>
 
 nmap <F10> <Plug>window:quickfix:toggle
 
+command! -bang -nargs=* BLines
+    \ call fzf#vim#grep(
+    \   'rg --with-filename --column --line-number --no-heading --smart-case . '.fnameescape(expand('%:p')), 1,
+    \   fzf#vim#with_preview({'options': '--layout reverse --query '.shellescape(<q-args>).' --with-nth=4.. --delimiter=":"'}, 'right:50%'))
+    " \   fzf#vim#with_preview({'options': '--layout reverse  --with-nth=-1.. --delimiter="/"'}, 'right:50%'))
+    "
+nmap <Leader>og /gs<CR>f:f"yi":execute('!open '.shellescape(@"))<CR>
+nmap <Leader>os /s2<CR>f:f"yi":execute('!open '.shellescape(@"))<CR>
+nmap <Leader>od /dbl<CR>f:f"yi":execute('!open '.shellescape(@"))<CR>
+
 
 "----------------------------
 """"""     autocmd     """""" 
