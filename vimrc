@@ -15,9 +15,9 @@ Plug 'nvim-treesitter/nvim-treesitter', {'branch' : '0.5-compat', 'do': 'TSUpdat
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
-Plug 'kabouzeid/nvim-lspinstall'
-Plug 'hrsh7th/nvim-compe'
-Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
+Plug 'kabouzeid/nvim-lspinstall', {'branch' : 'main'} 
+"Plug 'hrsh7th/nvim-compe'
+Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim', {'branch' : 'main'}
 Plug 'othree/html5.vim' " to properly indent js file
 
 
@@ -47,7 +47,7 @@ Plug 'rbgrouleff/bclose.vim'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+"Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 " Utilities
 Plug 'scrooloose/nerdtree'
