@@ -213,7 +213,6 @@ if [[ $hn == "ROG504" ]]; then
 
   alias run="python /home2/research/orbiter/cluster_utils/tasklauncher_uni.py"
   alias ul="tmux a -t UL"
-  alias tm="python /home2/research/orbiter/cluster_utils/tasklauncher.py tm"
   alias rs="python /home2/research/orbiter/cluster_utils/rsync_folder.py"
   alias mountall="python /home2/research/orbiter/cluster_utils/mountall.py"
 
@@ -229,6 +228,7 @@ elif [[ $hn == "Supasorns-MacBook-Pro.local" ]]; then
   source /Users/supasorn/.config/broot/launcher/bash/br
 fi
 
+source ~/.vim/export_lf_icons.sh 2> /dev/null 
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
