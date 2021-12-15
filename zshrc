@@ -226,6 +226,7 @@ elif [[ $hn == "Supasorns-MacBook-Pro.local" ]]; then
   export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
   ###-tns-completion-end-###
+  source /Users/supasorn/.config/broot/launcher/bash/br
 fi
 
 
@@ -246,4 +247,3 @@ unset __conda_setup
 
 
 
-source /Users/supasorn/.config/broot/launcher/bash/br
