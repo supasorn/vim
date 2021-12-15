@@ -15,7 +15,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'branch' : '0.5-compat', 'do': 'TSUpdat
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
-Plug 'kabouzeid/nvim-lspinstall', {'branch' : 'main'} 
+Plug 'williamboman/nvim-lsp-installer'
 "Plug 'hrsh7th/nvim-compe'
 Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim', {'branch' : 'main'}
 Plug 'othree/html5.vim' " to properly indent js file
