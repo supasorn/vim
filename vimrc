@@ -394,7 +394,7 @@ vmap <c-k> <leader>k
 nmap <SPACE> <leader>s
 vmap <SPACE> <leader>s
 map <c-c> <plug>NERDCommenterToggle<c-m>
-noremap <C-n> :NERDTreeToggle %<CR>
+noremap <C-n> :NERDTreeToggle %:p:h<CR>
 map <c-t> :lua require('telescope.builtin').file_browser({cwd = vim.fn.expand('%:p:h')})<CR>
  
 map <s-r> :History:<CR>
