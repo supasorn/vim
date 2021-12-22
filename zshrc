@@ -226,6 +226,9 @@ elif [[ $hn == "Supasorns-MacBook-Pro.local" ]]; then
 
   ###-tns-completion-end-###
   source /Users/supasorn/.config/broot/launcher/bash/br
+else
+  alias run="python3 ~/cluster_utils/tasklauncher_uni.py"
+  alias ul="tmux a -t UL"
 fi
 
 source ~/.vim/export_lf_icons.sh 2> /dev/null 
