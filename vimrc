@@ -398,7 +398,8 @@ noremap <C-n> :NERDTreeToggle %:p:h<CR>
 map <c-t> :lua require('telescope.builtin').file_browser({cwd = vim.fn.expand('%:p:h')})<CR>
  
 map <s-r> :History:<CR>
-"map <s-r> <esc>:silent exe "!tmux send -t 2 'fc -e : -1' Enter"<CR>
+"map <s-e> <esc>:w<CR>:silent exe "!tmux send -t 1 'fc -e : -1' Enter"<CR>
+nmap <s-e> :call FirstLineCompile()<CR>
 
 nmap ? :BLines<CR>
 nmap <F2> :FufFileWithCurrentBufferDir<CR>
