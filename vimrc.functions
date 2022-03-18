@@ -1,4 +1,5 @@
 " Rule: echo 'yes'
+" Rule: tmux send -t 1 'python main.py' Enter
 function! FirstLineCompile() 
   if !empty(matchstr(getline(1), ':'))
     let l:s = split(getline(1) , ':')
