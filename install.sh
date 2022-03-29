@@ -10,6 +10,7 @@ ln -sf ~/.vim/init.vim ~/.config/nvim/init.vim
 
 mkdir -p ~/.config/lf
 ln -sf ~/.vim/lfrc ~/.config/lf/lfrc
+ln -sf ~/.vim/lfcd.sh ~/.config/lf/lfcd.sh
 
 vim +PlugInstall +qall
 
