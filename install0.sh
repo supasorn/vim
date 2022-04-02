@@ -1,6 +1,6 @@
 #!/bin/bash
 #sh -c "$(curl -fsSL https://raw.githubusercontent.com/supasorn/vim/master/install0.sh)"
-#sudo add-apt-repository ppa:x4121/ripgrep
+sudo add-apt-repository --remove ppa:x4121/ripgrep
 sudo add-apt-repository ppa:neovim-ppa/unstable
 curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
 sudo apt-get update
