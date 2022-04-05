@@ -188,7 +188,6 @@ fi
 unset TMUX  # allow nested tmux
 hn="$(hostname)"
 
-export clusters="v1,v2,v3,v4,v5,v6,v7,v8,v9,v10,v11,v12,v13,v14,v15,v16,v17" 
 export CUDA_DEVICE_ORDER=PCI_BUS_ID
 
 LFCD="$HOME/.config/lf/lfcd.sh"                               
