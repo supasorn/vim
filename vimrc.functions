@@ -8,6 +8,7 @@ function! FirstLineCompile()
   endif
   if !empty(matchstr(l:s[0], 'Rule'))
     let l:command = l:s[1]
+    write
     cd %:p:h
     let l:out = system(l:command)
     try
@@ -16,7 +17,6 @@ function! FirstLineCompile()
       "echo l:out
     endtry
     botright cwindow 8
-    echo 'Compiling finished!'
   else
     execute ':SCCompileRun'
   endif
