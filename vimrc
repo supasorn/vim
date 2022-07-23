@@ -149,6 +149,7 @@ set go-=m
 set go-=r
 set go-=L
 set shortmess-=S
+set winblend=0
 
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Linux"
@@ -425,10 +426,10 @@ nmap <s-F2> :FufRenewCache<CR>
 imap <s-F2> <esc>:FufRenewCache<CR>
 "nmap <F3> :Telescope buffers<CR>
 "imap <F3> <esc>:Telescope buffers<CR>
-"nmap <F3> :Buffers<CR>
-"imap <F3> <esc>:Buffers<CR>
-nmap <F3> :FufBuffer<CR>
-imap <F3> <esc>:FufBuffer<CR>
+nmap <F3> :Buffers<CR>
+imap <F3> <esc>:Buffers<CR>
+"nmap <F3> :FufBuffer<CR>
+"imap <F3> <esc>:FufBuffer<CR>
 
 nmap <F6> :Files<CR>
 imap <F6> <esc>:Files<CR>
