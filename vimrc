@@ -42,12 +42,11 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " F3
 Plug 'pbogut/fzf-mru.vim' " F4
 Plug 'jesseleite/vim-agriculture'
-Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
-
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 "Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+"Plug 'francoiscabrol/ranger.vim'
 
 " Utilities
 Plug 'scrooloose/nerdtree'
@@ -72,7 +71,6 @@ Plug 'dstein64/vim-startuptime'
 
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
-Plug 'freeo/vim-kalisi'
 Plug 'supasorn/gruvbox-material'
 Plug 'arcticicestudio/nord-vim'
 Plug 'junegunn/seoul256.vim'
@@ -81,8 +79,8 @@ Plug 'junegunn/seoul256.vim'
 " Pretty
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"Plug 'Yggdroot/indentLine'
 Plug 'lukas-reineke/indent-blankline.nvim'
+"Plug 'Yggdroot/indentLine'
 
 " Misc
 Plug 'xolox/vim-misc'
@@ -179,7 +177,7 @@ set completeopt=menuone,noselect
 "----------------------------
 let g:context_presenter = 'nvim-float'
 
-let g:indentLine_char = '┆'
+"let g:indentLine_char = '┆'
 
 let g:netrw_liststyle = 3
 
@@ -302,8 +300,6 @@ let g:netrw_silent = 1
 "let $FZF_DEFAULT_OPTS="--preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'bat --color=always --style=grid --line-range :300 {}'"
 let g:fzf_layout = { 'down': '30%' }
 let $FZF_DEFAULT_OPTS="--preview-window 'right:50%' --layout reverse --preview 'bat --color=always --style=grid --line-range :300 {} --theme=gruvbox-dark'"
-"let g:fzf_layout = {'down': '~30%'}
-"let $FZF_DEFAULT_OPTS="--preview-window 'right:60%' --layout reverse --preview 'bat --color=always --style=grid --line-range :300 {}'"
 
 "----------------------------
 """"""    Remapping    """""" 
