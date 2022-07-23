@@ -296,10 +296,26 @@ endif
 
 
 let g:netrw_silent = 1
-"let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
-"let $FZF_DEFAULT_OPTS="--preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'bat --color=always --style=grid --line-range :300 {}'"
-let g:fzf_layout = { 'down': '30%' }
+
+function! FloatingFZF()
+  let width = float2nr(&columns)
+  let height = float2nr(&lines * 0.25)
+  let opts = { 'relative': 'editor',
+       \ 'row': (&lines - height),
+       \ 'col': 0,
+       \ 'width': width,
+       \ 'height': height,
+       \ 'style': 'minimal'
+       \}
+
+  let win = nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+  call setwinvar(win, '&winhighlight', 'NormalFloat:TabLine')
+endfunction
+
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+"let g:fzf_layout = { 'down': '30%' }
 let $FZF_DEFAULT_OPTS="--preview-window 'right:50%' --layout reverse --preview 'bat --color=always --style=grid --line-range :300 {} --theme=gruvbox-dark'"
+
 
 "----------------------------
 """"""    Remapping    """""" 
