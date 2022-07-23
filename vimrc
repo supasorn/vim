@@ -299,7 +299,7 @@ let g:netrw_silent = 1
 "let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
 "let $FZF_DEFAULT_OPTS="--preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'bat --color=always --style=grid --line-range :300 {}'"
 let g:fzf_layout = { 'down': '30%' }
-let $FZF_DEFAULT_OPTS="--preview-window 'right:50%' --layout reverse --preview 'bat --color=always --style=grid --line-range :300 {}'"
+let $FZF_DEFAULT_OPTS="--preview-window 'right:50%' --layout reverse --preview 'bat --color=always --style=grid --line-range :300 {} --theme=gruvbox-dark'"
 "let g:fzf_layout = {'down': '~30%'}
 "let $FZF_DEFAULT_OPTS="--preview-window 'right:60%' --layout reverse --preview 'bat --color=always --style=grid --line-range :300 {}'"
 
