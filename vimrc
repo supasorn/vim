@@ -19,7 +19,7 @@ Plug 'williamboman/nvim-lsp-installer'
 Plug 'hrsh7th/nvim-compe'
 Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim', {'branch' : 'main'}
 Plug 'othree/html5.vim' " to properly indent js file
-
+Plug 'rmagatti/goto-preview'
 
 " Fast
 Plug 'supasorn/vim-easymotion'
