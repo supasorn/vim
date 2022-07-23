@@ -67,6 +67,7 @@ Plug 'dstein64/vim-startuptime'
 "Plug 'Shougo/neocomplcache'
 "Plug 'lambdalisue/fern.vim'
 "Plug 'wellle/context.vim'
+"Plug 'vim-autoformat/vim-autoformat'
 
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
@@ -295,8 +296,10 @@ endif
 
 
 let g:netrw_silent = 1
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
-let $FZF_DEFAULT_OPTS="--preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'bat --color=always --style=grid --line-range :300 {}'"
+"let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
+"let $FZF_DEFAULT_OPTS="--preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'bat --color=always --style=grid --line-range :300 {}'"
+let g:fzf_layout = { 'down': '30%' }
+let $FZF_DEFAULT_OPTS="--preview-window 'right:50%' --layout reverse --preview 'bat --color=always --style=grid --line-range :300 {}'"
 "let g:fzf_layout = {'down': '~30%'}
 "let $FZF_DEFAULT_OPTS="--preview-window 'right:60%' --layout reverse --preview 'bat --color=always --style=grid --line-range :300 {}'"
 
