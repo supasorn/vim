@@ -321,6 +321,11 @@ let $FZF_DEFAULT_OPTS="--preview-window 'right:50%' --layout reverse --preview '
 "----------------------------
 """"""    Remapping    """""" 
 "----------------------------
+nnoremap gp <cmd>lua require('goto-preview').goto_preview_definition()<CR>
+nnoremap gP <cmd>lua require('goto-preview').close_all_win()<CR>
+" Only set if you have telescope installed
+nnoremap gR <cmd>lua require('goto-preview').goto_preview_references()<CR>
+
 nnoremap <silent> K :lua vim.lsp.buf.hover()<CR>
 nnoremap <leader>gd :vsp<CR>:lua vim.lsp.buf.definition()<CR>
 
