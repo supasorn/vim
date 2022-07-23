@@ -92,5 +92,21 @@ require'toggle_lsp_diagnostics'.init({ underline = false, virtual_text = false, 
 --[[
 --]]
 
+vim.opt.termguicolors = true
+vim.cmd [[highlight IndentBlanklineIndent1 guifg=#707070 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent2 guifg=#444444 gui=nocombine]]
+
+require("indent_blankline").setup {
+    -- for example, context is off by default, use this to turn it on
+    show_current_context = false,
+    show_current_context_start = false,
+    space_char_blankline = " ",
+    char = "┆",
+    char_highlight_list = {
+        "IndentBlanklineIndent1",
+        "IndentBlanklineIndent2",
+    },
+}
+
 EOF
 

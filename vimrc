@@ -68,6 +68,7 @@ Plug 'dstein64/vim-startuptime'
 "Plug 'lambdalisue/fern.vim'
 "Plug 'wellle/context.vim'
 "Plug 'vim-autoformat/vim-autoformat'
+"Plug 'puremourning/vimspector'
 
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
@@ -80,7 +81,8 @@ Plug 'junegunn/seoul256.vim'
 " Pretty
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Yggdroot/indentLine'
+"Plug 'Yggdroot/indentLine'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 " Misc
 Plug 'xolox/vim-misc'
