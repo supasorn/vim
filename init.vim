@@ -125,5 +125,10 @@ require('goto-preview').setup {
   bufhidden = "wipe", -- the bufhidden option to set on the floating window. See :h bufhidden
 }
 
+require'nvim-treesitter.configs'.setup {
+  context_commentstring = {
+    enable = true
+  }
+}
 EOF
 

@@ -23,7 +23,8 @@ Plug 'rmagatti/goto-preview'
 
 " Fast
 Plug 'supasorn/vim-easymotion'
-Plug 'scrooloose/nerdcommenter' " ctrl-c to toggle comment
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+Plug 'tpope/vim-commentary/'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'dahu/vim-fanfingtastic' 
@@ -416,7 +417,8 @@ vmap <c-k> <leader>k
 
 nmap <SPACE> <leader>s
 vmap <SPACE> <leader>s
-map <c-c> <plug>NERDCommenterToggle<c-m>
+" map <c-c> <plug>NERDCommenterToggle<c-m>
+map <c-c> gcc
 noremap <C-n> :NERDTreeToggle %:p:h<CR>
 map <c-t> :lua require('telescope.builtin').file_browser({cwd = vim.fn.expand('%:p:h')})<CR>
  
