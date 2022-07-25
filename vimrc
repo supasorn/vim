@@ -23,6 +23,7 @@ Plug 'rmagatti/goto-preview'
 
 " Fast
 Plug 'supasorn/vim-easymotion'
+Plug 'ggandor/lightspeed.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'tpope/vim-commentary/'
 Plug 'tpope/vim-surround'
@@ -418,7 +419,7 @@ vmap <c-k> <leader>k
 nmap <SPACE> <leader>s
 vmap <SPACE> <leader>s
 " map <c-c> <plug>NERDCommenterToggle<c-m>
-map <c-c> gcc
+map <c-c> gccj
 noremap <C-n> :NERDTreeToggle %:p:h<CR>
 map <c-t> :lua require('telescope.builtin').file_browser({cwd = vim.fn.expand('%:p:h')})<CR>
  
