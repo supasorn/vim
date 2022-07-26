@@ -23,7 +23,7 @@ Plug 'rmagatti/goto-preview'
 
 " Fast
 Plug 'supasorn/vim-easymotion'
-Plug 'ggandor/lightspeed.nvim'
+" Plug 'ggandor/lightspeed.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'tpope/vim-commentary/'
 Plug 'tpope/vim-surround'
@@ -354,9 +354,9 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 
 noremap gD :lua vim.lsp.buf.definition()<CR>
 
-nmap s <plug>(SubversiveSubstitute)
-nmap ss <plug>(SubversiveSubstituteLine)
-nmap S <plug>(SubversiveSubstituteToEndOfLine)
+" nmap s <plug>(SubversiveSubstitute)
+" nmap ss <plug>(SubversiveSubstituteLine)
+" nmap S <plug>(SubversiveSubstituteToEndOfLine)
 
 nmap <c-p> <plug>(YoinkPostPasteSwapBack)
 "nmap <c-n> <plug>(YoinkPostPasteSwapForward)
@@ -416,8 +416,10 @@ vmap <c-j> <leader>j
 map <c-k> <leader>k
 vmap <c-k> <leader>k
 
+" nmap <SPACE> <Plug>Lightspeed_omni_s
 nmap <SPACE> <leader>s
 vmap <SPACE> <leader>s
+
 " map <c-c> <plug>NERDCommenterToggle<c-m>
 map <c-c> gccj
 noremap <C-n> :NERDTreeToggle %:p:h<CR>
