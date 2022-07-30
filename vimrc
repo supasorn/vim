@@ -328,6 +328,7 @@ let $FZF_DEFAULT_OPTS="--preview-window 'right:50%' --layout reverse --preview '
 " this is used with autocmd InsertLeave, every word under cursor is copy when
 " leaving insert mode and can be pasted with "W
 nmap "W "wsiw
+nmap "P siw
 
 nnoremap gp <cmd>lua require('goto-preview').goto_preview_definition()<CR>
 nnoremap gP <cmd>lua require('goto-preview').close_all_win()<CR>
