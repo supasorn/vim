@@ -65,7 +65,8 @@ Plug 'tpope/vim-eunuch' " add unix commands like Rename, SudoWrite
 Plug 'svermeulen/vim-yoink' " cycle through yank with ctrl-p
 Plug 'svermeulen/vim-subversive' " quick paste in normal mode, use s.. instead of v->p
 Plug 'dstein64/vim-startuptime'
-"Plug 'Shougo/neocomplcache'
+Plug 'svban/YankAssassin.vim' " yiw won't move cursor to the beginning
+" Plug 'Shougo/neocomplcache'
 "Plug 'lambdalisue/fern.vim'
 "Plug 'wellle/context.vim'
 "Plug 'vim-autoformat/vim-autoformat'
@@ -323,6 +324,11 @@ let $FZF_DEFAULT_OPTS="--preview-window 'right:50%' --layout reverse --preview '
 "----------------------------
 """"""    Remapping    """""" 
 "----------------------------
+
+" this is used with autocmd InsertLeave, every word under cursor is copy when
+" leaving insert mode and can be pasted with "W
+nmap "W "wsiw
+
 nnoremap gp <cmd>lua require('goto-preview').goto_preview_definition()<CR>
 nnoremap gP <cmd>lua require('goto-preview').close_all_win()<CR>
 " Only set if you have telescope installed
@@ -342,21 +348,11 @@ nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 
 
-"nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
-"nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
-"nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
-"nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
-"nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
-"nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
-"nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
-"nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
-"nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
-
 noremap gD :lua vim.lsp.buf.definition()<CR>
 
-" nmap s <plug>(SubversiveSubstitute)
-" nmap ss <plug>(SubversiveSubstituteLine)
-" nmap S <plug>(SubversiveSubstituteToEndOfLine)
+nmap s <plug>(SubversiveSubstitute)
+nmap ss <plug>(SubversiveSubstituteLine)
+nmap S <plug>(SubversiveSubstituteToEndOfLine)
 
 nmap <c-p> <plug>(YoinkPostPasteSwapBack)
 "nmap <c-n> <plug>(YoinkPostPasteSwapForward)
@@ -390,7 +386,7 @@ map <c-h> <esc>:A<CR>
 "command! -nargs=1 Gr call GrepCurrentDirectory(<f-args>)
 nnoremap gr :RgRaw -g '!tags' --max-depth=1 '\b<cword>\b' %:p:h/<CR>
 "nnoremap gr :Rg <C-R><C-W><CR>
-nnoremap <c-f> <esc>:cd %:p:h<CR>:Rg<CR>
+nnoremap <c-f> :call RgWithMode()<CR>
 
 "nnoremap \m :w<CR>:execute "cd %:p:h \| try \| cd bin \| catch \| try \| cd ../bin \| catch \| endtry \| endtry"<CR>:AsyncRun make %:t:r<CR>
 nnoremap \m :w<CR>:execute "cd %:p:h \| try \| cd bin \| catch \| try \| cd ../bin \| catch \| endtry \| endtry"<CR>:make %:t:r<CR>
@@ -443,7 +439,7 @@ imap <F3> <esc>:Buffers<CR>
 
 nmap <F6> :Files<CR>
 imap <F6> <esc>:Files<CR>
-nmap <F7> :Rg<CR>
+nmap <silent> <F7>  :call IterateRgMode()<CR>
 imap <F7> <esc>:Rg<CR>
 
 "if expand('%:t') == 'vimrc' || expand('%:t') == 'init.vim'
@@ -453,6 +449,7 @@ imap <F7> <esc>:Rg<CR>
 "else
   "echo 'Reload'
 "endif
+
 nmap <F5> :e %<CR>
 imap <F5> <esc>:e %<CR>
 
@@ -499,6 +496,9 @@ nmap <Leader>od /dbl<CR>f:f"yi":execute('!open '.shellescape(@"))<CR>
 "----------------------------
 """"""     autocmd     """""" 
 "----------------------------
+"
+" Copy the last word when leaving the insert mode to register
+autocmd InsertLeave * call CopyWordUnderCursor()
 
 "au BufEnter * :BufferLineMovePrev
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS

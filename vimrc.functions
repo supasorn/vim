@@ -22,10 +22,39 @@ function! FirstLineCompile()
   endif
 endfunction 
 
+function! IterateRgMode()
+  if !exists("g:rgmode")
+   let g:rgmode = 0
+ endif
+ let g:rgmode = (g:rgmode + 1) % 3
+ if g:rgmode == 0
+   echo "Rg current buffer [" . expand("%:p:h") . "]"
+ elseif g:rgmode == 1
+   echo "Rg current buffer max-depth 1 [" . expand("%:p:h") . "]"
+ else
+   echo "Rg pwd [" . getcwd() . "]"
+ endif
+endfunction
+
+function! RgWithMode()
+  if !exists("g:rgmode")
+   let g:rgmode = 0
+  endif
+
+  if g:rgmode == 0
+    call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ''", 1, fzf#vim#with_preview({'dir': expand("%:p:h")}), 0)
+  elseif g:rgmode == 1
+    call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case --max-depth=1 ''", 1, fzf#vim#with_preview({'dir': expand("%:p:h")}), 0)
+  else
+    call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ''", 1, fzf#vim#with_preview({'dir': getcwd()}), 0)
+  endif
+endfunction
+
+" command! -bang -nargs=* PRg
+  " \ call fzf#vim#grep("rg -g '!tags' --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, fzf#vim#with_preview({'dir': getcwd()}), <bang>0)
 
 function! JumpThroughParameter(direction)
   let flag = a:direction == 1 ? '' : 'b'
-
   let s1 = searchpos('\S(\S', 'en' . flag, line('.'))
   let s2 = searchpos(', \S', 'en' . flag, line('.'))
   if s1 != [0, 0] && (s2 == [0, 0] || 
@@ -34,7 +63,10 @@ function! JumpThroughParameter(direction)
   else
     call search(', \S', 'e' . flag, line('.'))
   endif
+endfunction
 
+function! CopyWordUnderCursor()
+  let @w = expand('<cword>')
 endfunction
 
 function! GrepCurrentDirectory(myParam)
