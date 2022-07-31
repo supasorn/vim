@@ -28,11 +28,11 @@ function! IterateRgMode()
  endif
  let g:rgmode = (g:rgmode + 1) % 3
  if g:rgmode == 0
-   echo "Rg current buffer [" . expand("%:p:h") . "]"
+   echo "Rg current buffer         [" . expand("%:p:h") . "]"
  elseif g:rgmode == 1
-   echo "Rg current buffer max-depth 1 [" . expand("%:p:h") . "]"
+   echo "Rg current buffer depth 1 [" . expand("%:p:h") . "]"
  else
-   echo "Rg pwd [" . getcwd() . "]"
+   echo "Rg pwd                    [" . getcwd() . "]"
  endif
 endfunction
 
