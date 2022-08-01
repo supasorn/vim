@@ -65,7 +65,7 @@ Plug 'svermeulen/vim-yoink' " cycle through yank with ctrl-p
 Plug 'svermeulen/vim-subversive' " quick paste in normal mode, use s.. instead of v->p
 Plug 'dstein64/vim-startuptime'
 Plug 'svban/YankAssassin.vim' " yiw won't move cursor to the beginning
-Plug 'nvim-treesitter/nvim-treesitter-context' " for context topbar
+" Plug 'nvim-treesitter/nvim-treesitter-context' " for context topbar
 
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
