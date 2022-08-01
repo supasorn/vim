@@ -65,6 +65,7 @@ Plug 'svermeulen/vim-yoink' " cycle through yank with ctrl-p
 Plug 'svermeulen/vim-subversive' " quick paste in normal mode, use s.. instead of v->p
 Plug 'dstein64/vim-startuptime'
 Plug 'svban/YankAssassin.vim' " yiw won't move cursor to the beginning
+Plug 'wellle/context.vim'
 
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
@@ -257,16 +258,21 @@ let g:neocomplcache_fuzzy_completion_start_length = 2
 
 
 if !empty(glob('~/.vim/plugged/vim-airline'))
+  let g:airline_extensions = ['tabline', 'tagbar', 'branch']
   let g:airline_powerline_fonts = 1
   let g:airline_theme="bubblegum"
-  "let g:airline_theme="gruvbox_material"
+  " let g:airline_theme="gruvbox_material"
   "
-  let g:airline_section_x=''
+  " let g:airline_section_x=''
   let g:airline_section_y=''
+  " let g:airline_section_z=airline#section#create_right(['%l'])
+  let g:airline_section_z=''
   let g:webdevicons_enable_airline_statusline_fileformat_symbols = 0
-  let g:airline_section_z=airline#section#create_right(['%l'])
-  let g:airline_section_warning=airline#section#create_right(['%c'])
+  " let g:airline_section_warning=airline#section#create_right(['%c'])
   "let g:airline_section_c = '%<%f %#__accent_red#%m%#__restore__# %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
+
+  let g:airline#extensions#tagbar#enabled = 1
+  let g:airline#extensions#tagbar#flags = 'f'
 
   let g:airline#extensions#tabline#show_tabs = 0
   let g:airline#extensions#tabline#enabled = 1
