@@ -65,7 +65,7 @@ Plug 'svermeulen/vim-yoink' " cycle through yank with ctrl-p
 Plug 'svermeulen/vim-subversive' " quick paste in normal mode, use s.. instead of v->p
 Plug 'dstein64/vim-startuptime'
 Plug 'svban/YankAssassin.vim' " yiw won't move cursor to the beginning
-Plug 'wellle/context.vim'
+Plug 'nvim-treesitter/nvim-treesitter-context' " for context topbar
 
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
@@ -82,6 +82,11 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 " Misc
 Plug 'xolox/vim-misc'
 Plug 'vim-scripts/L9'
+
+" Debug
+" Plug 'mfussenegger/nvim-dap'
+" Plug 'mfussenegger/nvim-dap-python'
+" Plug 'rcarriga/nvim-dap-ui'
 
 " Integration
 Plug 'tpope/vim-fugitive'
@@ -174,6 +179,7 @@ set completeopt=menuone,noselect
 """"""    Constants    """""" 
 "----------------------------
 let g:context_presenter = 'nvim-float'
+let g:context_highlight_normal = 'Normal'
 
 "let g:indentLine_char = '┆'
 
@@ -401,8 +407,16 @@ vnoremap > >gv
 nmap <F8> :TagbarToggle<CR>
 "nmap <F4> :MRU<CR>/
 nmap <F4> :FZFMru --no-sort<CR>
-nmap <F9> :NextColorScheme<CR>
-nmap <s-F9> :PrevColorScheme<CR>
+
+" nnoremap <silent> <F9> <Cmd>lua require'dapui'.open()<CR><Cmd>lua require'dap'.continue()<CR>
+" nnoremap <silent> <s-F9> <Cmd>lua require'dap'.close()<CR>:lua require'dapui'.close()<CR>
+" nnoremap <silent> <F10> <Cmd>lua require'dap'.step_over()<CR>
+" nnoremap <silent> <F11> <Cmd>lua require'dap'.step_into()<CR>
+" nnoremap <silent> <F12> <Cmd>lua require'dap'.step_out()<CR>
+" nnoremap <silent> <Leader>b <Cmd>lua require'dap'.toggle_breakpoint()<CR>
+
+" nmap <F9> :NextColorScheme<CR>
+" nmap <s-F9> :PrevColorScheme<CR>
 
 "nmap \p :call EasyMotion#SelectLinesPaste()<CR>
 map <c-j> <leader>j
@@ -478,7 +492,7 @@ nmap <silent> ) :call JumpThroughParameter(1)<CR>
       "\ nmap <silent> ) :call JumpThroughParameter(1)<CR>| 
       "\ endif
 
-nmap <F10> <Plug>window:quickfix:toggle
+" nmap <F10> <Plug>window:quickfix:toggle
 
 command! -bang -nargs=* BLines
     \ call fzf#vim#grep(
