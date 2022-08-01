@@ -26,13 +26,16 @@ function! IterateRgMode()
   if !exists("g:rgmode")
    let g:rgmode = 0
  endif
- let g:rgmode = (g:rgmode + 1) % 3
+ let g:rgmode = (g:rgmode + 1) % 4
  if g:rgmode == 0
    echo "Rg current buffer         [" . expand("%:p:h") . "]"
  elseif g:rgmode == 1
    echo "Rg current buffer depth 1 [" . expand("%:p:h") . "]"
- else
+ elseif g:rgmode == 2
    echo "Rg pwd                    [" . getcwd() . "]"
+ else
+   let path = system('cd '.shellescape(expand('%:p:h')).' && git rev-parse --show-toplevel 2> /dev/null')[:-2]
+   echo "Rg git root               [" . path . "]"
  endif
 endfunction
 
@@ -45,8 +48,10 @@ function! RgWithMode()
     call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ''", 1, fzf#vim#with_preview({'dir': expand("%:p:h")}), 0)
   elseif g:rgmode == 1
     call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case --max-depth=1 ''", 1, fzf#vim#with_preview({'dir': expand("%:p:h")}), 0)
-  else
+  elseif g:rgmode == 2
     call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ''", 1, fzf#vim#with_preview({'dir': getcwd()}), 0)
+  else
+    call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ''", 1, fzf#vim#with_preview({'dir': system('cd '.shellescape(expand('%:p:h')).' && git rev-parse --show-toplevel 2> /dev/null')[:-2]}), 0)
   endif
 endfunction
 
