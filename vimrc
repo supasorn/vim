@@ -11,7 +11,6 @@ call plug#begin('~/.vim/plugged')
 
 " Syntax
 Plug 'nvim-treesitter/nvim-treesitter', {'branch' : '0.5-compat', 'do': 'TSUpdate'} " syntax highlighting
-"Plug 'sheerun/vim-polyglot'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
@@ -20,16 +19,16 @@ Plug 'hrsh7th/nvim-compe' " lsp autocomplete
 Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim', {'branch' : 'main'} " LSP warning
 Plug 'othree/html5.vim' " to properly indent js file
 Plug 'rmagatti/goto-preview'
+" Plug 'glepnir/lspsaga.nvim'
 
 " Fast
 Plug 'supasorn/vim-easymotion'
 " Plug 'ggandor/lightspeed.nvim'
-Plug 'JoosepAlviste/nvim-ts-context-commentstring'
-Plug 'tpope/vim-commentary/'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'dahu/vim-fanfingtastic' 
-Plug 'haya14busa/incsearch.vim'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring' " used with vim-commentary to comment embedded script like js in html
+Plug 'tpope/vim-commentary/' " for fast commenting
+Plug 'tpope/vim-surround' " for change / delete quotes, tags
+Plug 'tpope/vim-repeat' " so that . works with surround etc
+Plug 'dahu/vim-fanfingtastic'  " fb for multiple lines
 
 " textobject
 Plug 'PeterRincker/vim-argumentative' " <, >, for shifting arguments. a, i, text object
@@ -43,8 +42,8 @@ Plug 'vim-scripts/FuzzyFinder' " F2
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " F3
 Plug 'pbogut/fzf-mru.vim' " F4
-Plug 'jesseleite/vim-agriculture'
-Plug 'rbgrouleff/bclose.vim'
+Plug 'jesseleite/vim-agriculture' " RgRaw
+Plug 'rbgrouleff/bclose.vim' " close buffer
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 "Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
@@ -66,11 +65,6 @@ Plug 'svermeulen/vim-yoink' " cycle through yank with ctrl-p
 Plug 'svermeulen/vim-subversive' " quick paste in normal mode, use s.. instead of v->p
 Plug 'dstein64/vim-startuptime'
 Plug 'svban/YankAssassin.vim' " yiw won't move cursor to the beginning
-" Plug 'Shougo/neocomplcache'
-"Plug 'lambdalisue/fern.vim'
-"Plug 'wellle/context.vim'
-"Plug 'vim-autoformat/vim-autoformat'
-"Plug 'puremourning/vimspector'
 
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
@@ -83,7 +77,6 @@ Plug 'junegunn/seoul256.vim'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'lukas-reineke/indent-blankline.nvim'
-"Plug 'Yggdroot/indentLine'
 
 " Misc
 Plug 'xolox/vim-misc'
@@ -365,8 +358,6 @@ vmap ia Ia
 
 nmap <c-s> :w<CR>
 imap <c-s> <Esc>:w<CR>a
-
-map /  <Plug>(incsearch-forward)
 
 "inoremap <expr><C-h> neocomplcache#undo_completion()
 "inoremap <expr><C-k> neocomplcache#close_popup()
