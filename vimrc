@@ -16,9 +16,9 @@ Plug 'nvim-treesitter/nvim-treesitter', {'branch' : '0.5-compat', 'do': 'TSUpdat
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'hrsh7th/nvim-compe' " lsp autocomplete
-Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim', {'branch' : 'main'} " LSP warning
 Plug 'othree/html5.vim' " to properly indent js file
 Plug 'rmagatti/goto-preview'
+Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim', {'branch' : 'main'} " LSP warning
 " Plug 'SmiteshP/nvim-navic'
 
 " Fast
@@ -39,7 +39,7 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'branch' : '0.5-compat'} " 
 Plug 'nvim-treesitter/nvim-treesitter-context' " for context topbar
 
 " File
-Plug 'vim-scripts/FuzzyFinder' " F2
+Plug 'supasorn/FuzzyFinder' " F2
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " F3
 Plug 'pbogut/fzf-mru.vim' " F4
@@ -438,8 +438,11 @@ map <s-r> :History:<CR>
 nmap <s-e> :call FirstLineCompile()<CR>
 
 nmap ? :BLines<CR>
-nmap <F2> :FufFileWithCurrentBufferDir<CR>
-imap <F2> <esc>:FufFileWithCurrentBufferDir<CR>
+
+let g:fuzzy_post_command = ':TSContextEnable'
+nmap <F2> :TSContextDisable<CR>:FufFileWithCurrentBufferDir<CR>
+imap <F2> <esc>:TSContextDisable<CR>:FufFileWithCurrentBufferDir<CR>
+
 nmap <s-F2> :FufRenewCache<CR>
 imap <s-F2> <esc>:FufRenewCache<CR>
 "nmap <F3> :Telescope buffers<CR>
