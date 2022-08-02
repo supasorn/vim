@@ -106,7 +106,6 @@ Plug 'kshenoy/vim-signature'
 " Icon
 Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons' 
-Plug 'mildred/vim-bufmru'
 "Plug 'akinsho/bufferline.nvim'
 "Plug 'romgrk/barbar.nvim'
 
@@ -180,8 +179,6 @@ set completeopt=menuone,noselect
 "----------------------------
 let g:context_presenter = 'nvim-float'
 let g:context_highlight_normal = 'Normal'
-
-"let g:indentLine_char = '┆'
 
 let g:netrw_liststyle = 3
 
@@ -339,6 +336,7 @@ nnoremap gp <cmd>lua require('goto-preview').goto_preview_definition()<CR>
 nnoremap gP <cmd>lua require('goto-preview').close_all_win()<CR>
 " Only set if you have telescope installed
 nnoremap gR <cmd>lua require('goto-preview').goto_preview_references()<CR>
+noremap gD :lua vim.lsp.buf.definition()<CR>
 
 nnoremap <silent> K :lua vim.lsp.buf.hover()<CR>
 nnoremap <leader>gd :vsp<CR>:lua vim.lsp.buf.definition()<CR>
@@ -353,8 +351,6 @@ nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 
-
-noremap gD :lua vim.lsp.buf.definition()<CR>
 
 nmap s <plug>(SubversiveSubstitute)
 nmap ss <plug>(SubversiveSubstituteLine)
@@ -431,7 +427,7 @@ vmap <SPACE> <leader>s
 " map <c-c> <plug>NERDCommenterToggle<c-m>
 map <c-c> gccj
 noremap <C-n> :NERDTreeToggle %:p:h<CR>
-map <c-t> :lua require('telescope.builtin').file_browser({cwd = vim.fn.expand('%:p:h')})<CR>
+" map <c-t> :lua require('telescope.builtin').file_browser({cwd = vim.fn.expand('%:p:h')})<CR>
  
 map <s-r> :History:<CR>
 "map <s-e> <esc>:w<CR>:silent exe "!tmux send -t 1 'fc -e : -1' Enter"<CR>
