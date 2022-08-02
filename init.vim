@@ -131,9 +131,17 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 
+-- local navic = require("nvim-navic")
+
+-- require("lspconfig").pyright.setup {
+    -- on_attach = function(client, bufnr)
+        -- navic.attach(client, bufnr)
+    -- end
+-- }
 
 -- require'treesitter-context'.setup{
---[[
+
+
 require'treesitter-context'.setup{
     enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
     max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
@@ -170,9 +178,9 @@ require'treesitter-context'.setup{
     --     you can safely ignore them.
 
     zindex = 20, -- The Z-index of the context window
-    mode = 'cursor',  -- Line used to calculate context. Choices: 'cursor', 'topline'
+    mode = 'topline',  -- Line used to calculate context. Choices: 'cursor', 'topline'
 }
---]]
+
 
 
 --[[

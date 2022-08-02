@@ -19,7 +19,7 @@ Plug 'hrsh7th/nvim-compe' " lsp autocomplete
 Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim', {'branch' : 'main'} " LSP warning
 Plug 'othree/html5.vim' " to properly indent js file
 Plug 'rmagatti/goto-preview'
-" Plug 'glepnir/lspsaga.nvim'
+" Plug 'SmiteshP/nvim-navic'
 
 " Fast
 Plug 'supasorn/vim-easymotion'
@@ -36,6 +36,7 @@ Plug 'michaeljsmith/vim-indent-object' " ai, ii
 Plug 'kana/vim-textobj-user' " my own =, i= for changing the RHS, LSH of equation. (Deprecated) if for changing the function call
 Plug 'wellle/targets.vim' " () {} [] text object
 Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'branch' : '0.5-compat'} " indent object f, c, ]m ]] 
+Plug 'nvim-treesitter/nvim-treesitter-context' " for context topbar
 
 " File
 Plug 'vim-scripts/FuzzyFinder' " F2
@@ -65,7 +66,6 @@ Plug 'svermeulen/vim-yoink' " cycle through yank with ctrl-p
 Plug 'svermeulen/vim-subversive' " quick paste in normal mode, use s.. instead of v->p
 Plug 'dstein64/vim-startuptime'
 Plug 'svban/YankAssassin.vim' " yiw won't move cursor to the beginning
-" Plug 'nvim-treesitter/nvim-treesitter-context' " for context topbar
 
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
@@ -269,7 +269,7 @@ if !empty(glob('~/.vim/plugged/vim-airline'))
   let g:airline_theme="bubblegum"
   " let g:airline_theme="gruvbox_material"
   "
-  " let g:airline_section_x=''
+  let g:airline_section_x='%{airline#util#prepend(airline#extensions#tagbar#currenttag(),0)}%{airline#util#prepend("",0)}'
   let g:airline_section_y=''
   " let g:airline_section_z=airline#section#create_right(['%l'])
   let g:airline_section_z=''
