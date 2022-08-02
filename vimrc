@@ -60,7 +60,7 @@ Plug 'wesQ3/vim-windowswap' " \ww to mark two windows
 Plug 'skywind3000/asyncrun.vim'
 Plug 'drmingdrmer/vim-toggle-quickfix'
 Plug 'AndrewRadev/simple_bookmarks.vim'
-Plug 'junegunn/vim-peekaboo' " show registers
+" Plug 'junegunn/vim-peekaboo' " show registers. conflicts with nvim-treesitter-context
 Plug 'tpope/vim-eunuch' " add unix commands like Rename, SudoWrite
 Plug 'svermeulen/vim-yoink' " cycle through yank with ctrl-p
 Plug 'svermeulen/vim-subversive' " quick paste in normal mode, use s.. instead of v->p
