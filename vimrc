@@ -43,6 +43,7 @@ Plug 'supasorn/FuzzyFinder' " F2
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " F3
 Plug 'pbogut/fzf-mru.vim' " F4
+Plug 'mildred/vim-bufmru' " move recently used buffer to the first in the list
 Plug 'jesseleite/vim-agriculture' " RgRaw
 Plug 'rbgrouleff/bclose.vim' " close buffer
 Plug 'nvim-lua/plenary.nvim'
