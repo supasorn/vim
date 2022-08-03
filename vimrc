@@ -321,7 +321,8 @@ endfunction
 
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 "let g:fzf_layout = { 'down': '30%' }
-let $FZF_DEFAULT_OPTS="--preview-window 'right:50%' --layout reverse --preview 'bat --color=always --style=grid --line-range :300 {} --theme=gruvbox-dark'"
+let $FZF_DEFAULT_OPTS="--preview-window 'right:50%' --preview 'bat --color=always --style=grid --line-range :300 {} --theme=gruvbox-dark'"
+" let $FZF_DEFAULT_OPTS="--preview-window 'right:50%' --layout reverse --preview 'bat --color=always --style=grid --line-range :300 {} --theme=gruvbox-dark'"
 
 
 "----------------------------
@@ -439,6 +440,8 @@ nmap ? :BLines<CR>
 let g:fuzzy_post_command = ':TSContextEnable'
 nmap <F2> :TSContextDisable<CR>:FufFileWithCurrentBufferDir<CR>
 imap <F2> <esc>:TSContextDisable<CR>:FufFileWithCurrentBufferDir<CR>
+" nmap <F2> :FZFExplore<CR>
+" imap <F2> <esc>:TSContextDisable<CR>:FufFileWithCurrentBufferDir<CR>
 
 nmap <s-F2> :FufRenewCache<CR>
 imap <s-F2> <esc>:FufRenewCache<CR>

@@ -1,5 +1,52 @@
 " Rule: echo 'yes'
 " Rule: tmux send -t 1 'python main.py' Enter
+"
+" " Search pattern across repository files
+function! FzfExplore(...)
+    let inpath = substitute(a:1, "'", '', 'g')
+    if inpath == "" || matchend(inpath, '/') == strlen(inpath)
+      execute "cd" getcwd() . '/' . inpath
+      let cwpath = getcwd() . '/'
+      " call fzf#run(fzf#wrap(fzf#vim#with_preview({'source': 'ls -1pA && echo "../"', 'dir': cwpath, 'sink': 'FZFExplore', 'options': ['--prompt', cwpath, '--expect', 'ctrl-w']})))
+      call fzf#run(fzf#wrap(fzf#vim#with_preview({'source': 'ls -1pA && echo "../"', 'dir': cwpath, 'sink': 'FZFExplore', 'options': ['--prompt', cwpath]})))
+    else
+      let file = getcwd() . '/' . inpath
+      execute "e" file
+    endif
+endfunction
+
+command! -nargs=* FZFExplore call FzfExplore(shellescape(<q-args>))
+
+function! TFile(dir)
+  if empty(a:dir)
+    let dir = getcwd()
+  else
+    let dir = a:dir
+  endif
+  let parentdir = fnamemodify(dir, ':h')
+  let spec = fzf#wrap(fzf#vim#with_preview({'options': ['--expect', 'ctrl-w'] }))
+
+  " hack to retain original sink used by fzf#vim#files
+  let origspec = copy(spec)
+
+  unlet spec.sinklist
+  unlet spec['sink*']
+  function spec.sinklist(lines) closure
+    if len(a:lines) < 2
+      return
+    endif
+    if a:lines[0] == 'ctrl-w'
+      call TFile(parentdir)
+    else
+      call origspec.sinklist(a:lines)
+    end
+  endfunction
+  call fzf#vim#files(dir, spec)
+endfunction
+
+command! -nargs=* TFile call TFile(<q-args>)
+
+
 function! FirstLineCompile() 
   if !empty(matchstr(getline(1), ':'))
     let l:s = split(getline(1) , ':')
@@ -160,4 +207,7 @@ call textobj#user#plugin('function', {
 \     'select-a': 'i=',
 \   },
 \ })
+
+
+
 
