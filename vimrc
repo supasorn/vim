@@ -73,7 +73,7 @@ Plug 'xolox/vim-colorscheme-switcher'
 Plug 'supasorn/gruvbox-material'
 Plug 'arcticicestudio/nord-vim'
 Plug 'junegunn/seoul256.vim'
-"Plug 'sainnhe/gruvbox-material'
+Plug 'navarasu/onedark.nvim'
 
 " Pretty
 Plug 'bling/vim-airline'
@@ -114,7 +114,8 @@ call plug#end()
 
 let g:gruvbox_contrast_dark = "medium"
 
-colorscheme gruvbox-material
+" colorscheme gruvbox-material
+colorscheme onedark
 let g:gruvbox_material_palette = 'mix'
 let g:gruvbox_material_background = 'medium'
 set background=dark
@@ -321,8 +322,8 @@ endfunction
 
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 "let g:fzf_layout = { 'down': '30%' }
-let $FZF_DEFAULT_OPTS="--preview-window 'right:50%' --preview 'bat --color=always --style=grid --line-range :300 {} --theme=gruvbox-dark'"
-" let $FZF_DEFAULT_OPTS="--preview-window 'right:50%' --layout reverse --preview 'bat --color=always --style=grid --line-range :300 {} --theme=gruvbox-dark'"
+" let $FZF_DEFAULT_OPTS="--preview-window 'right:50%' --preview 'bat --color=always --style=grid --line-range :300 {} --theme=gruvbox-dark'"
+let $FZF_DEFAULT_OPTS="--preview-window 'right:50%' --layout reverse --preview 'bat --color=always --style=grid --line-range :300 {} --theme=gruvbox-dark'"
 
 
 "----------------------------
