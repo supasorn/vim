@@ -442,12 +442,12 @@ nmap <s-e> :call FirstLineCompile()<CR>
 nmap ? :BLines<CR>
 
 let g:fuzzy_post_command = ':TSContextEnable'
-" nmap <F2> :TSContextDisable<CR>:FufFileWithCurrentBufferDir<CR>
-" imap <F2> <esc>:TSContextDisable<CR>:FufFileWithCurrentBufferDir<CR>
+nmap <F2> :TSContextDisable<CR>:FufFileWithCurrentBufferDir<CR>
+imap <F2> <esc>:TSContextDisable<CR>:FufFileWithCurrentBufferDir<CR>
 " nmap <F2> :FZFExplore<CR>
 " imap <F2> <esc>:TSContextDisable<CR>:FufFileWithCurrentBufferDir<CR>
-nmap <F2> :Telescope file_browser<CR>
-imap <F2> <esc>:Telescope file_browser<CR>
+" nmap <F2> :Telescope file_browser<CR>
+" imap <F2> <esc>:Telescope file_browser<CR>
 
 nmap <s-F2> :FufRenewCache<CR>
 imap <s-F2> <esc>:FufRenewCache<CR>
