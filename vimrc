@@ -17,7 +17,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'hrsh7th/nvim-compe' " lsp autocomplete
 Plug 'othree/html5.vim' " to properly indent js file
-Plug 'rmagatti/goto-preview'
+Plug 'rmagatti/goto-preview' " show preview with gp
 Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim', {'branch' : 'main'} " LSP warning
 " Plug 'SmiteshP/nvim-navic'
 
@@ -48,6 +48,7 @@ Plug 'jesseleite/vim-agriculture' " RgRaw
 Plug 'rbgrouleff/bclose.vim' " close buffer
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
 "Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 "Plug 'francoiscabrol/ranger.vim'
 
@@ -67,6 +68,8 @@ Plug 'svermeulen/vim-yoink' " cycle through yank with ctrl-p
 Plug 'svermeulen/vim-subversive' " quick paste in normal mode, use s.. instead of v->p
 Plug 'dstein64/vim-startuptime'
 Plug 'svban/YankAssassin.vim' " yiw won't move cursor to the beginning
+Plug 'MunifTanjim/nui.nvim' " UI elements for neovim
+" Plug 'nvim-neo-tree/neo-tree.nvim'
 
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
@@ -212,7 +215,6 @@ let g:compe.source.vsnip = v:true
 let g:compe.source.ultisnips = v:true
 let g:compe.source.luasnip = v:true
 let g:compe.source.emoji = v:true
-
 
 
 let g:alternateExtensions_cc = "h,hpp,hh"
@@ -440,10 +442,12 @@ nmap <s-e> :call FirstLineCompile()<CR>
 nmap ? :BLines<CR>
 
 let g:fuzzy_post_command = ':TSContextEnable'
-nmap <F2> :TSContextDisable<CR>:FufFileWithCurrentBufferDir<CR>
-imap <F2> <esc>:TSContextDisable<CR>:FufFileWithCurrentBufferDir<CR>
+" nmap <F2> :TSContextDisable<CR>:FufFileWithCurrentBufferDir<CR>
+" imap <F2> <esc>:TSContextDisable<CR>:FufFileWithCurrentBufferDir<CR>
 " nmap <F2> :FZFExplore<CR>
 " imap <F2> <esc>:TSContextDisable<CR>:FufFileWithCurrentBufferDir<CR>
+nmap <F2> :Telescope file_browser<CR>
+imap <F2> <esc>:Telescope file_browser<CR>
 
 nmap <s-F2> :FufRenewCache<CR>
 imap <s-F2> <esc>:FufRenewCache<CR>
@@ -457,7 +461,7 @@ imap <F3> <esc>:Buffers<CR>
 nmap <F6> :Files<CR>
 imap <F6> <esc>:Files<CR>
 nmap <silent> <F7>  :call IterateRgMode()<CR>
-imap <F7> <esc>:Rg<CR>
+imap <silent> <F7> <esc>:call IterateRgMode()<CR>
 
 "if expand('%:t') == 'vimrc' || expand('%:t') == 'init.vim'
   "echo 'Save + Source'
