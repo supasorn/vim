@@ -26,8 +26,6 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/vim-vsnip'
 
 
 " Fast
@@ -335,9 +333,8 @@ function! FloatingFZF()
 endfunction
 
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
-"let g:fzf_layout = { 'down': '30%' }
-" let $FZF_DEFAULT_OPTS="--preview-window 'right:50%' --preview 'bat --color=always --style=grid --line-range :300 {} --theme=gruvbox-dark'"
-let $FZF_DEFAULT_OPTS="--preview-window 'right:50%' --layout reverse --preview 'bat --color=always --style=grid --line-range :300 {} --theme=gruvbox-dark'"
+" let $FZF_DEFAULT_OPTS="--preview-window 'right:50%' --layout reverse --preview 'bat --color=always --style=grid --line-range :300 {} --theme=gruvbox-dark'"
+let $FZF_DEFAULT_OPTS="--layout reverse"
 
 
 "----------------------------
@@ -386,8 +383,8 @@ imap <c-s> <Esc>:w<CR>a
 
 "inoremap <expr><C-h> neocomplcache#undo_completion()
 "inoremap <expr><C-k> neocomplcache#close_popup()
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 noremap Y y$
 vnoremap y y`>
@@ -400,10 +397,12 @@ map <c-h> <esc>:A<CR>
 
 "nnoremap \r :call FirstLineCompile()<CR>
 
-"command! -nargs=1 Gr call GrepCurrentDirectory(<f-args>)
-nnoremap gr :RgRaw -g '!tags' --max-depth=1 '\b<cword>\b' %:p:h/<CR>
+"command! -nargs=1 Gr call GrepCurrlive_grepentDirectory(<f-args>)
+" nnoremap gr :RgRaw -g '!tags' --max-depth=1 '\b<cword>\b' %:p:h/<CR>
+nnoremap gr :call RgWithMode(expand("<cword>"))<CR>
+
 "nnoremap gr :Rg <C-R><C-W><CR>
-nnoremap <c-f> :call RgWithMode()<CR>
+nnoremap <c-f> :call RgWithMode("")<CR>
 
 "nnoremap \m :w<CR>:execute "cd %:p:h \| try \| cd bin \| catch \| try \| cd ../bin \| catch \| endtry \| endtry"<CR>:AsyncRun make %:t:r<CR>
 nnoremap \m :w<CR>:execute "cd %:p:h \| try \| cd bin \| catch \| try \| cd ../bin \| catch \| endtry \| endtry"<CR>:make %:t:r<CR>
@@ -447,11 +446,13 @@ vmap <c-c> gcc
 noremap <C-n> :NERDTreeToggle %:p:h<CR>
 " map <c-t> :lua require('telescope.builtin').file_browser({cwd = vim.fn.expand('%:p:h')})<CR>
  
-map <s-r> :History:<CR>
+" map <s-r> :History:<CR>
+map <s-r> :lua require('fzf-lua').command_history({prompt="> "})<cr>
 "map <s-e> <esc>:w<CR>:silent exe "!tmux send -t 1 'fc -e : -1' Enter"<CR>
 nmap <s-e> :call FirstLineCompile()<CR>
 
-nmap ? :BLines<CR>
+" nmap ? :BLines<CR>
+nmap ? :lua require('fzf-lua').blines({prompt="> "})<cr>
 
 let g:fuzzy_post_command = ':TSContextEnable'
 nmap <F2> :TSContextDisable<CR>:FufFileWithCurrentBufferDir<CR>
@@ -465,8 +466,8 @@ nmap <s-F2> :FufRenewCache<CR>
 imap <s-F2> <esc>:FufRenewCache<CR>
 "nmap <F3> :Telescope buffers<CR>
 "imap <F3> <esc>:Telescope buffers<CR>
-nmap <F3> :Buffers<CR>
-imap <F3> <esc>:Buffers<CR>
+nmap <F3> :lua require('fzf-lua').buffers()<cr>
+imap <F3> <esc>:lua require('fzf-lua').buffers()<cr>
 "nmap <F3> :FufBuffer<CR>
 "imap <F3> <esc>:FufBuffer<CR>
 

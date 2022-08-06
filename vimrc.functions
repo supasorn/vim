@@ -86,20 +86,26 @@ function! IterateRgMode()
  endif
 endfunction
 
-function! RgWithMode()
+function! RgWithMode(query)
   if !exists("g:rgmode")
    let g:rgmode = 0
   endif
 
+  let g:rgmode_query = a:query
+  let g:rgmode_rgopt = "-g '!tags' --column --line-number --no-heading --color=always --smart-case"
   if g:rgmode == 0
-    call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ''", 1, fzf#vim#with_preview({'dir': expand("%:p:h")}), 0)
+    let g:rgmode_path = expand("%:p:h")
   elseif g:rgmode == 1
-    call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case --max-depth=1 ''", 1, fzf#vim#with_preview({'dir': expand("%:p:h")}), 0)
+    let g:rgmode_path = expand("%:p:h")
+    let g:rgmode_rgopt = g:rgmode_rgopt . " --max-depth=1"
   elseif g:rgmode == 2
-    call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ''", 1, fzf#vim#with_preview({'dir': getcwd()}), 0)
+    let g:rgmode_path = getcwd()
   else
-    call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ''", 1, fzf#vim#with_preview({'dir': system('cd '.shellescape(expand('%:p:h')).' && git rev-parse --show-toplevel 2> /dev/null')[:-2]}), 0)
+    let g:rgmode_path = system('cd '.shellescape(expand('%:p:h')).' && git rev-parse --show-toplevel 2> /dev/null')[:-2]
+    " call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ''", 1, fzf#vim#with_preview({'dir': system('cd '.shellescape(expand('%:p:h')).' && git rev-parse --show-toplevel 2> /dev/null')[:-2]}), 0)
   endif
+  lua require'fzf-lua'.grep({rg_opts=vim.g.rgmode_rgopt, cwd=vim.g.rgmode_path, search=vim.g.rgmode_query}) 
+  
 endfunction
 
 " command! -bang -nargs=* PRg
