@@ -15,11 +15,20 @@ Plug 'nvim-treesitter/nvim-treesitter', {'branch' : '0.5-compat', 'do': 'TSUpdat
 " LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
-Plug 'hrsh7th/nvim-compe' " lsp autocomplete
 Plug 'othree/html5.vim' " to properly indent js file
 Plug 'rmagatti/goto-preview' " show preview with gp
 Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim', {'branch' : 'main'} " LSP warning
 " Plug 'SmiteshP/nvim-navic'
+" Plug 'hrsh7th/nvim-compe' " lsp autocomplete
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
+
 
 " Fast
 Plug 'supasorn/vim-easymotion'
@@ -182,6 +191,8 @@ set completeopt=menuone,noselect
 "----------------------------
 """"""    Constants    """""" 
 "----------------------------
+" let g:indentLine_char = '▏'
+"
 let g:context_presenter = 'nvim-float'
 let g:context_highlight_normal = 'Normal'
 
