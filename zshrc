@@ -67,7 +67,6 @@ ZSH_THEME="blinks"
 plugins=(
   git
   z
-  fzf
   extract
 )
 
@@ -125,8 +124,6 @@ export LD_LIBRARY_PATH="/usr/local/lib/"
 export TERM="xterm-256color"
 #export TERM="screen-256color"
 
-alias vim="nvim"
-alias vi="nvim"
 alias v="nvim"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
