@@ -55,8 +55,8 @@ Plug 'mildred/vim-bufmru' " move recently used buffer to the first in the list
 Plug 'jesseleite/vim-agriculture' " RgRaw
 Plug 'rbgrouleff/bclose.vim' " close buffer
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-file-browser.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
+" Plug 'nvim-telescope/telescope-file-browser.nvim'
 "Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 "Plug 'francoiscabrol/ranger.vim'
 
