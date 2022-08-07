@@ -1,6 +1,12 @@
 " Rule: echo 'yes'
 " Rule: tmux send -t 1 'python main.py' Enter
 "
+" 5u aR  "term://~//55729:'/Users/supasorn/.fzf/bin/fzf'  '+m' '-x' '--tiebreak=index' '--header-lines=1' '--ansi' '-d' '\t' '--with-nth' '3..' '
+" -n' '2,1..2' '--prompt' 'Buf> ' '--query' '' '--preview-window' '+{2}-/2' '--tabstop' '8' '--preview-window' 'right:hidden' '--preview' ''\''/Use
+" rs/supasorn/.vim/plugged/fzf.vim/bin/preview.sh'\'' {1}' --expect=ctrl-v,ctrl-x,ctrl-t --no-height --border=rounded > /var/folders/9f/s2nq70qd4f7
+" 5mszbf60fnd4c0000gn/T/nvim.supasorn/k5wp6y/3;#FZF" line 0
+" MRU>
+
 function! FzfRunning()
   let buffers = filter(range(1, bufnr('$')), 'bufname(v:val) =~# ";#FZF"')
   for i in buffers
@@ -27,35 +33,6 @@ endfunction
 
 command! -nargs=* FZFExplore call FzfExplore(shellescape(<q-args>))
 
-" function! TFile(dir)
-"   if empty(a:dir)
-"     let dir = getcwd()
-"   else
-"     let dir = a:dir
-"   endif
-"   let parentdir = fnamemodify(dir, ':h')
-"   let spec = fzf#wrap(fzf#vim#with_preview({'options': ['--expect', 'ctrl-w'] }))
-
-"   " hack to retain original sink used by fzf#vim#files
-"   let origspec = copy(spec)
-
-"   unlet spec.sinklist
-"   unlet spec['sink*']
-"   function spec.sinklist(lines) closure
-"     if len(a:lines) < 2
-"       return
-"     endif
-"     if a:lines[0] == 'ctrl-w'
-"       call TFile(parentdir)
-"     else
-"       call origspec.sinklist(a:lines)
-"     end
-"   endfunction
-"   call fzf#vim#files(dir, spec)
-" endfunction
-
-" command! -nargs=* TFile call TFile(<q-args>)
-
 
 function! FirstLineCompile() 
   if !empty(matchstr(getline(1), ':'))
@@ -78,6 +55,25 @@ function! FirstLineCompile()
     execute ':SCCompileRun'
   endif
 endfunction 
+
+function! SetRgMode(...)
+  let st = substitute(a:1, "'", '', 'g')
+  let st = substitute(st, "\\", '', 'g')
+  let g:rgmode = str2nr(st[:0]) - 1
+  echo st
+  call RgWithMode("")
+endfunction
+command! -nargs=* SetRgModeC call SetRgMode(shellescape(<q-args>))
+
+function! RgModeFZF()
+  let path = system('cd '.shellescape(expand('%:p:h')).' && git rev-parse --show-toplevel 2> /dev/null')[:-2]
+  call fzf#run({'source': [
+        \"1) Rg current buffer         [" . expand("%:p:h") . "]",
+        \"2) Rg current buffer depth 1 [" . expand("%:p:h") . "]",
+        \"3) Rg pwd                    [" . getcwd() . "]",
+        \"4) Rg git root               [" . path . "]"],
+        \'sink':'SetRgModeC', 'window': {'width': 1, 'height': 8, 'yoffset': 1}})
+endfunction
 
 function! IterateRgMode()
   if !exists("g:rgmode")

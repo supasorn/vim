@@ -18,24 +18,23 @@ Plug 'williamboman/nvim-lsp-installer'
 Plug 'othree/html5.vim' " to properly indent js file
 Plug 'rmagatti/goto-preview' " show preview with gp
 Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim', {'branch' : 'main'} " LSP warning
-" Plug 'SmiteshP/nvim-navic'
-" Plug 'hrsh7th/nvim-compe' " lsp autocomplete
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
+" Plug 'SmiteshP/nvim-navic'
 
 
 " Fast
 Plug 'supasorn/vim-easymotion'
-" Plug 'ggandor/lightspeed.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring' " used with vim-commentary to comment embedded script like js in html
-Plug 'tpope/vim-commentary/' " for fast commenting
+Plug 'tpope/vim-commentary' " for fast commenting
 Plug 'tpope/vim-surround' " for change / delete quotes, tags
 Plug 'tpope/vim-repeat' " so that . works with surround etc
 Plug 'dahu/vim-fanfingtastic'  " fb for multiple lines
+" Plug 'ggandor/lightspeed.nvim'
 
 " textobject
 Plug 'PeterRincker/vim-argumentative' " <, >, for shifting arguments. a, i, text object
@@ -70,6 +69,7 @@ Plug 'wesQ3/vim-windowswap' " \ww to mark two windows
 Plug 'skywind3000/asyncrun.vim'
 Plug 'drmingdrmer/vim-toggle-quickfix'
 Plug 'AndrewRadev/simple_bookmarks.vim'
+Plug 'kshenoy/vim-signature' " display bookmarks
 " Plug 'junegunn/vim-peekaboo' " show registers. conflicts with nvim-treesitter-context
 Plug 'tpope/vim-eunuch' " add unix commands like Rename, SudoWrite
 Plug 'svermeulen/vim-yoink' " cycle through yank with ctrl-p
@@ -95,11 +95,6 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'xolox/vim-misc'
 Plug 'vim-scripts/L9'
 
-" Debug
-" Plug 'mfussenegger/nvim-dap'
-" Plug 'mfussenegger/nvim-dap-python'
-" Plug 'rcarriga/nvim-dap-ui'
-
 " Integration
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
@@ -112,15 +107,16 @@ if executable('ctags')
   endif
 endif
 
-" Bookmark Display
-Plug 'kshenoy/vim-signature'
-
 " Icon
 Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons' 
 "Plug 'akinsho/bufferline.nvim'
 "Plug 'romgrk/barbar.nvim'
 
+" Debug
+" Plug 'mfussenegger/nvim-dap'
+" Plug 'mfussenegger/nvim-dap-python'
+" Plug 'rcarriga/nvim-dap-ui'
 call plug#end()
 
 let g:gruvbox_contrast_dark = "medium"
@@ -278,7 +274,7 @@ if !empty(glob('~/.vim/plugged/vim-airline'))
   let g:airline_extensions = ['tabline', 'tagbar', 'branch']
   let g:airline_powerline_fonts = 1
   let g:airline_theme="bubblegum"
-  " let g:airline_theme="gruvbox_material"
+  " let g:airline_theme="gruvbox_material"funcref
   "
   let g:airline_section_x='%{airline#util#prepend(airline#extensions#tagbar#currenttag(),0)}%{airline#util#prepend("",0)}'
   let g:airline_section_y=''
@@ -332,7 +328,8 @@ function! FloatingFZF()
   call setwinvar(win, '&winhighlight', 'NormalFloat:TabLine')
 endfunction
 
-let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+" let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+let g:fzf_layout = { 'window': {'width': 1, 'height': 0.25, 'yoffset': 1} }
 " let g:fzf_preview_window = ['right:hidden', 'f4']
 let g:fzf_preview_window = ['right:hidden']
 " let $FZF_DEFAULT_OPTS="--preview-window 'right:50%' --layout reverse --preview 'bat --color=always --style=grid --line-range :300 {} --theme=gruvbox-dark'"
@@ -399,7 +396,6 @@ map <c-h> <esc>:A<CR>
 
 "nnoremap \r :call FirstLineCompile()<CR>
 
-"command! -nargs=1 Gr call GrepCurrlive_grepentDirectory(<f-args>)
 " nnoremap gr :RgRaw -g '!tags' --max-depth=1 '\b<cword>\b' %:p:h/<CR>
 nnoremap gr :call RgWithMode(expand("<cword>"))<CR>
 
@@ -477,8 +473,10 @@ imap <F3> <esc>:Buffers<cr>
 
 nmap <F6> :Files<CR>
 imap <F6> <esc>:Files<CR>
-nmap <silent> <F7>  :call IterateRgMode()<CR>
-imap <silent> <F7> <esc>:call IterateRgMode()<CR>
+" nmap <silent> <F7>  :call IterateRgMode()<CR>
+" imap <silent> <F7> <esc>:call IterateRgMode()<CR>
+nmap <silent> <F7>  :call RgModeFZF()<CR>
+imap <silent> <F7> <esc>:call RgModeFZF()<CR>
 
 "if expand('%:t') == 'vimrc' || expand('%:t') == 'init.vim'
   "echo 'Save + Source'
