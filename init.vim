@@ -13,7 +13,11 @@ require('fzf-lua').setup{
   },
   buffers = {
     previewer = false,
-  }
+  },
+  fzf_colors = {
+    ["fg"] = { "fg", "Normal" },
+    ["bg"] = { "bg", "Normal" },
+  },
 }
 
 

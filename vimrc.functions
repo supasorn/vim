@@ -1,6 +1,16 @@
 " Rule: echo 'yes'
 " Rule: tmux send -t 1 'python main.py' Enter
 "
+function! FzfRunning()
+  let buffers = filter(range(1, bufnr('$')), 'bufname(v:val) =~# ";#FZF"')
+  for i in buffers
+    " Delete buffer by ID
+    execute "bw!" . i
+  endfor
+  sleep 10m
+endfunction
+
+
 " " Search pattern across repository files
 function! FzfExplore(...)
     let inpath = substitute(a:1, "'", '', 'g')

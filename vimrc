@@ -333,6 +333,8 @@ function! FloatingFZF()
 endfunction
 
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+" let g:fzf_preview_window = ['right:hidden', 'f4']
+let g:fzf_preview_window = ['right:hidden']
 " let $FZF_DEFAULT_OPTS="--preview-window 'right:50%' --layout reverse --preview 'bat --color=always --style=grid --line-range :300 {} --theme=gruvbox-dark'"
 let $FZF_DEFAULT_OPTS="--layout reverse"
 
@@ -446,8 +448,8 @@ vmap <c-c> gcc
 noremap <C-n> :NERDTreeToggle %:p:h<CR>
 " map <c-t> :lua require('telescope.builtin').file_browser({cwd = vim.fn.expand('%:p:h')})<CR>
  
-" map <s-r> :History:<CR>
-map <s-r> :lua require('fzf-lua').command_history({prompt="> "})<cr>
+map <s-r> :History:<CR>
+" map <s-r> :lua require('fzf-lua').command_history({prompt="> "})<cr>
 "map <s-e> <esc>:w<CR>:silent exe "!tmux send -t 1 'fc -e : -1' Enter"<CR>
 nmap <s-e> :call FirstLineCompile()<CR>
 
@@ -466,8 +468,10 @@ nmap <s-F2> :FufRenewCache<CR>
 imap <s-F2> <esc>:FufRenewCache<CR>
 "nmap <F3> :Telescope buffers<CR>
 "imap <F3> <esc>:Telescope buffers<CR>
-nmap <F3> :lua require('fzf-lua').buffers()<cr>
-imap <F3> <esc>:lua require('fzf-lua').buffers()<cr>
+" nmap <F3> :lua require('fzf-lua').buffers()<cr>
+" imap <F3> <esc>:lua require('fzf-lua').buffers()<cr>
+nmap <F3> :Buffers<cr>
+imap <F3> <esc>:Buffers<cr>
 "nmap <F3> :FufBuffer<CR>
 "imap <F3> <esc>:FufBuffer<CR>
 
