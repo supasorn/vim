@@ -24,7 +24,11 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
+" Plug 'gelguy/wilder.nvim'
 " Plug 'SmiteshP/nvim-navic'
+" Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+" Plug 'tzachar/cmp-fuzzy-path'
+" Plug 'tzachar/fuzzy.nvim'
 
 
 " Fast
@@ -131,6 +135,7 @@ set background=dark
 autocmd GUIEnter * set visualbell t_vb=
 
 "set clipboard=unnamedplus " vim's clipboard = system's clipboard
+set pumheight=15 " autocomplete max items
 set termguicolors
 set t_Co=256
 set mouse=a
