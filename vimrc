@@ -58,8 +58,8 @@ Plug 'mildred/vim-bufmru' " move recently used buffer to the first in the list
 Plug 'jesseleite/vim-agriculture' " RgRaw
 Plug 'rbgrouleff/bclose.vim' " close buffer
 Plug 'nvim-lua/plenary.nvim'
-" Plug 'nvim-telescope/telescope.nvim'
-" Plug 'nvim-telescope/telescope-file-browser.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
 "Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 "Plug 'francoiscabrol/ranger.vim'
 
@@ -458,13 +458,16 @@ nmap <s-e> :call FirstLineCompile()<CR>
 " nmap ? :BLines<CR>
 nmap ? :lua require('fzf-lua').blines({prompt="> "})<cr>
 
-let g:fuzzy_post_command = ':TSContextEnable'
-nmap <F2> :TSContextDisable<CR>:FufFileWithCurrentBufferDir<CR>
-imap <F2> <esc>:TSContextDisable<CR>:FufFileWithCurrentBufferDir<CR>
+let g:fuzzy_post_command1 = ':lua require("cmp").setup { enabled = true }'
+let g:fuzzy_post_command2 = ':TSContextEnable'
+nmap <F2> :TSContextDisable<CR>:lua require('cmp').setup { enabled = false }<cr>:FufFileWithCurrentBufferDir<CR>
+imap <F2> <esc>:TSContextDisable<CR>:lua require('cmp').setup { enabled = false }<cr>:FufFileWithCurrentBufferDir<CR>
 " nmap <F2> :FZFExplore<CR>
 " imap <F2> <esc>:TSContextDisable<CR>:FufFileWithCurrentBufferDir<CR>
 " nmap <F2> :Telescope file_browser<CR>
 " imap <F2> <esc>:Telescope file_browser<CR>
+" nmap <F2> :e ./
+" imap <F2> <esc>:e ./
 
 nmap <s-F2> :FufRenewCache<CR>
 imap <s-F2> <esc>:FufRenewCache<CR>

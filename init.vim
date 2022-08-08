@@ -81,7 +81,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'buffer' },
-    { name = 'path' },
+    { name = 'path'},
   }) 
 })
 
@@ -94,7 +94,6 @@ cmp.setup.filetype('gitcommit', {
   })
 })
 
---[[
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
   mapping = cmp.mapping.preset.cmdline(),
@@ -111,7 +110,6 @@ cmp.setup.cmdline(':', {
     -- { name = 'path'}
   })
 })
---]]
 
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -120,7 +118,7 @@ require('lspconfig')['pyright'].setup {
   capabilities = capabilities
 }
 
---[[
+
 require('telescope').setup{
   defaults = {
     -- layout_config = {
@@ -146,8 +144,7 @@ require('telescope').setup{
     },
   }
 }
-require("telescope").load_extension "file_browser"
-]]--
+-- require("telescope").load_extension "file_browser"
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages

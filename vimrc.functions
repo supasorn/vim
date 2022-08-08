@@ -24,7 +24,7 @@ function! FzfExplore(...)
       execute "cd" getcwd() . '/' . inpath
       let cwpath = getcwd() . '/'
       " call fzf#run(fzf#wrap(fzf#vim#with_preview({'source': 'ls -1pA && echo "../"', 'dir': cwpath, 'sink': 'FZFExplore', 'options': ['--prompt', cwpath, '--expect', 'ctrl-w']})))
-      call fzf#run(fzf#wrap(fzf#vim#with_preview({'source': 'ls -1pA && echo "../"', 'dir': cwpath, 'sink': 'FZFExplore', 'options': ['--prompt', cwpath]})))
+      call fzf#run(fzf#wrap(fzf#vim#with_preview({'source': 'echo "../" && ls -1pA', 'dir': cwpath, 'sink': 'FZFExplore', 'options': ['--prompt', cwpath]})))
     else
       let file = getcwd() . '/' . inpath
       execute "e" file
