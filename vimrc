@@ -186,8 +186,9 @@ set completeopt=menuone,noselect
 "----------------------------
 """"""    Constants    """""" 
 "----------------------------
-" let g:indentLine_char = '▏'
-"
+let NERDTreeDirArrowExpandable=""
+let NERDTreeDirArrowCollapsible=""
+
 let g:context_presenter = 'nvim-float'
 let g:context_highlight_normal = 'Normal'
 
