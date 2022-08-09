@@ -5,12 +5,12 @@ source ~/.vimrc
 lua <<EOF
 
 require('fzf-lua').setup{
-  -- winopts = {
-    -- height = 0.25,
-    -- width = 1,
-    -- row = 1,
-    -- border = 'rounded',
-  -- },
+  winopts = {
+    height = 0.25,
+    width = 1,
+    row = 1,
+    border = 'rounded',
+  },
   buffers = {
     previewer = false,
   },
@@ -325,17 +325,18 @@ require'treesitter-context'.setup{
 
 
 
---[[
 -- require('dap-python').setup('/home/vll/venv_debugpy/debugpy/bin/python')
-require('dap-python').setup('/home/users/supvenv_debugpy/debugpy/bin/python')
-require('dap').configurations.python = {}
-table.insert(require('dap').configurations.python, {
-  type = 'python',
-  request = 'launch',
-  name = 'My custom launch configuration',
-  program = '${file}',
-})
+-- require('dap-python').setup('/Users/supasorn/debugpy/bin/python3')
+-- require('dap').configurations.python = {}
+-- table.insert(require('dap').configurations.python, {
+  -- type = 'python',
+  -- request = 'launch',
+  -- name = 'My custom launch configuration',
+  -- program = '${file}',
+  -- ... more options, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings
+-- })
 
+--[[
 require("dapui").setup({
   icons = { expanded = "▾", collapsed = "▸" },
   mappings = {
@@ -361,10 +362,10 @@ require("dapui").setup({
     {
       elements = {
       -- Elements can be strings or table with id and size keys.
-        { id = "scopes", size = 0.25 },
-        "breakpoints",
-        -- "stacks",
-        -- "watches",
+        -- { id = "scopes", size = 0.25 },
+        -- "breakpoints",
+        {id = "stacks", size = 0.2},
+        {id = "watches", size = 0.8}
       },
       size = 40, -- 40 columns
       position = "left",
@@ -374,7 +375,7 @@ require("dapui").setup({
         "repl",
         "console",
       },
-      size = 0.25, -- 25% of total lines
+      size = 20, -- 25% of total lines
       position = "bottom",
     },
   },

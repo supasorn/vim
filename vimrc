@@ -191,6 +191,8 @@ set completeopt=menuone,noselect
 "----------------------------
 """"""    Constants    """""" 
 "----------------------------
+let g:bclose_no_plugin_maps = v:true
+
 let NERDTreeDirArrowExpandable=""
 let NERDTreeDirArrowCollapsible=""
 
@@ -263,17 +265,6 @@ let g:fuf_maxMenuWidth = 150
 let g:fuf_patternSeparator = ' '
 let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp|\.class$'
 let g:fuf_keyOpenVsplit = '<C-v>'
-
-
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-let g:neocomplcache_max_list = 15
-let g:neocomplcache_enable_fuzzy_completion = 1
-let g:neocomplcache_fuzzy_completion_start_length = 2
 
 
 if !empty(glob('~/.vim/plugged/vim-airline'))
@@ -386,8 +377,6 @@ vmap ia Ia
 nmap <c-s> :w<CR>
 imap <c-s> <Esc>:w<CR>a
 
-"inoremap <expr><C-h> neocomplcache#undo_completion()
-"inoremap <expr><C-k> neocomplcache#close_popup()
 " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
@@ -424,12 +413,12 @@ nmap <F8> :TagbarToggle<CR>
 "nmap <F4> :MRU<CR>/
 nmap <F4> :FZFMru --no-sort<CR>
 
-" nnoremap <silent> <F9> <Cmd>lua require'dapui'.open()<CR><Cmd>lua require'dap'.continue()<CR>
-" nnoremap <silent> <s-F9> <Cmd>lua require'dap'.close()<CR>:lua require'dapui'.close()<CR>
-" nnoremap <silent> <F10> <Cmd>lua require'dap'.step_over()<CR>
-" nnoremap <silent> <F11> <Cmd>lua require'dap'.step_into()<CR>
-" nnoremap <silent> <F12> <Cmd>lua require'dap'.step_out()<CR>
-" nnoremap <silent> <Leader>b <Cmd>lua require'dap'.toggle_breakpoint()<CR>
+" map <silent> <F9> <Cmd>lua require'dapui'.open()<CR><Cmd>lua require'dap'.continue()<CR>
+" map <silent> <s-F9> <Cmd>lua require'dap'.close()<CR>:lua require'dapui'.close()<CR>
+" map <silent> <F10> <Cmd>lua require'dap'.step_over()<CR>
+" map <silent> <F11> <Cmd>lua require'dap'.step_into()<CR>
+" map <silent> <F12> <Cmd>lua require'dap'.step_out()<CR>
+" map <silent> <Leader>b <Cmd>lua require'dap'.toggle_breakpoint()<CR>
 
 " nmap <F9> :NextColorScheme<CR>
 " nmap <s-F9> :PrevColorScheme<CR>
