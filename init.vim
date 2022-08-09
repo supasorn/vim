@@ -5,12 +5,12 @@ source ~/.vimrc
 lua <<EOF
 
 require('fzf-lua').setup{
-  winopts = {
-    height = 0.25,
-    width = 1,
-    row = 1,
-    border = 'rounded',
-  },
+  -- winopts = {
+    -- height = 0.25,
+    -- width = 1,
+    -- row = 1,
+    -- border = 'rounded',
+  -- },
   buffers = {
     previewer = false,
   },
@@ -79,8 +79,8 @@ cmp.setup({
     }),
   },
   sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'buffer' },
+    { name = 'nvim_lsp', max_item_count = 15},
+    { name = 'buffer' , max_item_count = 15},
     { name = 'path'},
   }) 
 })
