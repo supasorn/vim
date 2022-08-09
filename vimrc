@@ -458,16 +458,24 @@ nmap <s-e> :call FirstLineCompile()<CR>
 " nmap ? :BLines<CR>
 nmap ? :lua require('fzf-lua').blines({prompt="> "})<cr>
 
-let g:fuzzy_post_command1 = ':lua require("cmp").setup { enabled = true }'
-let g:fuzzy_post_command2 = ':TSContextEnable'
-nmap <F2> :TSContextDisable<CR>:lua require('cmp').setup { enabled = false }<cr>:FufFileWithCurrentBufferDir<CR>
-imap <F2> <esc>:TSContextDisable<CR>:lua require('cmp').setup { enabled = false }<cr>:FufFileWithCurrentBufferDir<CR>
+function! FuzzyPreCommands()
+  exec ':TSContextDisable'
+  exec ':lua require("cmp").setup { enabled = false }'
+  exec ':FufFileWithCurrentBufferDir'
+endfunction
+
+function! FuzzyPostCommands()
+  exec ':TSContextEnable'
+  exec ':lua require("cmp").setup { enabled = true }'
+endfunction
+
+let g:fuzzy_post_command = 'call FuzzyPostCommands()'
+nmap <F2> :call FuzzyPreCommands()<cr>
+imap <F2> <esc>:call FuzzyPreCommands()<cr>
 " nmap <F2> :FZFExplore<CR>
 " imap <F2> <esc>:TSContextDisable<CR>:FufFileWithCurrentBufferDir<CR>
 " nmap <F2> :Telescope file_browser<CR>
 " imap <F2> <esc>:Telescope file_browser<CR>
-" nmap <F2> :e ./
-" imap <F2> <esc>:e ./
 
 nmap <s-F2> :FufRenewCache<CR>
 imap <s-F2> <esc>:FufRenewCache<CR>
