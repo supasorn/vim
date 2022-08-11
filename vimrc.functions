@@ -114,6 +114,11 @@ function! RgWithMode(query)
   
 endfunction
 
+function! FilesAtGitRoot()
+  let path = system('cd '.shellescape(expand('%:p:h')).' && git rev-parse --show-toplevel 2> /dev/null')[:-2]
+  exec 'FzfLua files cwd=' . path
+endfunction
+
 " command! -bang -nargs=* PRg
   " \ call fzf#vim#grep("rg -g '!tags' --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, fzf#vim#with_preview({'dir': getcwd()}), <bang>0)
 

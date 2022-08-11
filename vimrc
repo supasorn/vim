@@ -477,8 +477,10 @@ imap <F3> <esc>:Buffers<cr>
 "nmap <F3> :FufBuffer<CR>
 "imap <F3> <esc>:FufBuffer<CR>
 
-nmap <F6> :Files<CR>
-imap <F6> <esc>:Files<CR>
+" nmap <F6> :Files<CR>
+" imap <F6> <esc>:Files<CR>
+nmap <F6> :call FilesAtGitRoot()<cr>
+imap <F6> <esc>:call FilesAtGitRoot()<cr>
 " nmap <silent> <F7>  :call IterateRgMode()<CR>
 " imap <silent> <F7> <esc>:call IterateRgMode()<CR>
 nmap <silent> <F7>  :call RgModeFZF()<CR>
