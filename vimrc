@@ -337,6 +337,7 @@ let $FZF_DEFAULT_OPTS="--layout reverse"
 """"""    Remapping    """""" 
 "----------------------------
 
+nmap >W WvhdBPli<space><esc>hhvEEldEPxBBB
 " this is used with autocmd InsertLeave, every word under cursor is copy when
 " leaving insert mode and can be pasted with "W
 nmap "W "wsiw
@@ -442,7 +443,7 @@ noremap <C-n> :NERDTreeToggle %:p:h<CR>
 map <s-r> :History:<CR>
 " map <s-r> :lua require('fzf-lua').command_history({prompt="> "})<cr>
 "map <s-e> <esc>:w<CR>:silent exe "!tmux send -t 1 'fc -e : -1' Enter"<CR>
-nmap <s-e> :call FirstLineCompile()<CR>
+" nmap <s-e> :call FirstLineCompile()<CR>
 
 " nmap ? :BLines<CR>
 nmap ? :lua require('fzf-lua').blines({prompt="> "})<cr>
