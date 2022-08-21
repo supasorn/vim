@@ -46,6 +46,7 @@ Plug 'kana/vim-textobj-user' " my own =, i= for changing the RHS, LSH of equatio
 Plug 'wellle/targets.vim' " () {} [] text object
 Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'branch' : '0.5-compat'} " indent object f, c, ]m ]] 
 Plug 'nvim-treesitter/nvim-treesitter-context' " for context topbar
+Plug 'jeetsukumaran/vim-pythonsense'
 
 " File
 Plug 'supasorn/FuzzyFinder' " F2
@@ -311,6 +312,7 @@ let $FZF_DEFAULT_OPTS="--layout reverse"
 """"""    Remapping    """""" 
 "----------------------------
 
+" Swap two words surrouding an operator
 nmap >W WvhdBPli<space><esc>hhvEEldEPxBBB
 " this is used with autocmd InsertLeave, every word under cursor is copy when
 " leaving insert mode and can be pasted with "W
