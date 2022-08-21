@@ -24,12 +24,11 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
-" Plug 'gelguy/wilder.nvim'
-" Plug 'SmiteshP/nvim-navic'
-" Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-" Plug 'tzachar/cmp-fuzzy-path'
-" Plug 'tzachar/fuzzy.nvim'
 
+" Snippets
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'rafamadriz/friendly-snippets'
 
 " Fast
 Plug 'supasorn/vim-easymotion'
@@ -42,7 +41,7 @@ Plug 'dahu/vim-fanfingtastic'  " fb for multiple lines
 
 " textobject
 Plug 'PeterRincker/vim-argumentative' " <, >, for shifting arguments. a, i, text object
-Plug 'michaeljsmith/vim-indent-object' " ai, ii
+Plug 'supasorn/vim-indent-object' " ai, ii
 Plug 'kana/vim-textobj-user' " my own =, i= for changing the RHS, LSH of equation. (Deprecated) if for changing the function call
 Plug 'wellle/targets.vim' " () {} [] text object
 Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'branch' : '0.5-compat'} " indent object f, c, ]m ]] 
@@ -191,6 +190,7 @@ set completeopt=menuone,noselect
 "----------------------------
 """"""    Constants    """""" 
 "----------------------------
+
 let g:bclose_no_plugin_maps = v:true
 
 let NERDTreeDirArrowExpandable=""
@@ -203,32 +203,6 @@ let g:netrw_liststyle = 3
 
 let g:diagnostic_enable_virtual_text = 0
 let g:diagnostic_insert_delay = 5
-
-let g:compe = {}
-let g:compe.enabled = v:true
-let g:compe.autocomplete = v:true
-let g:compe.debug = v:false
-let g:compe.min_length = 1
-let g:compe.preselect = 'enable'
-let g:compe.throttle_time = 80
-let g:compe.source_timeout = 200
-let g:compe.resolve_timeout = 800
-let g:compe.incomplete_delay = 400
-let g:compe.max_abbr_width = 100
-let g:compe.max_kind_width = 100
-let g:compe.max_menu_width = 100
-let g:compe.documentation = v:true
-
-let g:compe.source = {}
-let g:compe.source.path = v:true
-let g:compe.source.buffer = v:true
-let g:compe.source.calc = v:true
-let g:compe.source.nvim_lsp = v:true
-let g:compe.source.nvim_lua = v:true
-let g:compe.source.vsnip = v:true
-let g:compe.source.ultisnips = v:true
-let g:compe.source.luasnip = v:true
-let g:compe.source.emoji = v:true
 
 
 let g:alternateExtensions_cc = "h,hpp,hh"
@@ -371,9 +345,6 @@ nmap <c-p> <plug>(YoinkPostPasteSwapBack)
 "nmap <c-n> <plug>(YoinkPostPasteSwapForward)
 nmap p <plug>(YoinkPaste_p)
 nmap P <plug>(YoinkPaste_P)
-
-omap ia Ia  
-vmap ia Ia
 
 nmap <c-s> :w<CR>
 imap <c-s> <Esc>:w<CR>a
