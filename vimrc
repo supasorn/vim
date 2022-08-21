@@ -41,15 +41,15 @@ Plug 'dahu/vim-fanfingtastic'  " fb for multiple lines
 
 " textobject
 Plug 'PeterRincker/vim-argumentative' " <, >, for shifting arguments. a, i, text object
-Plug 'supasorn/vim-indent-object' " ai, ii indent object
+Plug 'supasorn/vim-indent-object' " ai, ii indent object. Don't map in select mode, so that we can type rightaway in snippet
 Plug 'kana/vim-textobj-user' " my own =, i= for changing the RHS, LSH of equation. (Deprecated) if for changing the function call
 Plug 'wellle/targets.vim' " () {} [] text object
 Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'branch' : '0.5-compat'} " indent object f, c, ]m ]] 
 Plug 'nvim-treesitter/nvim-treesitter-context' " for context topbar
-Plug 'jeetsukumaran/vim-pythonsense'
+Plug 'supasorn/vim-pythonsense' " with remap [] -> function, ]m -> class
 
 " File
-Plug 'supasorn/FuzzyFinder' " F2
+Plug 'supasorn/FuzzyFinder' " F2, support disable / enable Treesitter context
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " F3
 Plug 'pbogut/fzf-mru.vim' " F4
