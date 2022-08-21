@@ -12,6 +12,7 @@ mkdir -p ~/.config/lf
 ln -sf ~/.vim/lfrc ~/.config/lf/lfrc
 ln -sf ~/.vim/lfcd.sh ~/.config/lf/lfcd.sh
 
+sudo npm i -g pyright vscode-langservers-extracted@latest
 nvim +PlugInstall +qall
 
 #cp ~/.vim/key-bindings.zsh ~/.fzf/shell/ 
