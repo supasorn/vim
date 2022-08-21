@@ -121,7 +121,8 @@ local servers = {
   "pyright",
   "html",
   "cssls",
-  "tsserver"
+  "tsserver",
+  "eslint"
 }
 
 for _, lsp in ipairs(servers) do
