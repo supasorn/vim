@@ -41,7 +41,7 @@ Plug 'dahu/vim-fanfingtastic'  " fb for multiple lines
 
 " textobject
 Plug 'PeterRincker/vim-argumentative' " <, >, for shifting arguments. a, i, text object
-Plug 'supasorn/vim-indent-object' " ai, ii
+Plug 'supasorn/vim-indent-object' " ai, ii indent object
 Plug 'kana/vim-textobj-user' " my own =, i= for changing the RHS, LSH of equation. (Deprecated) if for changing the function call
 Plug 'wellle/targets.vim' " () {} [] text object
 Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'branch' : '0.5-compat'} " indent object f, c, ]m ]] 
