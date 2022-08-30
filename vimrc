@@ -94,6 +94,7 @@ Plug 'navarasu/onedark.nvim'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'norcalli/nvim-colorizer.lua'
 
 " Misc
 Plug 'xolox/vim-misc'
