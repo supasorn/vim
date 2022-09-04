@@ -207,7 +207,7 @@ endfunction
 function! BeforeEquationObject()
   normal! ^
   let head_pos = getpos('.')
-  normal! f=be
+  normal! f=ge
   let tail_pos = getpos('.')
   return ['v', head_pos, tail_pos]
 endfunction 

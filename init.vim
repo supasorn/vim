@@ -3,7 +3,6 @@ let &packpath = &runtimepath
 source ~/.vimrc
 
 lua <<EOF
-
 require'colorizer'.setup()
 
 require('fzf-lua').setup{
@@ -197,7 +196,7 @@ require('telescope').setup{
     },
   }
 }
--- require("telescope").load_extension "file_browser"
+require("telescope").load_extension "file_browser"
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
@@ -223,7 +222,7 @@ require'nvim-treesitter.configs'.setup {
       -- node_decremental = "grm",
       init_selection = "<CR>",
       node_incremental = "<CR>",
-      scope_incremental = "grc",
+      scope_incremental = "<tab>",
       node_decremental = "<BS>",
     },
   },
