@@ -96,6 +96,9 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
+" Plug 'nvim-lualine/lualine.nvim'
+" Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+" Plug 'noib3/nvim-cokeline'
 
 " Misc
 Plug 'xolox/vim-misc'
@@ -244,6 +247,7 @@ let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp|\.class$'
 let g:fuf_keyOpenVsplit = '<C-v>'
 
 
+" if v:false && !empty(glob('~/.vim/plugged/vim-airline'))
 if !empty(glob('~/.vim/plugged/vim-airline'))
   let g:airline_extensions = ['tabline', 'tagbar', 'branch']
   let g:airline_powerline_fonts = 1
@@ -314,6 +318,7 @@ let $FZF_DEFAULT_OPTS="--layout reverse"
 """"""    Remapping    """""" 
 "----------------------------
 
+imap <c-.> <esc>u.a
 " Swap two words surrouding an operator
 nmap >W WvhdBPli<space><esc>hhvEEldEPxBBB
 " this is used with autocmd InsertLeave, every word under cursor is copy when

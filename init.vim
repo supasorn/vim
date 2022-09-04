@@ -3,6 +3,7 @@ let &packpath = &runtimepath
 source ~/.vimrc
 
 lua <<EOF
+
 require'colorizer'.setup()
 
 require('fzf-lua').setup{

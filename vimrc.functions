@@ -188,7 +188,7 @@ function! OpenRemoteOrLocal()
   endif
 endfunction 
 
-function! FunctionObject()
+function! FunctionObject() " select the function's name, but doesn't quite work
   normal! f)%h
   let tail_pos = getpos('.')
   normal! B
@@ -215,7 +215,7 @@ endfunction
 call textobj#user#plugin('function', {
 \   'function': {
 \     'select-i-function': 'FunctionObject',
-\     'select-i': 'in',
+\     'select-i': 'if',
 \   },
 \   'equation': {
 \     'select-i-function': 'AfterEquationObject',
