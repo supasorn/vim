@@ -81,6 +81,7 @@ Plug 'tpope/vim-eunuch' " add unix commands like Rename, SudoWrite
 Plug 'svermeulen/vim-yoink' " cycle through yank with ctrl-p
 Plug 'svermeulen/vim-subversive' " quick paste in normal mode, use s.. instead of v->p
 Plug 'dstein64/vim-startuptime'
+" Plug 'https://git.sr.ht/~henriquehbr/nvim-startup.lua'
 Plug 'svban/YankAssassin.vim' " yiw won't move cursor to the beginning
 Plug 'MunifTanjim/nui.nvim' " UI elements for neovim
 " Plug 'nvim-neo-tree/neo-tree.nvim'

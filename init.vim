@@ -4,6 +4,8 @@ source ~/.vimrc
 
 lua <<EOF
 
+-- require 'nvim-startup'.setup()
+
 -- OR setup with some options
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
