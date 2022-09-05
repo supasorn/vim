@@ -226,5 +226,11 @@ call textobj#user#plugin('function', {
 \ })
 
 
-
-
+" onoremap n :<c-u>call <SID>NextTextObject('i')<cr>
+" function! s:NextTextObject(motion)
+  " echo 
+  " let c = nr2char(getchar())
+  " exe "normal! f".c."v".a:motion.c
+  " exe "normalv".a:motion."n".c
+" endfunction
+" test('sdfsd', 'sdfds', 'asdasd')

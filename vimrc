@@ -44,7 +44,7 @@ Plug 'dahu/vim-fanfingtastic'  " fb for multiple lines
 Plug 'PeterRincker/vim-argumentative' " <, >, for shifting arguments. a, i, text object
 Plug 'supasorn/vim-indent-object' " ai, ii indent object. Don't map in select mode, so that we can type rightaway in snippet
 Plug 'kana/vim-textobj-user' " my own =, i= for changing the RHS, LSH of equation. (Deprecated) if for changing the function call
-Plug 'wellle/targets.vim' " () {} [] text object
+Plug 'supasorn/targets.vim' " () {} [] text object with seeking
 Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'branch' : '0.5-compat'} " indent object f, c, ]m ]] 
 Plug 'nvim-treesitter/nvim-treesitter-context' " for context topbar
 Plug 'supasorn/vim-pythonsense' " with remap [] -> function, ]m -> class
@@ -65,7 +65,8 @@ Plug 'nvim-telescope/telescope-file-browser.nvim'
 "Plug 'francoiscabrol/ranger.vim'
 
 " Utilities
-Plug 'scrooloose/nerdtree'
+Plug 'kyazdani42/nvim-tree.lua'
+" Plug 'scrooloose/nerdtree'
 Plug 'xolox/vim-session'
 Plug 'vim-scripts/a.vim' 
 Plug 'mbbill/undotree'
@@ -199,8 +200,8 @@ set completeopt=menuone,noselect
 
 let g:bclose_no_plugin_maps = v:true
 
-let NERDTreeDirArrowExpandable=""
-let NERDTreeDirArrowCollapsible=""
+" let NERDTreeDirArrowExpandable=""
+" let NERDTreeDirArrowCollapsible=""
 
 let g:context_presenter = 'nvim-float'
 let g:context_highlight_normal = 'Normal'
@@ -318,7 +319,10 @@ let $FZF_DEFAULT_OPTS="--layout reverse"
 """"""    Remapping    """""" 
 "----------------------------
 
-imap <c-.> <esc>u.a
+" used with supasorn/targets.vim to repeat ci" with <c-.> / <c-,> in insert mode
+imap <c-.> <esc>u@r
+imap <c-,> <esc>g-i
+
 " Swap two words surrouding an operator
 nmap >W WvhdBPli<space><esc>hhvEEldEPxBBB
 " this is used with autocmd InsertLeave, every word under cursor is copy when
@@ -417,7 +421,9 @@ vmap <SPACE> <leader>s
 " map <c-c> <plug>NERDCommenterToggle<c-m>
 nmap <c-c> gccj
 vmap <c-c> gcc
-noremap <C-n> :NERDTreeToggle %:p:h<CR>
+" noremap <C-n> :NERDTreeToggle %:p:h<CR>
+" noremap <C-n> :NvimTreeFindFileToggle<CR>
+noremap <C-n> :NvimTreeToggle %:p:h<CR>
 " map <c-t> :lua require('telescope.builtin').file_browser({cwd = vim.fn.expand('%:p:h')})<CR>
  
 map <s-r> :History:<CR>

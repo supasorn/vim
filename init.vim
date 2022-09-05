@@ -4,6 +4,36 @@ source ~/.vimrc
 
 lua <<EOF
 
+-- OR setup with some options
+require("nvim-tree").setup({
+  sort_by = "case_sensitive",
+  view = {
+    adaptive_size = false,
+    mappings = {
+      list = {
+        { key = "u", action = "dir_up" },
+      },
+    },
+  },
+  renderer = {
+    group_empty = true,
+    indent_markers = {
+      enable = true
+    },
+    icons = {
+      show = {
+        file = true,
+        folder = true,
+        folder_arrow = false,
+        git = true,
+      },
+    },
+  },
+  filters = {
+    dotfiles = false,
+  },
+})
+
 require'colorizer'.setup()
 
 require('fzf-lua').setup{
