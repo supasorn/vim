@@ -319,7 +319,7 @@ let $FZF_DEFAULT_OPTS="--layout reverse"
 """"""    Remapping    """""" 
 "----------------------------
 
-" used with supasorn/targets.vim to repeat ci" with <c-.> / <c-,> in insert mode
+" used with supasorn/targets.vim to repeat ci" in the next / previous text object in insert mode
 imap <c-.> <esc>u@r
 imap <c-,> <esc>g-i
 
