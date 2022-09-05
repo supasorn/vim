@@ -65,6 +65,7 @@ Plug 'nvim-telescope/telescope-file-browser.nvim'
 "Plug 'francoiscabrol/ranger.vim'
 
 " Utilities
+Plug 'lewis6991/impatient.nvim'
 Plug 'kyazdani42/nvim-tree.lua'
 " Plug 'scrooloose/nerdtree'
 Plug 'xolox/vim-session'

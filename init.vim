@@ -4,7 +4,8 @@ source ~/.vimrc
 
 lua <<EOF
 
--- require 'nvim-startup'.setup()
+require('impatient')
+-- requirrequire('impatient')e 'nvim-startup'.setup()
 
 -- OR setup with some options
 require("nvim-tree").setup({
