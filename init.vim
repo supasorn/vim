@@ -21,11 +21,17 @@ require("nvim-tree").setup({
       enable = true
     },
     icons = {
+      git_placement = "after",
       show = {
         file = true,
         folder = true,
         folder_arrow = false,
         git = true,
+      },
+      glyphs = {
+        git = {
+          untracked = "-",
+        },
       },
     },
   },
