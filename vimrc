@@ -41,12 +41,12 @@ Plug 'dahu/vim-fanfingtastic'  " fb for multiple lines
 " Plug 'ggandor/lightspeed.nvim'
 
 " textobject
-Plug 'Matt-A-Bennett/vim-surround-funk' " function name and function cal() objects
+Plug 'Matt-A-Bennett/vim-surround-funk' " function name and function cal() objects [if, af]
 Plug 'PeterRincker/vim-argumentative' " <, >, for shifting arguments. a, i, text object
 Plug 'supasorn/vim-indent-object' " ai, ii indent object. Don't map in select mode, so that we can type rightaway in snippet
 Plug 'kana/vim-textobj-user' " my own =, i= for changing the RHS, LSH of equation. (Deprecated) if for changing the function call
 Plug 'supasorn/targets.vim' " () {} [] text object with seeking
-Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'branch' : '0.5-compat'} " indent object f, c, ]m ]] 
+Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'branch' : '0.5-compat'} " jump between function object ]m ]] , disable if, ic
 Plug 'nvim-treesitter/nvim-treesitter-context' " for context topbar
 Plug 'supasorn/vim-pythonsense' " with remap [] -> function, ]m -> class
 
