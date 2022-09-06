@@ -5,7 +5,7 @@ source ~/.vimrc
 lua <<EOF
 
 require('impatient')
--- requirrequire('impatient')e 'nvim-startup'.setup()
+-- require 'nvim-startup'.setup()
 
 -- OR setup with some options
 require("nvim-tree").setup({
@@ -42,6 +42,9 @@ require("nvim-tree").setup({
     dotfiles = false,
   },
 })
+vim.cmd [[highlight NvimTreeIndentMarker guifg=#58606d gui=nocombine]]
+vim.cmd [[highlight NvimTreeImageFile guifg=#58606d gui=nocombine]]
+vim.cmd [[highlight NvimTreeExecFile guifg=#58606d gui=nocombine]]
 
 require'colorizer'.setup()
 
@@ -490,6 +493,68 @@ require("dapui").setup({
 })
 --]]
 
+--[[
+require("bufferline").setup{
+  options = {
+    sort_by = function(buffer_a, buffer_b)
+      for _, buffer in ipairs(vim.fn.BufMRUList()) do
+        if buffer == buffer_a.id then
+          return true
+        elseif buffer == buffer_b.id then
+          return false
+        end
+      end
+      return false
+    end,
+    numbers = function(opts)
+      print(vim.inspect(opts))
+      return string.format('%s.', opts.ordinal)
+    end,
+    -- numbers = 'ordinal'
+  }
+}
+
+require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme = 'auto',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {
+      statusline = {},
+      winbar = {},
+    },
+    ignore_focus = {},
+    always_divide_middle = true,
+    globalstatus = false,
+    refresh = {
+      statusline = 1000,
+      tabline = 1000,
+      winbar = 1000,
+    }
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  winbar = {},
+  inactive_winbar = {},
+  extensions = {}
+}
+--]]
 EOF
 
 

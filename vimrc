@@ -99,6 +99,7 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
+
 " Plug 'nvim-lualine/lualine.nvim'
 " Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 " Plug 'noib3/nvim-cokeline'
@@ -322,7 +323,7 @@ let $FZF_DEFAULT_OPTS="--layout reverse"
 "----------------------------
 
 " targets.vim's argument should really make Ia the default argument
-map ia Ia
+omap ia Ia
 " used with supasorn/targets.vim to repeat ci" in the next / previous text object in insert mode
 imap <c-.> <esc>u@r
 imap <c-,> <esc>g-i
