@@ -3,7 +3,6 @@ let &packpath = &runtimepath
 source ~/.vimrc
 
 lua <<EOF
-
 require('impatient')
 -- require 'nvim-startup'.setup()
 
@@ -277,10 +276,10 @@ require'nvim-treesitter.configs'.setup {
 
       keymaps = {
         -- You can use the capture groups defined in textobjects.scm
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
+        ["am"] = "@function.outer",
+        ["im"] = "@function.inner",
+        -- ["ac"] = "@class.outer",
+        -- ["ic"] = "@class.inner",
       },
     },
     move = {

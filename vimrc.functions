@@ -6,7 +6,6 @@
 " rs/supasorn/.vim/plugged/fzf.vim/bin/preview.sh'\'' {1}' --expect=ctrl-v,ctrl-x,ctrl-t --no-height --border=rounded > /var/folders/9f/s2nq70qd4f7
 " 5mszbf60fnd4c0000gn/T/nvim.supasorn/k5wp6y/3;#FZF" line 0
 " MRU>
-
 function! FzfRunning()
   let buffers = filter(range(1, bufnr('$')), 'bufname(v:val) =~# ";#FZF"')
   for i in buffers
@@ -188,19 +187,13 @@ function! OpenRemoteOrLocal()
   endif
 endfunction 
 
-function! FunctionObject() " select the function's name, but doesn't quite work
-  normal! f)%h
-  let tail_pos = getpos('.')
-  normal! B
-  let head_pos = getpos('.')
-  return ['v', head_pos, tail_pos]
-endfunction 
 
 function! AfterEquationObject()
   normal! $F=w
   let head_pos = getpos('.')
   normal! $
   let tail_pos = getpos('.')
+  echom head_pos
   return ['v', head_pos, tail_pos]
 endfunction 
 
@@ -213,10 +206,6 @@ function! BeforeEquationObject()
 endfunction 
 
 call textobj#user#plugin('function', {
-\   'function': {
-\     'select-i-function': 'FunctionObject',
-\     'select-i': 'if',
-\   },
 \   'equation': {
 \     'select-i-function': 'AfterEquationObject',
 \     'select-i': '=',
@@ -224,6 +213,10 @@ call textobj#user#plugin('function', {
 \     'select-a': 'i=',
 \   },
 \ })
+" \   'function': {
+" \     'select-i-function': 'FunctionObject',
+" \     'select-i': 'iv',
+" \   },
 
 
 " onoremap n :<c-u>call <SID>NextTextObject('i')<cr>
@@ -234,3 +227,21 @@ call textobj#user#plugin('function', {
   " exe "normalv".a:motion."n".c
 " endfunction
 " test('sdfsd', 'sdfds', 'asdasd')
+"
+"
+" function! FunctionObject() " select the function's name, but doesn't quite work
+  " let s = searchpos('[^(]*(', 'enb')
+  " let e = searchpos('(', 'enb')
+  " let e = searchpos('(', 'enb')
+
+  " let buf_num = bufnr()
+  " echo a:type start_row end_row
+
+  " call setpos("'<", [buf_num, s[0], s[1], 0])
+  " call setpos("'>", [buf_num, e[0], e[1], 0])
+  " execute 'normal! `<v`>'
+" endfunction 
+" onoremap <silent>av :<C-U>call FunctionObject()<CR>
+" onoremap <silent>iv :<C-U>call FunctionObject()<CR>
+" xnoremap <silent>av :<C-U>call FunctionObject()<CR>
+" xnoremap <silent>iv :<C-U>call FunctionObject()<CR>

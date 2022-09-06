@@ -41,6 +41,7 @@ Plug 'dahu/vim-fanfingtastic'  " fb for multiple lines
 " Plug 'ggandor/lightspeed.nvim'
 
 " textobject
+Plug 'Matt-A-Bennett/vim-surround-funk' " function name and function cal() objects
 Plug 'PeterRincker/vim-argumentative' " <, >, for shifting arguments. a, i, text object
 Plug 'supasorn/vim-indent-object' " ai, ii indent object. Don't map in select mode, so that we can type rightaway in snippet
 Plug 'kana/vim-textobj-user' " my own =, i= for changing the RHS, LSH of equation. (Deprecated) if for changing the function call
@@ -65,8 +66,8 @@ Plug 'nvim-telescope/telescope-file-browser.nvim'
 "Plug 'francoiscabrol/ranger.vim'
 
 " Utilities
-Plug 'lewis6991/impatient.nvim'
-Plug 'kyazdani42/nvim-tree.lua'
+Plug 'lewis6991/impatient.nvim' " speed up lua startup time
+Plug 'kyazdani42/nvim-tree.lua' " nerdtree alternative
 " Plug 'scrooloose/nerdtree'
 Plug 'xolox/vim-session'
 Plug 'vim-scripts/a.vim' 
@@ -99,7 +100,6 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
-
 " Plug 'nvim-lualine/lualine.nvim'
 " Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 " Plug 'noib3/nvim-cokeline'
@@ -201,6 +201,20 @@ set completeopt=menuone,noselect
 """"""    Constants    """""" 
 "----------------------------
 
+let g:is_pythonsense_suppress_object_keymaps = 1
+
+let g:surround_funk_create_mappings = 0
+" visual mode selections
+xmap <silent> aF <Plug>(SelectWholeFunction)
+omap <silent> aF <Plug>(SelectWholeFunction)
+xmap <silent> af <Plug>(SelectWholeFUNCTION)
+omap <silent> af <Plug>(SelectWholeFUNCTION)
+xmap <silent> iF <Plug>(SelectFunctionName)
+omap <silent> iF <Plug>(SelectFunctionName)
+xmap <silent> if <Plug>(SelectFunctionNAME)
+omap <silent> if <Plug>(SelectFunctionNAME)
+
+
 let g:bclose_no_plugin_maps = v:true
 
 " let NERDTreeDirArrowExpandable=""
@@ -224,6 +238,7 @@ let g:asyncrun_open = 8
 let g:asyncrun_bell = 1
 
 let g:gitgutter_enabled = 0
+let g:gitgutter_map_keys = 0
 
 if os == "Linux"
   let g:EchoFuncKeyNext = '<m-j>'
