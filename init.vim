@@ -125,7 +125,7 @@ cmp.setup({
     end,
   },
   window = {
-    -- completion = cmp.config.window.bordered(),
+    completion = cmp.config.window.bordered(),
     -- documentation = cmp.config.window.bordered(),
   },
   mapping = {
