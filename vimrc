@@ -274,7 +274,8 @@ let g:fuf_keyOpenVsplit = '<C-v>'
 if !empty(glob('~/.vim/plugged/vim-airline'))
   let g:airline_extensions = ['tabline', 'tagbar', 'branch']
   let g:airline_powerline_fonts = 1
-  let g:airline_theme="bubblegum"
+  " let g:airline_theme="bubblegum"
+  let g:airline_theme="onedark"
   " let g:airline_theme="gruvbox_material"funcref
   "
   let g:airline_section_x='%{airline#util#prepend(airline#extensions#tagbar#currenttag(),0)}%{airline#util#prepend("",0)}'
