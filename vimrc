@@ -12,19 +12,20 @@ call plug#begin('~/.vim/plugged')
 " Syntax
 Plug 'nvim-treesitter/nvim-treesitter', {'branch' : '0.5-compat', 'do': 'TSUpdate'} " syntax highlighting
 Plug 'nvim-treesitter/playground'
+Plug 'nvim-treesitter/nvim-treesitter-context' " for context topbar
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
-Plug 'othree/html5.vim' " to properly indent js file
 Plug 'rmagatti/goto-preview' " show preview with gp
-Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim', {'branch' : 'main'} " LSP warning
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
+Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim', {'branch' : 'main'} " LSP warning
+" Plug 'othree/html5.vim' " to properly indent js file
 
 " Snippets
 Plug 'L3MON4D3/LuaSnip'
@@ -32,12 +33,14 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'rafamadriz/friendly-snippets'
 
 " Fast
+Plug 'windwp/nvim-autopairs'
 Plug 'supasorn/vim-easymotion'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring' " used with vim-commentary to comment embedded script like js in html
 Plug 'tpope/vim-commentary' " for fast commenting
 Plug 'tpope/vim-surround' " for change / delete quotes, tags
 Plug 'tpope/vim-repeat' " so that . works with surround etc
 Plug 'dahu/vim-fanfingtastic'  " fb for multiple lines
+Plug 'supasorn/vim-pythonsense' " with remap [] -> function, ]m -> class
 " Plug 'ggandor/lightspeed.nvim'
 
 " textobject
@@ -47,54 +50,53 @@ Plug 'supasorn/vim-indent-object' " ai, ii indent object. Don't map in select mo
 Plug 'kana/vim-textobj-user' " my own =, i= for changing the RHS, LSH of equation. (Deprecated) if for changing the function call
 Plug 'supasorn/targets.vim' " () {} [] text object with seeking
 Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'branch' : '0.5-compat'} " jump between function object ]m ]] , disable if, ic
-Plug 'nvim-treesitter/nvim-treesitter-context' " for context topbar
-Plug 'supasorn/vim-pythonsense' " with remap [] -> function, ]m -> class
 
 " File
-Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 Plug 'supasorn/FuzzyFinder' " F2, support disable / enable Treesitter context
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " F3
 Plug 'pbogut/fzf-mru.vim' " F4
 Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
 Plug 'mildred/vim-bufmru' " move recently used buffer to the first in the list
-Plug 'jesseleite/vim-agriculture' " RgRaw
 Plug 'rbgrouleff/bclose.vim' " close buffer
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
+" Plug 'jesseleite/vim-agriculture' " RgRaw
+" Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 "Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 "Plug 'francoiscabrol/ranger.vim'
 
 " Utilities
 Plug 'lewis6991/impatient.nvim' " speed up lua startup time
 Plug 'kyazdani42/nvim-tree.lua' " nerdtree alternative
-" Plug 'scrooloose/nerdtree'
-Plug 'xolox/vim-session'
 Plug 'vim-scripts/a.vim' 
 Plug 'mbbill/undotree'
 Plug 'godlygeek/tabular'
 Plug 'wesQ3/vim-windowswap' " \ww to mark two windows
-Plug 'skywind3000/asyncrun.vim'
 Plug 'drmingdrmer/vim-toggle-quickfix'
-Plug 'AndrewRadev/simple_bookmarks.vim'
 Plug 'kshenoy/vim-signature' " display bookmarks
-" Plug 'junegunn/vim-peekaboo' " show registers. conflicts with nvim-treesitter-context
 Plug 'tpope/vim-eunuch' " add unix commands like Rename, SudoWrite
 Plug 'svermeulen/vim-yoink' " cycle through yank with ctrl-p
 Plug 'svermeulen/vim-subversive' " quick paste in normal mode, use s.. instead of v->p
 Plug 'dstein64/vim-startuptime'
-" Plug 'https://git.sr.ht/~henriquehbr/nvim-startup.lua'
 Plug 'svban/YankAssassin.vim' " yiw won't move cursor to the beginning
-Plug 'MunifTanjim/nui.nvim' " UI elements for neovim
+" Plug 'petertriho/nvim-scrollbar'
+" Plug 'AndrewRadev/simple_bookmarks.vim'
+" Plug 'skywind3000/asyncrun.vim'
+" Plug 'MunifTanjim/nui.nvim' " UI elements for neovim
+" Plug 'xolox/vim-session'
+" Plug 'https://git.sr.ht/~henriquehbr/nvim-startup.lua'
 " Plug 'nvim-neo-tree/neo-tree.nvim'
+" Plug 'scrooloose/nerdtree'
+" Plug 'junegunn/vim-peekaboo' " show registers. conflicts with nvim-treesitter-context
 
 " Colorschemes
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'supasorn/gruvbox-material'
-Plug 'arcticicestudio/nord-vim'
-Plug 'junegunn/seoul256.vim'
 Plug 'navarasu/onedark.nvim'
+Plug 'arcticicestudio/nord-vim'
+" Plug 'junegunn/seoul256.vim'
 
 " Pretty
 Plug 'bling/vim-airline'
@@ -105,12 +107,17 @@ Plug 'norcalli/nvim-colorizer.lua'
 " Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 " Plug 'noib3/nvim-cokeline'
 
+" Icon
+Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons' 
+"Plug 'akinsho/bufferline.nvim'
+"Plug 'romgrk/barbar.nvim'
+
 " Misc
 Plug 'xolox/vim-misc'
 Plug 'vim-scripts/L9'
 
 " Integration
-" Plug 'liuchengxu/vista.vim' " tagbar alternative withlsp
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
@@ -121,14 +128,9 @@ if executable('ctags')
     Plug 'ludovicchabant/vim-gutentags'
   endif
 endif
+" Plug 'liuchengxu/vista.vim' " tagbar alternative withlsp
 " Plug 'simrat39/symbols-outline.nvim' " tagbar alternative withlsp
 " Plug 'stevearc/aerial.nvim' " lsp bar
-
-" Icon
-Plug 'ryanoasis/vim-devicons'
-Plug 'kyazdani42/nvim-web-devicons' 
-"Plug 'akinsho/bufferline.nvim'
-"Plug 'romgrk/barbar.nvim'
 
 " Debug
 " Plug 'mfussenegger/nvim-dap'
@@ -139,6 +141,7 @@ call plug#end()
 let g:gruvbox_contrast_dark = "medium"
 
 " colorscheme gruvbox-material
+" colorscheme nord
 colorscheme onedark
 let g:gruvbox_material_palette = 'mix'
 let g:gruvbox_material_background = 'medium'
@@ -178,6 +181,8 @@ set go-=r
 set go-=L
 set shortmess-=S
 set winblend=0
+set cursorline
+set cursorlineopt=number
 
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Linux"
@@ -204,7 +209,7 @@ set completeopt=menuone,noselect
 "----------------------------
 """"""    Constants    """""" 
 "----------------------------
-
+let g:python_recommended_style = 0
 let g:is_pythonsense_suppress_object_keymaps = 1
 
 let g:surround_funk_create_mappings = 0
@@ -237,9 +242,6 @@ let g:alternateExtensions_cc = "h,hpp,hh"
 let g:alternateExtensions_hh = "cc"
 
 let g:fugitive_force_bang_command = 1
-
-let g:asyncrun_open = 8
-let g:asyncrun_bell = 1
 
 let g:gitgutter_enabled = 0
 let g:gitgutter_map_keys = 0
@@ -337,6 +339,9 @@ let g:fzf_preview_window = ['right:hidden']
 " let $FZF_DEFAULT_OPTS="--preview-window 'right:50%' --layout reverse --preview 'bat --color=always --style=grid --line-range :300 {} --theme=gruvbox-dark'"
 let $FZF_DEFAULT_OPTS="--layout reverse"
 
+" let g:asyncrun_open = 8
+" let g:asyncrun_bell = 1
+
 
 "----------------------------
 """"""    Remapping    """""" 
@@ -424,6 +429,7 @@ vnoremap > >gv
 nmap <F8> :TagbarToggle<CR>
 "nmap <F4> :MRU<CR>/
 nmap <F4> :FZFMru --no-sort<CR>
+" nmap <F4> :lua require('fzf-lua').oldfiles()<cr>
 
 " map <silent> <F9> <Cmd>lua require'dapui'.open()<CR><Cmd>lua require'dap'.continue()<CR>
 " map <silent> <s-F9> <Cmd>lua require'dap'.close()<CR>:lua require'dapui'.close()<CR>
@@ -532,20 +538,6 @@ command! To4spaces %s/^\s*/&&/g
 nmap <silent> ( :call JumpThroughParameter(-1)<CR>
 nmap <silent> ) :call JumpThroughParameter(1)<CR>
 
-"let blacklist = ['tex', 'txt', 'latex']
-"au Filetype * if index(blacklist, &ft) < 0 | 
-      "\ nmap <silent> ( :::call JumpThroughParameter(-1)<CR>|
-      "\ nmap <silent> ) :call JumpThroughParameter(1)<CR>| 
-      "\ endif
-
-" nmap <F10> <Plug>window:quickfix:toggle
-
-command! -bang -nargs=* BLines
-    \ call fzf#vim#grep(
-    \   'rg --with-filename --column --line-number --no-heading --smart-case . '.fnameescape(expand('%:p')), 1,
-    \   fzf#vim#with_preview({'options': '--layout reverse --query '.shellescape(<q-args>).' --with-nth=4.. --delimiter=":"'}, 'right:50%'))
-    " \   fzf#vim#with_preview({'options': '--layout reverse  --with-nth=-1.. --delimiter="/"'}, 'right:50%'))
-    "
 nmap <Leader>og /gs<CR>f:f"yi":execute('!open '.shellescape(@"))<CR>
 nmap <Leader>os /s2<CR>f:f"yi":execute('!open '.shellescape(@"))<CR>
 nmap <Leader>od /dbl<CR>f:f"yi":execute('!open '.shellescape(@"))<CR>
@@ -558,15 +550,7 @@ nmap <Leader>od /dbl<CR>f:f"yi":execute('!open '.shellescape(@"))<CR>
 " Copy the last word when leaving the insert mode to register
 autocmd InsertLeave * call CopyWordUnderCursor()
 
-"au BufEnter * :BufferLineMovePrev
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags | set ts=2 | set sw=2
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete | set ts=2 | set sw=2
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
 autocmd BufNewFile,BufReadPost *.ejs set filetype=html
-
 au BufNewFile,BufRead *.cuh set filetype=cpp
 
 " Auto open quickfix : http://vim.wikia.com/wiki/Automatically_open_the_quickfix_window_on_:make

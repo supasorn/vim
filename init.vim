@@ -4,6 +4,9 @@ source ~/.vimrc
 
 lua <<EOF
 require('impatient')
+
+require("nvim-autopairs").setup()
+
 -- require 'nvim-startup'.setup()
 
 -- require("symbols-outline").setup()
@@ -57,6 +60,14 @@ require('fzf-lua').setup{
     border = 'rounded',
   },
   buffers = {
+    previewer = false,
+    fzf_opts = {
+      -- hide tabnr
+      -- ['--delimiter'] = ":",
+      -- ["--with-nth"]  = '1',
+    }
+  },
+  oldfiles = {
     previewer = false,
   },
   fzf_colors = {
@@ -342,9 +353,9 @@ vim.cmd [[highlight IndentBlanklineIndent2 guifg=#444444 gui=nocombine]]
 require("indent_blankline").setup {
     -- for example, context is off by default, use this to turn it on
     show_current_context = true,
-    show_current_context_start = false,
+    show_current_context_start = true,
     space_char_blankline = " ",
-    char = "┆",
+    -- char = "┆",
     char_highlight_list = {
         "IndentBlanklineIndent1",
         "IndentBlanklineIndent2",
@@ -557,6 +568,7 @@ require('lualine').setup {
   extensions = {}
 }
 --]]
+-- require("scrollbar").setup()
 EOF
 
 
