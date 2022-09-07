@@ -51,6 +51,7 @@ Plug 'nvim-treesitter/nvim-treesitter-context' " for context topbar
 Plug 'supasorn/vim-pythonsense' " with remap [] -> function, ]m -> class
 
 " File
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 Plug 'supasorn/FuzzyFinder' " F2, support disable / enable Treesitter context
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " F3
@@ -109,6 +110,7 @@ Plug 'xolox/vim-misc'
 Plug 'vim-scripts/L9'
 
 " Integration
+" Plug 'liuchengxu/vista.vim' " tagbar alternative withlsp
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
@@ -119,6 +121,8 @@ if executable('ctags')
     Plug 'ludovicchabant/vim-gutentags'
   endif
 endif
+" Plug 'simrat39/symbols-outline.nvim' " tagbar alternative withlsp
+" Plug 'stevearc/aerial.nvim' " lsp bar
 
 " Icon
 Plug 'ryanoasis/vim-devicons'

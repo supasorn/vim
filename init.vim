@@ -6,6 +6,8 @@ lua <<EOF
 require('impatient')
 -- require 'nvim-startup'.setup()
 
+-- require("symbols-outline").setup()
+
 -- OR setup with some options
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
@@ -27,7 +29,7 @@ require("nvim-tree").setup({
       show = {
         file = true,
         folder = true,
-        folder_arrow = false,
+        folder_arrow = true,
         git = true,
       },
       glyphs = {
@@ -209,6 +211,7 @@ local servers = {
 for _, lsp in ipairs(servers) do
   require('lspconfig')[lsp].setup {
     capabilities = capabilities,
+    -- on_attach = require("aerial").on_attach,
   }
 end
 

@@ -22,9 +22,11 @@ else:
 
 if command == "backup_mine":
   print(command)
+  fos("rm -rf", "_mine")
   fos("cp -r", "", "_mine")
 elif command == "backup_chad":
   print(command)
+  fos("rm -rf", "_chad")
   fos("cp -r", "", "_chad")
 elif command == "remove_current":
   print(command)
@@ -33,6 +35,7 @@ elif command == "to_mine":
   print(command)
   fos("rm -rf", "")
   fos("cp -r", "_mine", "")
+  os.system("ln -sf ~/.vim/init.vim ~/.config/nvim/init.vim")
 elif command == "to_chad":
   print(command)
   fos("rm -rf", "")
