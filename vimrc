@@ -41,6 +41,7 @@ Plug 'tpope/vim-surround' " for change / delete quotes, tags
 Plug 'tpope/vim-repeat' " so that . works with surround etc
 Plug 'dahu/vim-fanfingtastic'  " fb for multiple lines
 Plug 'supasorn/vim-pythonsense' " with remap [] -> function, ]m -> class
+" Plug 'phaazon/hop.nvim'
 " Plug 'ggandor/lightspeed.nvim'
 
 " textobject
@@ -57,6 +58,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " F3
 Plug 'pbogut/fzf-mru.vim' " F4
 Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
+Plug 'vijaymarupudi/nvim-fzf'
 Plug 'mildred/vim-bufmru' " move recently used buffer to the first in the list
 Plug 'rbgrouleff/bclose.vim' " close buffer
 Plug 'nvim-lua/plenary.nvim'
@@ -103,14 +105,14 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
-" Plug 'nvim-lualine/lualine.nvim'
+" Plug 'bluexnine/bufferline.nvim', { 'tag': 'v2.*' }
 " Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+" Plug 'nvim-lualine/lualine.nvim'
 " Plug 'noib3/nvim-cokeline'
 
 " Icon
 Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons' 
-"Plug 'akinsho/bufferline.nvim'
 "Plug 'romgrk/barbar.nvim'
 
 " Misc
@@ -128,7 +130,7 @@ if executable('ctags')
     Plug 'ludovicchabant/vim-gutentags'
   endif
 endif
-" Plug 'liuchengxu/vista.vim' " tagbar alternative withlsp
+Plug 'liuchengxu/vista.vim' " tagbar alternative withlsp
 " Plug 'simrat39/symbols-outline.nvim' " tagbar alternative withlsp
 " Plug 'stevearc/aerial.nvim' " lsp bar
 
@@ -278,7 +280,7 @@ if !empty(glob('~/.vim/plugged/vim-airline'))
   let g:airline_powerline_fonts = 1
   " let g:airline_theme="bubblegum"
   let g:airline_theme="onedark"
-  " let g:airline_theme="gruvbox_material"funcref
+  " let g:airline_theme="gruvbox_material"
   "
   let g:airline_section_x='%{airline#util#prepend(airline#extensions#tagbar#currenttag(),0)}%{airline#util#prepend("",0)}'
   let g:airline_section_y=''

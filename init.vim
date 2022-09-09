@@ -4,6 +4,7 @@ source ~/.vimrc
 
 lua <<EOF
 require('impatient')
+require'hop'.setup()
 
 require("nvim-autopairs").setup()
 
@@ -216,7 +217,8 @@ local servers = {
   "html",
   "cssls",
   "tsserver",
-  "eslint"
+  "eslint",
+  "sumneko_lua"
 }
 
 for _, lsp in ipairs(servers) do
