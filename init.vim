@@ -112,8 +112,8 @@ end
 
 local luasnip = require("luasnip")
 require("luasnip.loaders.from_vscode").lazy_load()
-vim.keymap.set({ "i", "s" }, "<c-l>", function() require'luasnip'.jump(1) end, { desc = "LuaSnip forward jump" })
-vim.keymap.set({ "i", "s" }, "<c-h>", function() require'luasnip'.jump(-1) end, { desc = "LuaSnip backward jump" })
+vim.keymap.set({ "i", "s" }, "<c-n>", function() require'luasnip'.jump(1) end, { desc = "LuaSnip forward jump" })
+vim.keymap.set({ "i", "s" }, "<c-p>", function() require'luasnip'.jump(-1) end, { desc = "LuaSnip backward jump" })
 
 local cmp = require'cmp'
 cmp.setup({

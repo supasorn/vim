@@ -354,8 +354,10 @@ omap ia Ia
 xmap ia Ia
 
 " used with supasorn/targets.vim to repeat ci" in the next / previous text object in insert mode
-imap <c-.> <esc>u@r
-imap <c-,> <esc>g-i
+" imap <c-.> <esc>u@r
+" imap <c-,> <esc>g-i
+imap <c-l> <esc>u@r
+imap <c-h> <esc>g-i
 
 " Swap two words surrouding an operator
 nmap >W WvhdBPli<space><esc>hhvEEldEPxBBB
