@@ -4,7 +4,7 @@ source ~/.vimrc
 
 lua <<EOF
 require('impatient')
-require'hop'.setup()
+-- require'hop'.setup()
 
 require("nvim-autopairs").setup()
 
