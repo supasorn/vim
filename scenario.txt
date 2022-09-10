@@ -1,0 +1,17 @@
+1. refactoring:
+
+let test = $("img");
+
+c=img<esc>kpIlet img = 
+
+let img = $("img");
+let test = img
+
+
+2. change argument inside quote
+
+fo = fopen("filename", "rb");
+
+ci"<c-l>w
+
+fo = fopen("filename", "w");
