@@ -216,8 +216,12 @@ let g:is_pythonsense_suppress_object_keymaps = 1
 
 let g:surround_funk_create_mappings = 0
 " visual mode selections
-xmap <silent> aF <Plug>(SelectWholeFunction)
-omap <silent> aF <Plug>(SelectWholeFunction)
+
+" xmap <silent> aF <Plug>(SelectWholeFunction)
+" omap <silent> aF <Plug>(SelectWholeFunction)
+"
+" for deleting the function and moving the argument out: func(arg) -> arg
+nmap daF di(vafp 
 xmap <silent> af <Plug>(SelectWholeFUNCTION)
 omap <silent> af <Plug>(SelectWholeFUNCTION)
 xmap <silent> iF <Plug>(SelectFunctionName)
