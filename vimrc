@@ -353,6 +353,9 @@ let $FZF_DEFAULT_OPTS="--layout reverse"
 """"""    Remapping    """""" 
 "----------------------------
 
+vmap // y/\V<c-r>"<cr>
+vmap /s //<esc>:%s//
+
 " targets.vim's argument should really make Ia the default argument
 omap ia Ia
 xmap ia Ia
