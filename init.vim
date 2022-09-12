@@ -6,7 +6,7 @@ lua <<EOF
 require('impatient')
 -- require'hop'.setup()
 
-require("nvim-autopairs").setup()
+-- require("nvim-autopairs").setup()
 
 -- require 'nvim-startup'.setup()
 

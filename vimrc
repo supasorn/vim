@@ -33,7 +33,6 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'rafamadriz/friendly-snippets'
 
 " Fast
-Plug 'windwp/nvim-autopairs'
 Plug 'supasorn/vim-easymotion'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring' " used with vim-commentary to comment embedded script like js in html
 Plug 'tpope/vim-commentary' " for fast commenting
@@ -41,6 +40,7 @@ Plug 'tpope/vim-surround' " for change / delete quotes, tags
 Plug 'tpope/vim-repeat' " so that . works with surround etc
 Plug 'dahu/vim-fanfingtastic'  " fb for multiple lines
 Plug 'supasorn/vim-pythonsense' " with remap [] -> function, ]m -> class
+" Plug 'windwp/nvim-autopairs'
 " Plug 'phaazon/hop.nvim'
 " Plug 'ggandor/lightspeed.nvim'
 
@@ -570,7 +570,8 @@ autocmd QuickFixCmdPost    l* nested lwindow
 
 filetype plugin on
 
-hi MatchParen guibg=NONE gui=underline
+" hi MatchParen guibg=NONE gui=underline
+hi MatchParen guibg=orange guifg=black
 
 au BufNewFile,BufRead *.as           setf actionscript
 
