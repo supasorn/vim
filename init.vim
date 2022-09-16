@@ -257,8 +257,11 @@ require('telescope').setup{
 require("telescope").load_extension "file_browser"
 
 require'nvim-treesitter.configs'.setup {
+  context_commentstring = {
+    enable = true
+  },
   ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  ignore_install = { }, -- List of parsers to ignore installing
+  ignore_install = {"haskell"}, -- List of parsers to ignore installing
   highlight = {
     enable = true,              -- false will disable the whole extension
     disable = { },  -- list of language that will be disabled
@@ -381,12 +384,6 @@ require('goto-preview').setup {
   bufhidden = "wipe", -- the bufhidden option to set on the floating window. See :h bufhidden
 }
 
-require'nvim-treesitter.configs'.setup {
-  context_commentstring = {
-    enable = true
-  }
-}
-
 -- local navic = require("nvim-navic")
 
 -- require("lspconfig").pyright.setup {
@@ -394,9 +391,6 @@ require'nvim-treesitter.configs'.setup {
         -- navic.attach(client, bufnr)
     -- end
 -- }
-
--- require'treesitter-context'.setup{
-
 
 require'treesitter-context'.setup{
     enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
