@@ -10,7 +10,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Syntax
-Plug 'nvim-treesitter/nvim-treesitter', {'branch' : '0.5-compat', 'do': 'TSUpdate'} " syntax highlighting
+Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'} " syntax highlighting
 Plug 'nvim-treesitter/playground'
 Plug 'nvim-treesitter/nvim-treesitter-context' " for context topbar
 
