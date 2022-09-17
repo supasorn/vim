@@ -18,7 +18,6 @@ Plug 'nvim-treesitter/nvim-treesitter-context' " for context topbar
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'rmagatti/goto-preview' " show preview with gp
-Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
