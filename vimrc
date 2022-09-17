@@ -70,6 +70,7 @@ Plug 'nvim-telescope/telescope-file-browser.nvim'
 "Plug 'francoiscabrol/ranger.vim'
 
 " Utilities
+Plug 'ojroques/vim-oscyank', {'branch': 'main'} " copy to system's clipboard
 Plug 'lewis6991/impatient.nvim' " speed up lua startup time
 Plug 'kyazdani42/nvim-tree.lua' " nerdtree alternative
 Plug 'vim-scripts/a.vim' 
