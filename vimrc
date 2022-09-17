@@ -352,6 +352,7 @@ let $FZF_DEFAULT_OPTS="--layout reverse"
 "----------------------------
 """"""    Remapping    """""" 
 "----------------------------
+vmap \c :OSCYank<cr>
 
 vmap // y/\V<c-r>"<cr>
 vmap /s //<esc>:%s//
