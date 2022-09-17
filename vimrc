@@ -11,12 +11,13 @@ call plug#begin('~/.vim/plugged')
 
 " Syntax
 Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'} " syntax highlighting
-Plug 'nvim-treesitter/playground'
 Plug 'nvim-treesitter/nvim-treesitter-context' " for context topbar
+" Plug 'nvim-treesitter/playground'
 
 " LSP
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
 Plug 'rmagatti/goto-preview' " show preview with gp
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -24,6 +25,7 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim', {'branch' : 'main'} " LSP warning
+" Plug 'williamboman/nvim-lsp-installer'
 " Plug 'othree/html5.vim' " to properly indent js file
 
 " Snippets
@@ -111,8 +113,8 @@ Plug 'norcalli/nvim-colorizer.lua'
 " Plug 'noib3/nvim-cokeline'
 
 " Icon
-Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons' 
+" Plug 'ryanoasis/vim-devicons'
 "Plug 'romgrk/barbar.nvim'
 
 " Misc

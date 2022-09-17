@@ -140,7 +140,7 @@ cmp.setup({
   },
   window = {
     completion = cmp.config.window.bordered(),
-    -- documentation = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   mapping = {
     ["<cr>"] = cmp.mapping.confirm({select = false}),
@@ -205,28 +205,6 @@ cmp.setup.cmdline(':', {
     -- { name = 'path'}
   })
 })
-
--- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
--- require('lspconfig')['pyright'].setup {
---   capabilities = capabilities
--- }
-local servers = {
-  "pyright",
-  "html",
-  "cssls",
-  "tsserver",
-  "eslint",
-  "sumneko_lua"
-}
-
-for _, lsp in ipairs(servers) do
-  require('lspconfig')[lsp].setup {
-    capabilities = capabilities,
-    -- on_attach = require("aerial").on_attach,
-  }
-end
 
 
 require('telescope').setup{
@@ -325,31 +303,31 @@ require'nvim-treesitter.configs'.setup {
 }
 
 
-local lsp_installer = require("nvim-lsp-installer")
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+require("mason").setup()
 
--- Register a handler that will be called for all installed servers.
--- Alternatively, you may also register handlers on specific server instances instead (see example below).
-lsp_installer.on_server_ready(function(server)
-    local opts = {}
-
-    -- (optional) Customize the options passed to the server
-    -- if server.name == "tsserver" then
-    --     opts.root_dir = function() ... end
-    -- end
-
-    -- This setup() function is exactly the same as lspconfig's setup function.
-    -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-    server:setup(opts)
-end)
-
-
-
-require'lspconfig'.tsserver.setup{}
+local mason_lspconfig = require("mason-lspconfig")
+mason_lspconfig.setup({
+  ensure_installed = {
+    "pyright",
+    "html",
+    "cssls",
+    "tsserver",
+    "eslint",
+    "sumneko_lua"
+  },
+  automatic_installation = true
+})
+mason_lspconfig.setup_handlers({
+  function (server_name)
+    require("lspconfig")[server_name].setup {
+      capabilities = capabilities,
+      -- on_attach = require("shared").on_attach,
+    }
+  end
+})
 
 require'toggle_lsp_diagnostics'.init({ underline = false, virtual_text = false, signs = false})
-
---[[
---]]
 
 vim.opt.termguicolors = true
 vim.cmd [[highlight IndentBlanklineIndent1 guifg=#707070 gui=nocombine]]
