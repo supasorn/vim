@@ -12,7 +12,7 @@ def fos(command, p1, p2=None):
     os.system(cmd)
     print(cmd)
 
-options = ["backup_mine", "backup_chad", "remove_current", "to_mine", "to_chad"]
+options = ["backup_mine", "backup_chad", "remove_current", "to_mine", "to_chad", "to_mynvim"]
 if len(sys.argv) == 1:
   key = input("Options: " + "".join([f"\n  {i}. {x}" for i, x in enumerate(options)]) + "\n:")
   print(key)
@@ -40,4 +40,9 @@ elif command == "to_chad":
   print(command)
   fos("rm -rf", "")
   fos("cp -r", "_chad", "")
+elif command == "to_mynvim":
+  print(command)
+  fos("rm -rf", "")
+  os.system("git clone https://github.com/supasorn/nvim ~/.config/nvim")
+  # fos("cp -r", "_chad", "")
 
