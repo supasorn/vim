@@ -1,3 +1,5 @@
+I have moved on to neovim : https://github.com/supasorn/nvim
+
 vim + zsh + tmux
 ===
 
